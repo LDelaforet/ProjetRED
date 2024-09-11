@@ -1,0 +1,116 @@
+{
+    "i18n_fr": [
+      {
+        "Id": 0,
+        "Name": "Potion de soin",
+        "Description": "Potion permettant de récuperer des PV."
+      },
+      {
+        "Id": 1,
+        "Name": "Potion de force",
+        "Description": "Potion augmentant la force."
+      },
+      {
+        "Id": 2,
+        "Name": "Potion de protection",
+        "Description": "Potion augmentant la défense."
+      },
+      {
+        "Id": 3,
+        "Name": "Epée en bois",
+        "Description": "Petite épée de faible qualité."
+      },
+      {
+        "Id": 4,
+        "Name": "Epée en fer rouillée",
+        "Description": "TODO"
+      },
+      {
+        "Id": 5,
+        "Name": "Epée en fer",
+        "Description": "TODO"
+      },
+      {
+        "Id": 6,
+        "Name": "Armure légère",
+        "Description": "TODO"
+      },
+      {
+        "Id": 7,
+        "Name": "Armure",
+        "Description": "TODO"
+      },
+      {
+        "Id": 8,
+        "Name": "Armure de plaques",
+        "Description": "TODO"
+      },
+      {
+        "Id": 9,
+        "Name": "Amulette 1",
+        "Description": "TODO"
+      },
+      {
+        "Id": 10,
+        "Name": "Amulette 1",
+        "Description": "TODO"
+      }
+    ],
+    "i18n_en": [
+        {
+          "Id": 0,
+          "Name": "Healing Potion",
+          "Description": "Potion that restores HP."
+        },
+        {
+          "Id": 1,
+          "Name": "Strength Potion",
+          "Description": "Potion that increases strength."
+        },
+        {
+          "Id": 2,
+          "Name": "Protection Potion",
+          "Description": "Potion that increases defense."
+        },
+        {
+          "Id": 3,
+          "Name": "Wooden Sword",
+          "Description": "Small sword of poor quality."
+        },
+        {
+          "Id": 4,
+          "Name": "Rusty Iron Sword",
+          "Description": "TODO"
+        },
+        {
+          "Id": 5,
+          "Name": "Iron Sword",
+          "Description": "TODO"
+        },
+        {
+          "Id": 6,
+          "Name": "Light Armor",
+          "Description": "TODO"
+        },
+        {
+          "Id": 7,
+          "Name": "Armor",
+          "Description": "TODO"
+        },
+        {
+          "Id": 8,
+          "Name": "Plate Armor",
+          "Description": "TODO"
+        },
+        {
+          "Id": 9,
+          "Name": "Amulet 1",
+          "Description": "TODO"
+        },
+        {
+          "Id": 10,
+          "Name": "Amulet 2",
+          "Description": "TODO"
+        }
+      ]
+  }
