@@ -1,12 +1,15 @@
 package main
 
-import RED "RED/Internals"
+import (
+	RED "RED/Internals"
+	"fmt"
+)
 
 // TODO, currently main.go is a test for the Internals functions
 
 func main() {
 	testSlot := RED.InventorySlot{
-		Id:       1,
+		Item:     RED.ItemObject{},
 		Quantity: 1,
 	}
 
@@ -20,4 +23,8 @@ func main() {
 		Inventory: []RED.InventorySlot{testSlot},
 	}
 	RED.DisplayText(testPerso.Name)
+	itemList := RED.ReadItemList()
+	for _, item := range itemList {
+		fmt.Printf("Item ID: %d, Name: %s, Description: %s\n", item.Id, item.Name, item.Description)
+	}
 }

@@ -1,7 +1,15 @@
 package RED
 
+// Structures générales
+type ItemObject struct {
+	Id          byte
+	Name        string
+	Description string
+}
+
+// Structures relatives au personnage
 type InventorySlot struct {
-	Id       byte
+	Item     ItemObject
 	Quantity byte
 }
 
