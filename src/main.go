@@ -1,0 +1,23 @@
+package main
+
+import RED "RED/Internals"
+
+// TODO, currently main.go is a test for the Internals functions
+
+func main() {
+	testSlot := RED.InventorySlot{
+		Id:       1,
+		Quantity: 1,
+	}
+
+	testPerso := RED.Perso{
+		Name:      "Test",
+		Class:     1,
+		Level:     1,
+		Xp:        1,
+		PvMax:     1,
+		Pv:        1,
+		Inventory: []RED.InventorySlot{testSlot},
+	}
+	RED.DisplayText(testPerso.Name)
+}
