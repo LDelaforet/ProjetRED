@@ -2,6 +2,8 @@ package main
 
 import (
 	RED "RED/Internals"
+
+	"github.com/fatih/color"
 )
 
 func main() {
@@ -10,34 +12,65 @@ func main() {
 
 func DisplayMainMenu() {
 	RED.ClearScreen()
-	RED.DisplayText("\n ██████╗  █████╗ ███╗   ███╗███████╗    ███╗   ██╗ █████╗ ███╗   ███╗███████╗\n██╔════╝ ██╔══██╗████╗ ████║██╔════╝    ████╗  ██║██╔══██╗████╗ ████║██╔════╝\n██║  ███╗███████║██╔████╔██║█████╗      ██╔██╗ ██║███████║██╔████╔██║█████╗\n██║   ██║██╔══██║██║╚██╔╝██║██╔══╝      ██║╚██╗██║██╔══██║██║╚██╔╝██║██╔══╝\n╚██████╔╝██║  ██║██║ ╚═╝ ██║███████╗    ██║ ╚████║██║  ██║██║ ╚═╝ ██║███████╗\n ╚═════╝ ╚═╝  ╚═╝╚═╝     ╚═╝╚══════╝    ╚═╝  ╚═══╝╚═╝  ╚═╝╚═╝     ╚═╝╚══════╝", false, 0)
-	RED.NewLine(1)
-	RED.DisplayText("0: Nouvelle Partie", false, 0)
-	RED.DisplayText("1: Charger la partie", false, 0)
-	RED.DisplayText("2: Paramètres", false, 0)
-	RED.DisplayText("3: Quitter", false, 0)
-	RED.NewLine(1)
+	RED.DisplayText(RED.DisplayTextOptions{
+		TextToPrint: "\n ██████╗  █████╗ ███╗   ███╗███████╗    ███╗   ██╗ █████╗ ███╗   ███╗███████╗\n██╔════╝ ██╔══██╗████╗ ████║██╔════╝    ████╗  ██║██╔══██╗████╗ ████║██╔════╝\n██║  ███╗███████║██╔████╔██║█████╗      ██╔██╗ ██║███████║██╔████╔██║█████╗\n██║   ██║██╔══██║██║╚██╔╝██║██╔══╝      ██║╚██╗██║██╔══██║██║╚██╔╝██║██╔══╝\n╚██████╔╝██║  ██║██║ ╚═╝ ██║███████╗    ██║ ╚████║██║  ██║██║ ╚═╝ ██║███████╗\n ╚═════╝ ╚═╝  ╚═╝╚═╝     ╚═╝╚══════╝    ╚═╝  ╚═══╝╚═╝  ╚═╝╚═╝     ╚═╝╚══════╝",
+	})
+
+	RED.NewLine(2)
+	RED.DisplayText(RED.DisplayTextOptions{
+		TextToPrint: "0: Nouvelle Partie",
+	})
+	RED.DisplayText(RED.DisplayTextOptions{
+		TextToPrint: "1: Charger la partie",
+	})
+	RED.DisplayText(RED.DisplayTextOptions{
+		TextToPrint: "2: Paramètres",
+	})
+	RED.DisplayText(RED.DisplayTextOptions{
+		TextToPrint: "3: Quitter",
+	})
+	RED.NewLine(2)
 	RED.DisplayLine()
 	input := RED.GetInput()
-	RED.DisplayText(input, false, 0)
+	RED.DisplayText(RED.DisplayTextOptions{
+		TextToPrint: input,
+	})
+
+	//Crée une nouvelle partie
 	if input == "0" {
 		DisplayNewGameMenu()
 	}
+	//Affiche les paramètres
 	if input == "2" {
 		DisplayOptionMenu()
 	}
+	//Quitte le jeu
 	if input == "3" {
 		RED.ClearScreen()
 	}
 }
 
-func DisplayOptionMenu() {
+func DisplayNewGameMenu() {
 	RED.ClearScreen()
-	RED.DisplayTitle("PARAMETRES")
+	RED.DisplayText(RED.DisplayTextOptions{
+		TextToPrint: "\n ██████╗  █████╗ ███╗   ███╗███████╗    ███╗   ██╗ █████╗ ███╗   ███╗███████╗\n██╔════╝ ██╔══██╗████╗ ████║██╔════╝    ████╗  ██║██╔══██╗████╗ ████║██╔════╝\n██║  ███╗███████║██╔████╔██║█████╗      ██╔██╗ ██║███████║██╔████╔██║█████╗\n██║   ██║██╔══██║██║╚██╔╝██║██╔══╝      ██║╚██╗██║██╔══██║██║╚██╔╝██║██╔══╝\n╚██████╔╝██║  ██║██║ ╚═╝ ██║███████╗    ██║ ╚████║██║  ██║██║ ╚═╝ ██║███████╗\n ╚═════╝ ╚═╝  ╚═╝╚═╝     ╚═╝╚══════╝    ╚═╝  ╚═══╝╚═╝  ╚═╝╚═╝     ╚═╝╚══════╝",
+	})
 	RED.NewLine(2)
-	RED.DisplayText("0: Changer de langue", false, 0)
-	RED.DisplayText("1: Retour", false, 0)
-	RED.NewLine(2)
+	RED.DisplayText(RED.DisplayTextOptions{
+		TextToPrint: "Souhaites tu commencer une nouvelle partie?",
+	})
+	RED.NewLine(1)
+	RED.DisplayText(RED.DisplayTextOptions{
+		TextToPrint: "0: Comfirmer",
+	})
+	RED.DisplayText(RED.DisplayTextOptions{
+		TextToPrint: "1: Retour",
+	})
+	RED.NewLine(1)
+	RED.DisplayText(RED.DisplayTextOptions{
+		TextToPrint: "/!\\ Commencer une nouvelle partie supprimera la précédente /!\\",
+		FgColor:     color.FgRed,
+	})
 	RED.DisplayLine()
 	input := RED.GetInput()
 	if input == "1" {
@@ -45,17 +78,23 @@ func DisplayOptionMenu() {
 	}
 }
 
-func DisplayNewGameMenu() {
+func DisplayOptionMenu() {
 	RED.ClearScreen()
-	RED.DisplayTitle("NOUVELLE PARTIE")
+	RED.DisplayText(RED.DisplayTextOptions{
+		TextToPrint: "\n ██████╗  █████╗ ███╗   ███╗███████╗    ███╗   ██╗ █████╗ ███╗   ███╗███████╗\n██╔════╝ ██╔══██╗████╗ ████║██╔════╝    ████╗  ██║██╔══██╗████╗ ████║██╔════╝\n██║  ███╗███████║██╔████╔██║█████╗      ██╔██╗ ██║███████║██╔████╔██║█████╗\n██║   ██║██╔══██║██║╚██╔╝██║██╔══╝      ██║╚██╗██║██╔══██║██║╚██╔╝██║██╔══╝\n╚██████╔╝██║  ██║██║ ╚═╝ ██║███████╗    ██║ ╚████║██║  ██║██║ ╚═╝ ██║███████╗\n ╚═════╝ ╚═╝  ╚═╝╚═╝     ╚═╝╚══════╝    ╚═╝  ╚═══╝╚═╝  ╚═╝╚═╝     ╚═╝╚══════╝",
+	})
+	RED.NewLine(2)
+	RED.DisplayText(RED.DisplayTextOptions{
+		TextToPrint: "PARAMETRES",
+	})
 	RED.NewLine(1)
-	RED.DisplayText("Souhaites tu commencer une nouvelle partie?", true, 0)
-	RED.NewLine(1)
-	RED.DisplayText("0: Comfirmer", true, 0)
-	RED.DisplayText("1: Retour", true, 0)
-	RED.NewLine(1)
-	RED.DisplayText("/!\\ Commencer une nouvelle partie supprimera la précédente /!\\", true, 0)
-	RED.NewLine(1)
+	RED.DisplayText(RED.DisplayTextOptions{
+		TextToPrint: "0: Changer de langue",
+	})
+	RED.DisplayText(RED.DisplayTextOptions{
+		TextToPrint: "1: Retour",
+	})
+	RED.NewLine(2)
 	RED.DisplayLine()
 	input := RED.GetInput()
 	if input == "1" {
