@@ -14,4 +14,6 @@ func main() {
 	RED.DisplayText("1: Continuer", false, 0)
 	RED.DisplayText("2: Option", false, 0)
 	RED.DisplayText("3: Quitter", false, 0)
+	RED.NewLine(1)
+	RED.DisplayLine()
 }

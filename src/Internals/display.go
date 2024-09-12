@@ -7,15 +7,17 @@ import (
 	tsize "github.com/kopoli/go-terminal-size"
 )
 
-func DisplayText(textToPrint string, center bool, offset int) {
+// Ajoute un texte personalisé
+func DisplayText(textToPrint string, isCentered bool, offset int) {
 	var width int
 	width, _ = sizeTest()
-	if center {
+	if isCentered {
 		fmt.Print(strings.Repeat(" ", (width-len(textToPrint)+offset)/2))
 	}
 	fmt.Println(textToPrint)
 }
 
+// Ajoute un titre
 func DisplayTitle(textToPrint string) {
 	var width int
 	width, _ = sizeTest()
@@ -25,10 +27,16 @@ func DisplayTitle(textToPrint string) {
 	DisplayLine()
 }
 
+// Ajoute une ligne de -
 func DisplayLine() {
 	var width int
 	width, _ = sizeTest()
 	fmt.Println(strings.Repeat("-", width))
+}
+
+// Saute une ligne
+func NewLine(x int) {
+	fmt.Print(strings.Repeat("\n", x))
 }
 
 func sizeTest() (Width int, Height int) {
