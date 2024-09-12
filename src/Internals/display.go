@@ -23,6 +23,8 @@ func DisplayText(passedParams DisplayTextOptions) {
 		Underline:   false,
 	}
 
+	col := color.New(Params.FgColor, Params.BgColor)
+
 	if passedParams.TextToPrint != "" {
 		Params.TextToPrint = passedParams.TextToPrint
 	}
@@ -32,14 +34,15 @@ func DisplayText(passedParams DisplayTextOptions) {
 	}
 	if passedParams.FgColor != 0 {
 		Params.FgColor = passedParams.FgColor
+		col.Add(passedParams.FgColor)
 	}
+
 	if passedParams.BgColor != 0 {
 		Params.BgColor = passedParams.BgColor
+		col.Add(passedParams.BgColor)
 	}
 	Params.Bold = passedParams.Bold
 	Params.Underline = passedParams.Underline
-
-	col := color.New(Params.FgColor, Params.BgColor)
 
 	if Params.Bold {
 		col.Add(color.Bold)

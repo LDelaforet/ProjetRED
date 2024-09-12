@@ -29,7 +29,7 @@ func DisplayMainMenu() {
 	RED.DisplayText(RED.DisplayTextOptions{
 		TextToPrint: "3: Quitter",
 	})
-	RED.NewLine(2)
+	RED.NewLine(8)
 	RED.DisplayLine()
 	input := RED.GetInput()
 	RED.DisplayText(RED.DisplayTextOptions{
@@ -73,6 +73,9 @@ func DisplayNewGameMenu() {
 	})
 	RED.DisplayLine()
 	input := RED.GetInput()
+	if input == "0" {
+		DisplayCharacterCustomizationPanel()
+	}
 	if input == "1" {
 		DisplayMainMenu()
 	}
@@ -94,10 +97,44 @@ func DisplayOptionMenu() {
 	RED.DisplayText(RED.DisplayTextOptions{
 		TextToPrint: "1: Retour",
 	})
-	RED.NewLine(2)
+	RED.NewLine(10)
 	RED.DisplayLine()
 	input := RED.GetInput()
 	if input == "1" {
+		DisplayMainMenu()
+	}
+}
+
+func DisplayCharacterCustomizationPanel() {
+	RED.ClearScreen()
+	RED.DisplayText(RED.DisplayTextOptions{
+		TextToPrint: "\n ██████╗  █████╗ ███╗   ███╗███████╗    ███╗   ██╗ █████╗ ███╗   ███╗███████╗\n██╔════╝ ██╔══██╗████╗ ████║██╔════╝    ████╗  ██║██╔══██╗████╗ ████║██╔════╝\n██║  ███╗███████║██╔████╔██║█████╗      ██╔██╗ ██║███████║██╔████╔██║█████╗\n██║   ██║██╔══██║██║╚██╔╝██║██╔══╝      ██║╚██╗██║██╔══██║██║╚██╔╝██║██╔══╝\n╚██████╔╝██║  ██║██║ ╚═╝ ██║███████╗    ██║ ╚████║██║  ██║██║ ╚═╝ ██║███████╗\n ╚═════╝ ╚═╝  ╚═╝╚═╝     ╚═╝╚══════╝    ╚═╝  ╚═══╝╚═╝  ╚═╝╚═╝     ╚═╝╚══════╝",
+	})
+	RED.DisplayLine()
+	RED.DisplayText(RED.DisplayTextOptions{
+		TextToPrint: "CREATION DU PERSONNAGE",
+	})
+	RED.DisplayLine()
+	RED.NewLine(1)
+	RED.DisplayText(RED.DisplayTextOptions{
+		TextToPrint: "0: Choisit un nom",
+	})
+	RED.DisplayText(RED.DisplayTextOptions{
+		TextToPrint: "1: Selecteur de classes",
+	})
+	RED.DisplayText(RED.DisplayTextOptions{
+		TextToPrint: "2: Retour",
+	})
+	RED.NewLine(1)
+	RED.DisplayLine()
+	input := RED.GetInput()
+	if input == "0" {
+		DisplayMainMenu()
+	}
+	if input == "1" {
+		DisplayMainMenu()
+	}
+	if input == "2" {
 		DisplayMainMenu()
 	}
 }
