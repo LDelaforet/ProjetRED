@@ -7,13 +7,17 @@ import (
 )
 
 func main() {
+	// Initialise les pointeurs et lis les strings de menu.json
+	RED.PointersInit()
+	RED.ReadMenuStrings()
+
 	DisplayMainMenu()
 }
 
 func DisplayMainMenu() {
 	RED.ClearScreen()
 	RED.DisplayText(RED.DisplayTextOptions{
-		TextToPrint: "\n ██████╗  █████╗ ███╗   ███╗███████╗    ███╗   ██╗ █████╗ ███╗   ███╗███████╗\n██╔════╝ ██╔══██╗████╗ ████║██╔════╝    ████╗  ██║██╔══██╗████╗ ████║██╔════╝\n██║  ███╗███████║██╔████╔██║█████╗      ██╔██╗ ██║███████║██╔████╔██║█████╗\n██║   ██║██╔══██║██║╚██╔╝██║██╔══╝      ██║╚██╗██║██╔══██║██║╚██╔╝██║██╔══╝\n╚██████╔╝██║  ██║██║ ╚═╝ ██║███████╗    ██║ ╚████║██║  ██║██║ ╚═╝ ██║███████╗\n ╚═════╝ ╚═╝  ╚═╝╚═╝     ╚═╝╚══════╝    ╚═╝  ╚═══╝╚═╝  ╚═╝╚═╝     ╚═╝╚══════╝",
+		TextToPrint: RED.GetLineById("gameName"),
 	})
 
 	RED.NewLine(2)
@@ -53,22 +57,22 @@ func DisplayMainMenu() {
 func DisplayNewGameMenu() {
 	RED.ClearScreen()
 	RED.DisplayText(RED.DisplayTextOptions{
-		TextToPrint: "\n ██████╗  █████╗ ███╗   ███╗███████╗    ███╗   ██╗ █████╗ ███╗   ███╗███████╗\n██╔════╝ ██╔══██╗████╗ ████║██╔════╝    ████╗  ██║██╔══██╗████╗ ████║██╔════╝\n██║  ███╗███████║██╔████╔██║█████╗      ██╔██╗ ██║███████║██╔████╔██║█████╗\n██║   ██║██╔══██║██║╚██╔╝██║██╔══╝      ██║╚██╗██║██╔══██║██║╚██╔╝██║██╔══╝\n╚██████╔╝██║  ██║██║ ╚═╝ ██║███████╗    ██║ ╚████║██║  ██║██║ ╚═╝ ██║███████╗\n ╚═════╝ ╚═╝  ╚═╝╚═╝     ╚═╝╚══════╝    ╚═╝  ╚═══╝╚═╝  ╚═╝╚═╝     ╚═╝╚══════╝",
+		TextToPrint: RED.GetLineById("gameName"),
 	})
 	RED.NewLine(2)
 	RED.DisplayText(RED.DisplayTextOptions{
-		TextToPrint: "Souhaites tu commencer une nouvelle partie?",
+		TextToPrint: RED.GetLineById("newGameQuestion"),
 	})
 	RED.NewLine(1)
 	RED.DisplayText(RED.DisplayTextOptions{
-		TextToPrint: "0: Comfirmer",
+		TextToPrint: "0: Comfirmer", // ptn tu fais chier a avoir hardcodé le nombre, faudrait faire un compteur qui incrémente ou une connerie comme ca
 	})
 	RED.DisplayText(RED.DisplayTextOptions{
 		TextToPrint: "1: Retour",
 	})
 	RED.NewLine(1)
 	RED.DisplayText(RED.DisplayTextOptions{
-		TextToPrint: "/!\\ Commencer une nouvelle partie supprimera la précédente /!\\",
+		TextToPrint: RED.GetLineById("newGameWarning"),
 		FgColor:     color.FgRed,
 	})
 	RED.DisplayLine()
@@ -84,15 +88,15 @@ func DisplayNewGameMenu() {
 func DisplayOptionMenu() {
 	RED.ClearScreen()
 	RED.DisplayText(RED.DisplayTextOptions{
-		TextToPrint: "\n ██████╗  █████╗ ███╗   ███╗███████╗    ███╗   ██╗ █████╗ ███╗   ███╗███████╗\n██╔════╝ ██╔══██╗████╗ ████║██╔════╝    ████╗  ██║██╔══██╗████╗ ████║██╔════╝\n██║  ███╗███████║██╔████╔██║█████╗      ██╔██╗ ██║███████║██╔████╔██║█████╗\n██║   ██║██╔══██║██║╚██╔╝██║██╔══╝      ██║╚██╗██║██╔══██║██║╚██╔╝██║██╔══╝\n╚██████╔╝██║  ██║██║ ╚═╝ ██║███████╗    ██║ ╚████║██║  ██║██║ ╚═╝ ██║███████╗\n ╚═════╝ ╚═╝  ╚═╝╚═╝     ╚═╝╚══════╝    ╚═╝  ╚═══╝╚═╝  ╚═╝╚═╝     ╚═╝╚══════╝",
+		TextToPrint: RED.GetLineById("gameName"),
 	})
 	RED.NewLine(2)
-	RED.DisplayText(RED.DisplayTextOptions{
-		TextToPrint: "PARAMETRES",
+	RED.DisplayText(RED.DisplayTextOptions{ // Pourquoi il est en majuscules?
+		TextToPrint: RED.GetLineById("settingsTitle"),
 	})
 	RED.NewLine(1)
 	RED.DisplayText(RED.DisplayTextOptions{
-		TextToPrint: "0: Changer de langue",
+		TextToPrint: "0: Selection de la langue",
 	})
 	RED.DisplayText(RED.DisplayTextOptions{
 		TextToPrint: "1: Retour",
@@ -100,19 +104,62 @@ func DisplayOptionMenu() {
 	RED.NewLine(10)
 	RED.DisplayLine()
 	input := RED.GetInput()
-	if input == "1" {
-		DisplayMainMenu()
+	if input == "0" {
+		DisplayLanguageMenu()
+		if input == "1" {
+			DisplayMainMenu()
+		}
 	}
+}
+
+func DisplayLanguageMenu() {
+	for {
+		RED.ClearScreen()
+		RED.DisplayText(RED.DisplayTextOptions{
+			TextToPrint: RED.GetLineById("gameName"),
+		})
+		RED.NewLine(2)
+		RED.DisplayText(RED.DisplayTextOptions{ // Pourquoi il est en majuscules?
+			TextToPrint: RED.GetLineById("languageTitle"),
+		})
+		RED.NewLine(1)
+		RED.DisplayText(RED.DisplayTextOptions{
+			TextToPrint: "0: Français", // pareil faudrait incrémenter le digit au début, ca doit pas etre bien compliqué
+		})
+		RED.DisplayText(RED.DisplayTextOptions{
+			TextToPrint: "1: Anglais",
+		})
+		RED.DisplayText(RED.DisplayTextOptions{
+			TextToPrint: "2: Retour",
+		})
+		RED.NewLine(10)
+		RED.DisplayLine()
+		input := RED.GetInput()
+		if input == "0" {
+			*RED.IsGameInFrenchPointer = true
+			RED.ReadItemList()
+			RED.ReadMenuStrings()
+		}
+		if input == "1" {
+			*RED.IsGameInFrenchPointer = false
+			RED.ReadItemList()
+			RED.ReadMenuStrings()
+		}
+		if input == "2" {
+			break
+		}
+	}
+	DisplayMainMenu()
 }
 
 func DisplayCharacterCustomizationPanel() {
 	RED.ClearScreen()
 	RED.DisplayText(RED.DisplayTextOptions{
-		TextToPrint: "\n ██████╗  █████╗ ███╗   ███╗███████╗    ███╗   ██╗ █████╗ ███╗   ███╗███████╗\n██╔════╝ ██╔══██╗████╗ ████║██╔════╝    ████╗  ██║██╔══██╗████╗ ████║██╔════╝\n██║  ███╗███████║██╔████╔██║█████╗      ██╔██╗ ██║███████║██╔████╔██║█████╗\n██║   ██║██╔══██║██║╚██╔╝██║██╔══╝      ██║╚██╗██║██╔══██║██║╚██╔╝██║██╔══╝\n╚██████╔╝██║  ██║██║ ╚═╝ ██║███████╗    ██║ ╚████║██║  ██║██║ ╚═╝ ██║███████╗\n ╚═════╝ ╚═╝  ╚═╝╚═╝     ╚═╝╚══════╝    ╚═╝  ╚═══╝╚═╝  ╚═╝╚═╝     ╚═╝╚══════╝",
+		TextToPrint: RED.GetLineById("gameName"),
 	})
 	RED.DisplayLine()
 	RED.DisplayText(RED.DisplayTextOptions{
-		TextToPrint: "CREATION DU PERSONNAGE",
+		TextToPrint: RED.GetLineById("characterMakerTitle"),
 	})
 	RED.DisplayLine()
 	RED.NewLine(1)

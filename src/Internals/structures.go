@@ -22,6 +22,11 @@ type ItemObject struct {
 	Description string
 }
 
+type TextLine struct {
+	Id   string
+	Line string
+}
+
 // Structures relatives au personnage
 type InventorySlot struct {
 	Item     ItemObject

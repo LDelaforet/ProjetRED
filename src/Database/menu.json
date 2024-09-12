@@ -8,11 +8,14 @@
         "return": "Retour",
         "changeLanguage": "Changer de langue",
         "comfirm": "Comfirmer",
-        "": "Souhaites tu commencer une nouvelle partie?",
-        "": "/!\\ Commencer une nouvelle partie supprimera la précédente /!\\"
+        "newGameQuestion": "Souhaites tu commencer une nouvelle partie?",
+        "newGameWarning": "/!\\ Commencer une nouvelle partie supprimera la précédente /!\\",
+        "settingsTitle": "PARAMETRES",
+        "characterMakerTitle": "CREATION DU PERSONNAGE",
+        "languageTitle": "SELECTION DE LA LANGUE"
     },
     "i18n_en": {
-        "gameName": "Game Name",
+        "gameName": "\n ██████╗  █████╗ ███╗   ███╗███████╗    ███╗   ██╗ █████╗ ███╗   ███╗███████╗\n██╔════╝ ██╔══██╗████╗ ████║██╔════╝    ████╗  ██║██╔══██╗████╗ ████║██╔════╝\n██║  ███╗███████║██╔████╔██║█████╗      ██╔██╗ ██║███████║██╔████╔██║█████╗\n██║   ██║██╔══██║██║╚██╔╝██║██╔══╝      ██║╚██╗██║██╔══██║██║╚██╔╝██║██╔══╝\n╚██████╔╝██║  ██║██║ ╚═╝ ██║███████╗    ██║ ╚████║██║  ██║██║ ╚═╝ ██║███████╗\n ╚═════╝ ╚═╝  ╚═╝╚═╝     ╚═╝╚══════╝    ╚═╝  ╚═══╝╚═╝  ╚═╝╚═╝     ╚═╝╚══════╝",
         "newGame": "New Game",
         "loadGame": "Load Game",
         "options": "Settings",
@@ -20,7 +23,10 @@
         "return": "Return",
         "changeLanguage": "Change language",
         "comfirm": "Comfirm",
-        "": "Would you like to start a new game?",
-        "": "/!\\ Starting a new game will delete the previous one /!\\"
+        "newGameQuestion": "Would you like to start a new game?",
+        "newGameWarning": "/!\\ Starting a new game will delete the previous one /!\\",
+        "settingsTitle": "SETTINGS",
+        "characterMakerTitle": "CHARACTER CREATION",
+        "languageTitle": "LANGUAGE SELECTION"
     }
 }
