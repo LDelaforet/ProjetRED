@@ -1,5 +1,20 @@
 package RED
 
+import (
+	color "github.com/fatih/color"
+)
+
+// Structures spécifiques a des fonctions
+type DisplayTextOptions struct {
+	TextToPrint string
+	IsCentered  bool
+	Offset      int
+	FgColor     color.Attribute
+	BgColor     color.Attribute
+	Bold        bool
+	Underline   bool
+}
+
 // Structures générales
 type ItemObject struct {
 	Id          byte

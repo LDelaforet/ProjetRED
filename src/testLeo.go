@@ -3,6 +3,8 @@ package main
 import (
 	RED "RED/Internals"
 	"fmt"
+
+	"github.com/fatih/color"
 )
 
 // TODO, currently main.go is a test for the Internals functions
@@ -17,7 +19,10 @@ func main() {
 
 	testPerso.Name = "Test"
 
-	RED.DisplayText(testPerso.Name)
+	RED.DisplayText(RED.DisplayTextOptions{
+		TextToPrint: testPerso.Name,
+		FgColor:     color.FgRed,
+	})
 
 	*isGameInFrenchPointer = true
 
