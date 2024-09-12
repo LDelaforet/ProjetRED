@@ -1,0 +1,16 @@
+{
+    "i18n_fr": {
+        "gameName": "Nom du jeu",
+        "newGame": "Nouvelle partie",
+        "loadGame": "Charger la partie",
+        "options": "Paramètres",
+        "quit": "Quitter"
+    },
+    "i18n_en": {
+        "gameName": "Game Name",
+        "newGame": "New Game",
+        "loadGame": "Load Game",
+        "options": "Settings",
+        "quit": "Quit"
+    }
+}
