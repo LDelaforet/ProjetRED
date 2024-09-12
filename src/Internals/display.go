@@ -2,6 +2,9 @@ package RED
 
 import (
 	"fmt"
+	"os"
+	"os/exec"
+	"runtime"
 	"strings"
 
 	tsize "github.com/kopoli/go-terminal-size"
@@ -45,4 +48,16 @@ func sizeTest() (Width int, Height int) {
 	s, _ = tsize.GetSize()
 	Width, Height = s.Width, s.Height
 	return
+}
+
+func ClearScreen() {
+	if runtime.GOOS == "windows" {
+		cmd := exec.Command("cmd", "/c", "cls")
+		cmd.Stdout = os.Stdout
+		cmd.Run()
+	} else {
+		cmd := exec.Command("clear")
+		cmd.Stdout = os.Stdout
+		cmd.Run()
+	}
 }

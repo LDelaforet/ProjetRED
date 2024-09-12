@@ -7,17 +7,22 @@ import (
 	"strings"
 )
 
-func GetInput() {
+func GetInput() string {
 	fmt.Print("Enter text: ")
 	reader := bufio.NewReader(os.Stdin)
 	// ReadString will block until the delimiter is entered
-	input, err := reader.ReadString('\n')
-	if err != nil {
-		fmt.Println("An error occured while reading input. Please try again", err)
-		return
-	}
+	input, _ := reader.ReadString('\n')
 
 	// remove the delimeter from the string
 	input = strings.TrimSuffix(input, "\n")
-	fmt.Println(input)
+	input = strings.TrimSuffix(input, "\r")
+	return input
+}
+
+func StringToHex(s string) string {
+	hex := ""
+	for _, c := range s {
+		hex += fmt.Sprintf("%02x", c)
+	}
+	return hex
 }

@@ -1,16 +1,26 @@
 {
     "i18n_fr": {
-        "gameName": "Nom du jeu",
+        "gameName": "\n ██████╗  █████╗ ███╗   ███╗███████╗    ███╗   ██╗ █████╗ ███╗   ███╗███████╗\n██╔════╝ ██╔══██╗████╗ ████║██╔════╝    ████╗  ██║██╔══██╗████╗ ████║██╔════╝\n██║  ███╗███████║██╔████╔██║█████╗      ██╔██╗ ██║███████║██╔████╔██║█████╗\n██║   ██║██╔══██║██║╚██╔╝██║██╔══╝      ██║╚██╗██║██╔══██║██║╚██╔╝██║██╔══╝\n╚██████╔╝██║  ██║██║ ╚═╝ ██║███████╗    ██║ ╚████║██║  ██║██║ ╚═╝ ██║███████╗\n ╚═════╝ ╚═╝  ╚═╝╚═╝     ╚═╝╚══════╝    ╚═╝  ╚═══╝╚═╝  ╚═╝╚═╝     ╚═╝╚══════╝",
         "newGame": "Nouvelle partie",
         "loadGame": "Charger la partie",
         "options": "Paramètres",
-        "quit": "Quitter"
+        "quit": "Quitter",
+        "return": "Retour",
+        "changeLanguage": "Changer de langue",
+        "comfirm": "Comfirmer",
+        "": "Souhaites tu commencer une nouvelle partie?",
+        "": "/!\\ Commencer une nouvelle partie supprimera la précédente /!\\"
     },
     "i18n_en": {
         "gameName": "Game Name",
         "newGame": "New Game",
         "loadGame": "Load Game",
         "options": "Settings",
-        "quit": "Quit"
+        "quit": "Quit",
+        "return": "Return",
+        "changeLanguage": "Change language",
+        "comfirm": "Comfirm",
+        "": "Would you like to start a new game?",
+        "": "/!\\ Starting a new game will delete the previous one /!\\"
     }
 }
