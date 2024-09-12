@@ -3,6 +3,8 @@ package main
 import (
 	RED "RED/Internals"
 	"fmt"
+
+	tsize "github.com/kopoli/go-terminal-size"
 )
 
 // TODO, currently main.go is a test for the Internals functions
@@ -62,4 +64,13 @@ func poinTest() {
 	}
 
 	fmt.Println(*isGameInFrenchPointer)
+}
+
+func sizeTest() {
+	var s tsize.Size
+
+	s, err := tsize.GetSize()
+	if err == nil {
+		fmt.Println("Current size is", s.Width, "by", s.Height)
+	}
 }
