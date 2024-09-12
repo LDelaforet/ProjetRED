@@ -4,10 +4,11 @@ import (
 	RED "RED/Internals"
 )
 
-// TODO, currently main.go is a test for the Internals functions
-
 func main() {
-	//RED.DisplayText("test")
+	DisplayMainMenu()
+}
+
+func DisplayMainMenu() {
 	RED.DisplayTitle("NOM DU JEU")
 	RED.DisplayText("", false, 0)
 	RED.DisplayText("0: Nouvelle Partie", false, 0)
