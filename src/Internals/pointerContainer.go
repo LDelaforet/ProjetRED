@@ -12,14 +12,17 @@ var IsGameInFrench bool = true
 var IsGameInFrenchPointer *bool
 
 var MenuLines []TextLine
-
 var MenuLinesPointer *[]TextLine
+
+var MapList []MapTiles
+var MapListsPointer *[]MapTiles
 
 func PointersInit() {
 	PlayerPointer = &Perso{}
 	ItemListPointer = &ItemList
 	IsGameInFrenchPointer = &IsGameInFrench
 	MenuLinesPointer = &MenuLines
+	MapListsPointer = &MapList
 }
 
 // Partie test de pointeurs, sera amenée a changer

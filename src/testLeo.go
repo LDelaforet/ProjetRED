@@ -37,6 +37,7 @@ func main() {
 	RED.DisplayText(RED.DisplayTextOptions{
 		TextToPrint: RED.GetLineById("newGame"),
 		FgColor:     color.FgRed,
+		BgColor:     color.BgBlue,
 	})
 
 }

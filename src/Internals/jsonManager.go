@@ -27,6 +27,16 @@ func GetItemById(id byte) (ItemObject, error) {
 
 // Parseurs de json
 
+func ReadMapList() {
+	MapList = nil // Vide MapList
+
+	// Ouvre le JSON et le met dans content
+	content, _ := ioutil.ReadFile("./Database/maps.json")
+
+	// Définir un dico dans lequel stocker les données du JSON
+	var data 
+}
+
 func ReadMenuStrings() {
 	MenuLines = nil // Vide MenuLines
 

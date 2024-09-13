@@ -27,7 +27,14 @@ type TextLine struct {
 	Line string
 }
 
-// Structures relatives au personnage
+type MapTiles struct {
+	Id        byte
+	EventType byte
+	ToLeftID  byte
+	ToRightID byte
+	ToUpID    byte
+	ToDownID  byte
+}
 type InventorySlot struct {
 	Item     ItemObject
 	Quantity byte
