@@ -11,19 +11,10 @@ import (
 
 func main() {
 	// Initialise les pointeurs et lis les strings de menu.json
-	goblin := RED.Enemy{
-		Type:    "Goblin",
-		PvMax:   100,
-		Pv:      10,
-		Damage:  20,
-		Defence: 20,
-	}
-
-	RED.BattleInit(goblin)
-
 	RED.PointersInit()
 	RED.ReadMenuStrings()
-	//DisplayMainMenu()
+
+	DisplayMainMenu()
 }
 
 func DisplayMainMenu() {
@@ -84,7 +75,7 @@ func DisplayNewGameMenu() {
 	RED.DisplayText(RED.DisplayTextOptions{
 		TextToPrint: "0: " + RED.GetLineById("comfirm"), // ptn tu fais chier a avoir hardcodé le nombre, faudrait faire un compteur qui incrémente ou une connerie comme ca
 	}) //TG Leo, cordialement Yolan
-	RED.DisplayText(RED.DisplayTextOptions{
+	RED.DisplayText(RED.DisplayTextOptions{ // Enculé tu va te dermerder pour le systeme du json pour les textline tu va douiller
 		TextToPrint: "1: " + RED.GetLineById("return"),
 	})
 	RED.NewLine(2)

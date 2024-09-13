@@ -22,6 +22,18 @@ type ItemObject struct {
 	Description string
 }
 
+type QuizzQuestion struct {
+	Id           byte
+	Question     string
+	Reponses     []string
+	ReponseIndex byte
+}
+
+type Quiz struct {
+	GO  map[string][]QuizzQuestion
+	Git map[string][]QuizzQuestion
+}
+
 type TextLine struct {
 	Id   string
 	Line string

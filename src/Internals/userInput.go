@@ -8,7 +8,6 @@ import (
 )
 
 func GetInput() string {
-	fmt.Print("Enter text: ")
 	reader := bufio.NewReader(os.Stdin)
 	// ReadString will block until the delimiter is entered
 	input, _ := reader.ReadString('\n')

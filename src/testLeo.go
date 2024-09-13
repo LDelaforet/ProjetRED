@@ -12,6 +12,17 @@ import (
 func main() {
 	RED.PointersInit()
 
+	goblin := RED.Enemy{
+		Type:    "Goblin",
+		PvMax:   100,
+		Pv:      10,
+		Damage:  20,
+		Defence: 20,
+	}
+
+	RED.BattleInit(goblin)
+	return
+
 	testPerso := RED.PlayerPointer
 	// itemList := RED.ItemListPointer
 	isGameInFrenchPointer := RED.IsGameInFrenchPointer

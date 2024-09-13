@@ -17,12 +17,16 @@ var MenuLinesPointer *[]TextLine
 var MapList []MapTiles
 var MapListsPointer *[]MapTiles
 
+var CurrentEnemy Enemy
+var CurrentEnemyPointer *Enemy
+
 func PointersInit() {
 	PlayerPointer = &Perso{}
 	ItemListPointer = &ItemList
 	IsGameInFrenchPointer = &IsGameInFrench
 	MenuLinesPointer = &MenuLines
 	MapListsPointer = &MapList
+	CurrentEnemyPointer = &CurrentEnemy
 }
 
 // Partie test de pointeurs, sera amenée a changer

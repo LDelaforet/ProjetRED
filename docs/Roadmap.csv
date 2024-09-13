@@ -1,7 +1,5 @@
 ID;Tâche;Personne responsable;Importance / Urgence (0-10);Dépend de [ID];Difficulté attendue (0-10);Difficulté réelle (0-10);Notes éventuelles;État;Date d’accomplissement
-1;Implémenter les fichiers JSON;Léo, Azilis;10;;8;;;En cours;
 3;Implémenter un système d'inventaire;Léo;8;1;6;;;À Faire;
-4;Implémenter un système de combat;Yolan;8;1, 2;7;;;À Faire;
 5;Créer un éditeur de personnage;Yolan;7;1, 2;4;;;À Faire;
 6;Implémenter un game over;Azilis;6;;3;;;À Faire;
 7;Implémenter le système de sauvegarde;Yolan, Azilis;6;;200;;;A Faire;
@@ -23,6 +21,7 @@ ID;Tâche;Personne responsable;Importance / Urgence (0-10);Dépend de [ID];Diffi
 22;Améliorer l’éditeur de personnage;Azilis;3;;6;;;À Faire;
 23;Améliorer le système d'inventaire;;3;;6;;;À Faire;
 24;Traduire le jeu;Yolan, Azilis, Léo;1;;2;;;À Faire;
-25;Traduire le jeu;Yolan, Azilis, Léo;1;;2;;;À Faire;
 ###########;#################################;#######################;#######################;###############;####################;#################;##############;##########;####################
-2;Trouver un moyen de récupérer l'user input;Yolan;7;;5;2;;En cours;12/09 11h06
+1;Implémenter les fichiers JSON;Léo, Azilis;10;;8;5;;Terminé;12/09  00h17
+2;Trouver un moyen de récupérer l'user input;Yolan;7;;5;2;;Terminé;12/09 11h06
+4;Implémenter un système de combat;Yolan, Léo;8;1, 2;7;;;Terminé;13/09 23h21

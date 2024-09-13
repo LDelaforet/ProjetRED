@@ -1,0 +1,138 @@
+{
+    "GO": {
+      "Facile": [
+        {
+          "Id": 0,
+          "Question": "Groupe 1 - Facile : La réponse est C",
+          "Reponses": [
+            "A",
+            "B",
+            "C"
+          ],
+          "ReponseIndex": 2
+        },
+        {
+          "Id": 1,
+          "Question": "Groupe 1 - Facile : La réponse est B",
+          "Reponses": [
+            "A",
+            "B",
+            "C"
+          ],
+          "ReponseIndex": 1
+        }
+      ],
+      "Normal": [
+        {
+          "Id": 2,
+          "Question": "Groupe 1 - Normal : La réponse est C",
+          "Reponses": [
+            "A",
+            "B",
+            "C"
+          ],
+          "ReponseIndex": 2
+        },
+        {
+          "Id": 3,
+          "Question": "Groupe 1 - Normal : La réponse est B",
+          "Reponses": [
+            "A",
+            "B",
+            "C"
+          ],
+          "ReponseIndex": 1
+        }
+      ],
+      "Difficile": [
+        {
+          "Id": 4,
+          "Question": "Groupe 1 - Difficile : La réponse est C",
+          "Reponses": [
+            "A",
+            "B",
+            "C"
+          ],
+          "ReponseIndex": 2
+        },
+        {
+          "Id": 5,
+          "Question": "Groupe 1 - Difficile : La réponse est B",
+          "Reponses": [
+            "A",
+            "B",
+            "C"
+          ],
+          "ReponseIndex": 1
+        }
+      ]
+    },
+    "Git": {
+      "Facile": [
+        {
+          "Id": 6,
+          "Question": "Groupe 2 - Facile : La réponse est C",
+          "Reponses": [
+            "A",
+            "B",
+            "C"
+          ],
+          "ReponseIndex": 2
+        },
+        {
+          "Id": 7,
+          "Question": "Groupe 2 - Facile : La réponse est B",
+          "Reponses": [
+            "A",
+            "B",
+            "C"
+          ],
+          "ReponseIndex": 1
+        }
+      ],
+      "Normal": [
+        {
+          "Id": 8,
+          "Question": "Groupe 2 - Normal : La réponse est C",
+          "Reponses": [
+            "A",
+            "B",
+            "C"
+          ],
+          "ReponseIndex": 2
+        },
+        {
+          "Id": 9,
+          "Question": "Groupe 2 - Normal : La réponse est B",
+          "Reponses": [
+            "A",
+            "B",
+            "C"
+          ],
+          "ReponseIndex": 1
+        }
+      ],
+      "Difficile": [
+        {
+          "Id": 10,
+          "Question": "Groupe 2 - Difficile : La réponse est C",
+          "Reponses": [
+            "A",
+            "B",
+            "C"
+          ],
+          "ReponseIndex": 2
+        },
+        {
+          "Id": 11,
+          "Question": "Groupe 2 - Difficile : La réponse est B",
+          "Reponses": [
+            "A",
+            "B",
+            "C"
+          ],
+          "ReponseIndex": 1
+        }
+      ]
+    }
+}

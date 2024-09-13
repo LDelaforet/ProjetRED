@@ -27,16 +27,6 @@ func GetItemById(id byte) (ItemObject, error) {
 
 // Parseurs de json
 
-func ReadMapList() {
-	MapList = nil // Vide MapList
-
-	// Ouvre le JSON et le met dans content
-	content, _ := ioutil.ReadFile("./Database/maps.json")
-
-	// Définir un dico dans lequel stocker les données du JSON
-	var data 
-}
-
 func ReadMenuStrings() {
 	MenuLines = nil // Vide MenuLines
 
@@ -98,4 +88,30 @@ func ReadItemList() {
 			Description: description,
 		})
 	}
+}
+
+// Partie relative au quizz:
+var quizData Quiz
+
+func loadQuizData() {
+	content, _ := ioutil.ReadFile("./Database/quizz.json")
+	json.Unmarshal(content, &quizData)
+}
+
+func getQuestion(category string, difficulty string) QuizzQuestion {
+	var questions []QuizzQuestion
+	switch category {
+	case "GO":
+		questions = quizData.GO[difficulty]
+	case "Git":
+		questions = quizData.Git[difficulty]
+	default:
+		return QuizzQuestion{}
+	}
+
+	if len(questions) == 0 {
+		return QuizzQuestion{}
+	}
+
+	return questions[0]
 }
