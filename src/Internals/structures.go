@@ -41,4 +41,14 @@ type Perso struct {
 	PvMax     byte
 	Pv        byte
 	Inventory []InventorySlot
+	Damage    byte
+	Defence   byte
+}
+
+type Enemy struct {
+	Type    string
+	PvMax   byte
+	Pv      byte
+	Damage  byte
+	Defence byte
 }

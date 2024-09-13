@@ -54,7 +54,7 @@ func DisplayText(passedParams DisplayTextOptions) {
 
 	var width int
 
-	width, _ = sizeTest()
+	width, _ = SizeTest()
 	if Params.IsCentered {
 		col.Print(strings.Repeat(" ", (width-len(Params.TextToPrint)+Params.Offset)/2))
 	}
@@ -64,7 +64,7 @@ func DisplayText(passedParams DisplayTextOptions) {
 // Ajoute un titre
 func DisplayTitle(textToPrint string) {
 	var width int
-	width, _ = sizeTest()
+	width, _ = SizeTest()
 	DisplayLine()
 	fmt.Print(strings.Repeat(" ", (width-len(textToPrint))/2))
 	fmt.Println(textToPrint)
@@ -74,7 +74,7 @@ func DisplayTitle(textToPrint string) {
 // Ajoute une ligne de -
 func DisplayLine() {
 	var width int
-	width, _ = sizeTest()
+	width, _ = SizeTest()
 	fmt.Println(strings.Repeat("-", width))
 }
 
@@ -83,7 +83,7 @@ func NewLine(x int) {
 	fmt.Print(strings.Repeat("\n", x))
 }
 
-func sizeTest() (Width int, Height int) {
+func SizeTest() (Width int, Height int) {
 	var s tsize.Size
 
 	s, _ = tsize.GetSize()

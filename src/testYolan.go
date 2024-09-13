@@ -3,37 +3,52 @@ package main
 import (
 	RED "RED/Internals"
 
+	"fmt"
+	"strings"
+
 	"github.com/fatih/color"
 )
 
 func main() {
 	// Initialise les pointeurs et lis les strings de menu.json
+	goblin := RED.Enemy{
+		Type:    "Goblin",
+		PvMax:   100,
+		Pv:      10,
+		Damage:  20,
+		Defence: 20,
+	}
+
+	RED.BattleInit(goblin)
+
 	RED.PointersInit()
 	RED.ReadMenuStrings()
-
-	DisplayMainMenu()
+	//DisplayMainMenu()
 }
 
 func DisplayMainMenu() {
+	var height int
+	_, height = RED.SizeTest()
+
 	RED.ClearScreen()
 	RED.DisplayText(RED.DisplayTextOptions{
 		TextToPrint: RED.GetLineById("gameName"),
 	})
 
-	RED.NewLine(2)
+	RED.NewLine(5)
 	RED.DisplayText(RED.DisplayTextOptions{
-		TextToPrint: "0: Nouvelle Partie",
+		TextToPrint: "0: " + RED.GetLineById("newGame"),
 	})
 	RED.DisplayText(RED.DisplayTextOptions{
-		TextToPrint: "1: Charger la partie",
+		TextToPrint: "1: " + RED.GetLineById("loadGame"),
 	})
 	RED.DisplayText(RED.DisplayTextOptions{
-		TextToPrint: "2: Paramètres",
+		TextToPrint: "2: " + RED.GetLineById("options"),
 	})
 	RED.DisplayText(RED.DisplayTextOptions{
-		TextToPrint: "3: Quitter",
+		TextToPrint: "3: " + RED.GetLineById("quit"),
 	})
-	RED.NewLine(8)
+	fmt.Println(strings.Repeat("\n", height-19))
 	RED.DisplayLine()
 	input := RED.GetInput()
 	RED.DisplayText(RED.DisplayTextOptions{
@@ -55,6 +70,8 @@ func DisplayMainMenu() {
 }
 
 func DisplayNewGameMenu() {
+	var height int
+	_, height = RED.SizeTest()
 	RED.ClearScreen()
 	RED.DisplayText(RED.DisplayTextOptions{
 		TextToPrint: RED.GetLineById("gameName"),
@@ -65,16 +82,18 @@ func DisplayNewGameMenu() {
 	})
 	RED.NewLine(1)
 	RED.DisplayText(RED.DisplayTextOptions{
-		TextToPrint: "0: Comfirmer", // ptn tu fais chier a avoir hardcodé le nombre, faudrait faire un compteur qui incrémente ou une connerie comme ca
-	})
+		TextToPrint: "0: " + RED.GetLineById("comfirm"), // ptn tu fais chier a avoir hardcodé le nombre, faudrait faire un compteur qui incrémente ou une connerie comme ca
+	}) //TG Leo, cordialement Yolan
 	RED.DisplayText(RED.DisplayTextOptions{
-		TextToPrint: "1: Retour",
+		TextToPrint: "1: " + RED.GetLineById("return"),
 	})
-	RED.NewLine(1)
+	RED.NewLine(2)
 	RED.DisplayText(RED.DisplayTextOptions{
 		TextToPrint: RED.GetLineById("newGameWarning"),
 		FgColor:     color.FgRed,
 	})
+	fmt.Println(strings.Repeat("\n", height-19))
+
 	RED.DisplayLine()
 	input := RED.GetInput()
 	if input == "0" {
@@ -96,10 +115,10 @@ func DisplayOptionMenu() {
 	})
 	RED.NewLine(1)
 	RED.DisplayText(RED.DisplayTextOptions{
-		TextToPrint: "0: Selection de la langue",
+		TextToPrint: "0: " + RED.GetLineById("changeLanguage"),
 	})
 	RED.DisplayText(RED.DisplayTextOptions{
-		TextToPrint: "1: Retour",
+		TextToPrint: "1: " + RED.GetLineById("return"),
 	})
 	RED.NewLine(10)
 	RED.DisplayLine()
@@ -124,13 +143,13 @@ func DisplayLanguageMenu() {
 		})
 		RED.NewLine(1)
 		RED.DisplayText(RED.DisplayTextOptions{
-			TextToPrint: "0: Français", // pareil faudrait incrémenter le digit au début, ca doit pas etre bien compliqué
+			TextToPrint: "0: " + RED.GetLineById("languageFrench"), // pareil faudrait incrémenter le digit au début, ca doit pas etre bien compliqué
 		})
 		RED.DisplayText(RED.DisplayTextOptions{
-			TextToPrint: "1: Anglais",
+			TextToPrint: "1: " + RED.GetLineById("languageEnglish"),
 		})
 		RED.DisplayText(RED.DisplayTextOptions{
-			TextToPrint: "2: Retour",
+			TextToPrint: "2: " + RED.GetLineById("return"),
 		})
 		RED.NewLine(10)
 		RED.DisplayLine()
@@ -153,6 +172,7 @@ func DisplayLanguageMenu() {
 }
 
 func DisplayCharacterCustomizationPanel() {
+	RED.PlayerPointer.Name = "Player"
 	RED.ClearScreen()
 	RED.DisplayText(RED.DisplayTextOptions{
 		TextToPrint: RED.GetLineById("gameName"),
@@ -164,24 +184,69 @@ func DisplayCharacterCustomizationPanel() {
 	RED.DisplayLine()
 	RED.NewLine(1)
 	RED.DisplayText(RED.DisplayTextOptions{
-		TextToPrint: "0: Choisit un nom",
+		TextToPrint: "0: " + RED.GetLineById("nameSelection"),
 	})
 	RED.DisplayText(RED.DisplayTextOptions{
-		TextToPrint: "1: Selecteur de classes",
+		TextToPrint: RED.GetLineById("currentName") + RED.PlayerPointer.Name,
+	})
+	RED.NewLine(1)
+	RED.DisplayText(RED.DisplayTextOptions{
+		TextToPrint: "1: " + RED.GetLineById("classSelection"),
 	})
 	RED.DisplayText(RED.DisplayTextOptions{
-		TextToPrint: "2: Retour",
+		TextToPrint: RED.GetLineById("currentClass") + "None",
+	})
+	RED.NewLine(1)
+	RED.DisplayText(RED.DisplayTextOptions{
+		TextToPrint: "2: " + RED.GetLineById("return"),
+	})
+	RED.NewLine(1)
+	RED.DisplayText(RED.DisplayTextOptions{
+		TextToPrint: "3: " + RED.GetLineById("finish"),
 	})
 	RED.NewLine(1)
 	RED.DisplayLine()
 	input := RED.GetInput()
 	if input == "0" {
-		DisplayMainMenu()
-	}
-	if input == "1" {
-		DisplayMainMenu()
+
 	}
 	if input == "2" {
 		DisplayMainMenu()
 	}
+	if input == "3" {
+		DisplayGameUI()
+	}
+}
+
+func DisplayGameUI() {
+	RED.ClearScreen()
+	RED.DisplayLine()
+	RED.DisplayText(RED.DisplayTextOptions{
+		TextToPrint: "| 0: " + RED.GetLineById("inventory") + " | 1: " + RED.GetLineById("map") + " | 2: " + RED.GetLineById("Paramètres"),
+	})
+	RED.DisplayLine()
+	RED.NewLine(2)
+	RED.DisplayText(RED.DisplayTextOptions{
+		TextToPrint: "0: " + RED.GetLineById("nameSelection"),
+	})
+	RED.DisplayText(RED.DisplayTextOptions{
+		TextToPrint: RED.GetLineById("currentName") + RED.PlayerPointer.Name,
+	})
+	RED.NewLine(1)
+	RED.DisplayText(RED.DisplayTextOptions{
+		TextToPrint: "1: " + RED.GetLineById("classSelection"),
+	})
+	RED.DisplayText(RED.DisplayTextOptions{
+		TextToPrint: RED.GetLineById("currentClass") + "None",
+	})
+	RED.NewLine(1)
+	RED.DisplayText(RED.DisplayTextOptions{
+		TextToPrint: "2: " + RED.GetLineById("return"),
+	})
+	RED.NewLine(1)
+	RED.DisplayText(RED.DisplayTextOptions{
+		TextToPrint: "3: " + RED.GetLineById("finish"),
+	})
+	RED.NewLine(1)
+	RED.DisplayLine()
 }

@@ -12,7 +12,17 @@
         "newGameWarning": "/!\\ Commencer une nouvelle partie supprimera la précédente /!\\",
         "settingsTitle": "PARAMETRES",
         "characterMakerTitle": "CREATION DU PERSONNAGE",
-        "languageTitle": "SELECTION DE LA LANGUE"
+        "languageTitle": "SELECTION DE LA LANGUE",
+        "nameSelection" : "Change ton nom",
+        "classSelection" : "Selecteur de classes",
+        "languageFrench" : "Français",
+        "languageEnglish" : "Anglais",
+        "finish" : "Terminer",
+        "currentName" : "   Nom actuel: ",
+        "currentClass" : "   Classe actuelle: ",
+        "inventory" : "INVENTAIRE",
+        "map" : "CARTE",
+        "Paramètres" : "PARAMETRES"
     },
     "i18n_en": {
         "gameName": "\n ██████╗  █████╗ ███╗   ███╗███████╗    ███╗   ██╗ █████╗ ███╗   ███╗███████╗\n██╔════╝ ██╔══██╗████╗ ████║██╔════╝    ████╗  ██║██╔══██╗████╗ ████║██╔════╝\n██║  ███╗███████║██╔████╔██║█████╗      ██╔██╗ ██║███████║██╔████╔██║█████╗\n██║   ██║██╔══██║██║╚██╔╝██║██╔══╝      ██║╚██╗██║██╔══██║██║╚██╔╝██║██╔══╝\n╚██████╔╝██║  ██║██║ ╚═╝ ██║███████╗    ██║ ╚████║██║  ██║██║ ╚═╝ ██║███████╗\n ╚═════╝ ╚═╝  ╚═╝╚═╝     ╚═╝╚══════╝    ╚═╝  ╚═══╝╚═╝  ╚═╝╚═╝     ╚═╝╚══════╝",
@@ -27,6 +37,16 @@
         "newGameWarning": "/!\\ Starting a new game will delete the previous one /!\\",
         "settingsTitle": "SETTINGS",
         "characterMakerTitle": "CHARACTER CREATION",
-        "languageTitle": "LANGUAGE SELECTION"
+        "languageTitle": "LANGUAGE SELECTION",
+        "nameSelection" : "Change your name",
+        "classSelection" : "Class Selector",
+        "languageFrench" : "French",
+        "languageEnglish" : "English",
+        "finish" : "Finish",
+        "currentName" : "   Current name: ",
+        "currentClass" : "   Current class: ",
+        "inventory" : "INVENTORY",
+        "map" : "MAP",
+        "Paramètres" : "SETTINGS"
     }
 }
