@@ -3,9 +3,7 @@ ID;Tâche;Personne responsable;Importance / Urgence (0-10);Dépend de [ID];Diffi
 5;Créer un éditeur de personnage;Yolan;7;1, 2;4;;;À Faire;
 6;Implémenter un game over;Azilis;6;;3;;;À Faire;
 7;Implémenter le système de sauvegarde;Yolan, Azilis;6;;200;;;A Faire;
-8;Créer les menus;Yolan;5;1, 2;;;;À Faire;
 9;Faire un système d’équipement des items;;5;;6;;;À Faire;
-10;Designer les interfaces;Yolan;5;;2;;;En cours;
 11;Implémenter le shop;Léo;4;1, 2;5;;;À Faire;
 12;Implémenter la potion de poison du PDF;;4;;2;;;À Faire;
 13;Implémenter le menu principal;;4;1, 2;3;;;À Faire;
@@ -14,14 +12,16 @@ ID;Tâche;Personne responsable;Importance / Urgence (0-10);Dépend de [ID];Diffi
 16;Créer la fonction displayInfo;;4;;2;;;À Faire;
 17;Créer la fonction accessInventory;;4;1, 2;2;;;À Faire;
 18;Equilibrer les combats (stats, amulettes, wearables);;;;;;;À Faire;
-19;Créer la minimap;Yolan;3;;3;;;À Faire;
 20;Écrire les quizz;Azilis, Yolan, Léo;3;;2;;;En cours;
 21;Écrire l’histoire;Azilis, Yolan, Léo;2;;2;;;En cours;
 -----------;---------------------------------;-----------------------;-----------------------;---------------;--------------------;-----------------;--------------;----------;
 22;Améliorer l’éditeur de personnage;Azilis;3;;6;;;À Faire;
 23;Améliorer le système d'inventaire;;3;;6;;;À Faire;
-24;Traduire le jeu;Yolan, Azilis, Léo;1;;2;;;À Faire;
 ###########;#################################;#######################;#######################;###############;####################;#################;##############;##########;####################
 1;Implémenter les fichiers JSON;Léo, Azilis;10;;8;5;;Terminé;12/09  00h17
 2;Trouver un moyen de récupérer l'user input;Yolan;7;;5;2;;Terminé;12/09 11h06
-4;Implémenter un système de combat;Yolan, Léo;8;1, 2;7;;;Terminé;13/09 23h21
+24;Traduire le jeu;Yolan, Azilis, Léo;1;;2;5;;Terminé;
+4;Implémenter un système de combat;Yolan, Léo;8;1, 2;7;2;Se fait au fur et a mesure que des strings sont ajoutées;Terminé;13/09 23h21
+8;Créer les menus;Yolan;5;1, 2;;;;Terminé;
+10;Designer les interfaces;Yolan;5;;2;;;Terminé;
+19;Designer et implémenter les maps;Léo, Azilis;3;;3;7;;Terminé;

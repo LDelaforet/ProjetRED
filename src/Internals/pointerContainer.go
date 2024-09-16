@@ -14,18 +14,30 @@ var IsGameInFrenchPointer *bool
 var MenuLines []TextLine
 var MenuLinesPointer *[]TextLine
 
-var MapList []MapTiles
-var MapListsPointer *[]MapTiles
+var MapList []Map
+var MapListPointer *[]Map
 
 var CurrentEnemy Enemy
 var CurrentEnemyPointer *Enemy
+
+var Discovered = []int{}
+var DiscoveredPointer = &Discovered
+
+var CurrentMap = Map{}
+var CurrentMapPointer = &CurrentMap
+
+var CurrentMapId = 0
+var CurrentMapIdPointer = &CurrentMapId
+
+var CurrentTileId = 0
+var CurrentTileIdPointer = &CurrentTileId
 
 func PointersInit() {
 	PlayerPointer = &Perso{}
 	ItemListPointer = &ItemList
 	IsGameInFrenchPointer = &IsGameInFrench
 	MenuLinesPointer = &MenuLines
-	MapListsPointer = &MapList
+	MapListPointer = &MapList
 	CurrentEnemyPointer = &CurrentEnemy
 }
 

@@ -10,18 +10,37 @@ import (
 // TODO, currently main.go is a test for the Internals functions
 
 func main() {
+	// battleTest()
+	//RED.MapParse()
+	//RED.MapDisplay()
+	RED.PointersInit()
+	//pointTest2()
+}
+
+func mapDisplayTest() {
+	RED.ReadMapLists()
+	for {
+		RED.MapDisplay()
+		RED.Discovered = []int{1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20}
+		RED.MapDisplay()
+		RED.Discovered = []int(nil)
+		RED.CurrentMap += 1
+	}
+}
+
+func battleTest() {
 	RED.PointersInit()
 
 	goblin := RED.Enemy{
 		Type:    "Goblin",
-		PvMax:   15,
-		Pv:      15,
-		Damage:  10,
-		Defence: 3,
+		PvMax:   100,
+		Pv:      10,
+		Damage:  20,
+		Defence: 20,
 	}
 
 	RED.BattleInit(goblin)
-	//return
+	return
 
 	testPerso := RED.PlayerPointer
 	// itemList := RED.ItemListPointer
@@ -50,6 +69,20 @@ func main() {
 		FgColor:     color.FgRed,
 		BgColor:     color.BgBlue,
 	})
+
+}
+func pointTest2() {
+	RED.PointersInit()
+
+	playerPointer := RED.PlayerPointer
+
+	playerPointer.Name = "TEST"
+
+	fmt.Println(playerPointer.Name)
+
+	RED.TestPlayerPointer(playerPointer)
+
+	fmt.Println(playerPointer.Name)
 
 }
 

@@ -16,13 +16,31 @@ func GetLineById(id string) string {
 	return "/[" + id + "]\\"
 }
 
-func GetItemById(id byte) (ItemObject, error) {
+func GetItemById(id byte) ItemObject {
 	for _, item := range *ItemListPointer {
 		if item.Id == id {
-			return item, nil
+			return item
 		}
 	}
-	return ItemObject{}, fmt.Errorf("ID %s introuvable", string(id))
+	return ItemObject{}
+}
+
+func GetMapById(id int) Map {
+	if id < len(*MapListPointer) {
+		return (*MapListPointer)[id]
+	}
+	return Map{}
+}
+
+func GetMapTileById(id int) MapTile {
+	if *CurrentMapIdPointer < len(*MapListPointer) {
+		for _, tile := range (*MapListPointer)[*CurrentMapIdPointer].Tiles {
+			if tile.Id == id {
+				return tile
+			}
+		}
+	}
+	return MapTile{}
 }
 
 // Parseurs de json
@@ -88,6 +106,98 @@ func ReadItemList() {
 			Description: description,
 		})
 	}
+}
+
+func ReadMapLists() {
+	content, err := ioutil.ReadFile("./Database/maps.json")
+	if err != nil {
+		fmt.Printf("Error reading file: %v\n", err)
+		return
+	}
+
+	var mapData []interface{}
+	err = json.Unmarshal(content, &mapData)
+	if err != nil {
+		fmt.Printf("Error unmarshalling JSON: %v\n", err)
+		return
+	}
+
+	// Clear MapLists before adding new maps
+	*MapListPointer = nil
+
+	for _, item := range mapData {
+		// Type assertion to ensure the correct format
+		mapArray, ok := item.([]interface{})
+		if !ok || len(mapArray) < 2 {
+			fmt.Println("Unexpected data format")
+			continue
+		}
+
+		// Decode Tiles
+		tilesData, ok := mapArray[0].([]interface{})
+		if !ok {
+			fmt.Println("Unexpected tiles data format")
+			continue
+		}
+
+		var tiles []MapTile
+		for _, tile := range tilesData {
+			tileMap, ok := tile.(map[string]interface{})
+			if !ok {
+				fmt.Println("Unexpected tile data format")
+				continue
+			}
+
+			var mapTile MapTile
+			err := mapToStruct(tileMap, &mapTile)
+			if err != nil {
+				fmt.Println("Error converting tile map to struct:", err)
+				continue
+			}
+
+			tiles = append(tiles, mapTile)
+		}
+
+		// Decode Grid
+		gridData, ok := mapArray[1].([]interface{})
+		if !ok {
+			fmt.Println("Unexpected grid data format")
+			continue
+		}
+
+		var grid [][]int
+		for _, row := range gridData {
+			rowData, ok := row.([]interface{})
+			if !ok {
+				fmt.Println("Unexpected row data format")
+				continue
+			}
+
+			var gridRow []int
+			for _, cell := range rowData {
+				cellValue, ok := cell.(float64) // JSON numbers are decoded as float64
+				if !ok {
+					fmt.Println("Unexpected cell value format")
+					continue
+				}
+
+				gridRow = append(gridRow, int(cellValue))
+			}
+
+			grid = append(grid, gridRow)
+		}
+
+		*MapListPointer = append(*MapListPointer, Map{Tiles: tiles, Grid: grid})
+	}
+}
+
+// Helper function to convert map to struct
+func mapToStruct(m map[string]interface{}, s interface{}) error {
+	b, err := json.Marshal(m)
+	if err != nil {
+		return err
+	}
+	return json.Unmarshal(b, s)
 }
 
 // Partie relative au quizz:

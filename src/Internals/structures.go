@@ -39,14 +39,19 @@ type TextLine struct {
 	Line string
 }
 
-type MapTiles struct {
-	Id        byte
-	EventType byte
-	ToLeftID  byte
-	ToRightID byte
-	ToUpID    byte
-	ToDownID  byte
+type MapTile struct {
+	Id        int
+	EventType int
+	ToLeftID  int
+	ToRightID int
+	ToUpID    int
+	ToDownID  int
 }
+type Map struct {
+	Tiles []MapTile
+	Grid  [][]int
+}
+
 type InventorySlot struct {
 	Item     ItemObject
 	Quantity byte
@@ -63,6 +68,7 @@ type Perso struct {
 	Damage    byte
 	Defence   byte
 	Heal      byte
+	Money     int
 }
 
 type Enemy struct {

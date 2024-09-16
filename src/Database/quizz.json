@@ -3,43 +3,47 @@
       "Facile": [
         {
           "Id": 0,
-          "Question": "Groupe 1 - Facile : La réponse est C",
+          "Question": "Quel est le nom de la fonction principale dans un programme Go ?",
           "Reponses": [
-            "A",
-            "B",
-            "C"
+            "start()",
+            "main()",
+            "init()",
+            "begin()"
           ],
-          "ReponseIndex": 2
+          "ReponseIndex": 1
         },
         {
           "Id": 1,
-          "Question": "Groupe 1 - Facile : La réponse est B",
+          "Question": "Quelle est l'extension des fichiers source Go ?",
           "Reponses": [
-            "A",
-            "B",
-            "C"
+            "go",
+            "gol",
+            "g",
+            "golang"
           ],
-          "ReponseIndex": 1
+          "ReponseIndex": 0
         }
       ],
       "Normal": [
         {
           "Id": 2,
-          "Question": "Groupe 1 - Normal : La réponse est C",
+          "Question": "Quelle est la fonction du mot-clé `defer` en Go ?",
           "Reponses": [
-            "A",
-            "B",
-            "C"
+            "Il annule un appel de fonction",
+            "Il exécute une fonction après que la fonction englobante a terminé",
+            "Il déclare une fonction de manière asynchrone",
+            "Il définit un point d'arrêt pour le débogage"
           ],
-          "ReponseIndex": 2
+          "ReponseIndex": 1
         },
         {
           "Id": 3,
-          "Question": "Groupe 1 - Normal : La réponse est B",
+          "Question": "Comment Go gère-t-il la concurrence ?",
           "Reponses": [
-            "A",
-            "B",
-            "C"
+            "Avec les threads",
+            "Avec les goroutines et les canaux",
+            "Avec les processus",
+            "Avec les promesses"
           ],
           "ReponseIndex": 1
         }
@@ -47,23 +51,25 @@
       "Difficile": [
         {
           "Id": 4,
-          "Question": "Groupe 1 - Difficile : La réponse est C",
+          "Question": "Que fait la fonction `recover()` en Go et dans quel contexte est-elle utilisée ?",
           "Reponses": [
-            "A",
-            "B",
-            "C"
+            "Elle capture les erreurs de compilation avant l'exécution",
+            "Elle restaure l'état précédent d'une variable après une modification",
+            "Elle permet de récupérer d'une panique et de reprendre l'exécution normale du programme",
+            "Elle annule les opérations de réseau non complètes"
           ],
           "ReponseIndex": 2
         },
         {
           "Id": 5,
-          "Question": "Groupe 1 - Difficile : La réponse est B",
+          "Question": "Qu'est-ce que le mot-clé `select` fait dans un contexte de goroutines et de canaux en Go ?",
           "Reponses": [
-            "A",
-            "B",
-            "C"
+            "Il sélectionne un canal parmi plusieurs pour envoyer ou recevoir des données",
+            "Il filtre les canaux disponibles en fonction de leur taille",
+            "Il définit la priorité des goroutines",
+            "Il choisit les goroutines à exécuter en fonction de leur durée d'exécution"
           ],
-          "ReponseIndex": 1
+          "ReponseIndex": 0
         }
       ]
     },
@@ -71,21 +77,23 @@
       "Facile": [
         {
           "Id": 6,
-          "Question": "Groupe 2 - Facile : La réponse est C",
+          "Question": "Quelle commande Git est utilisée pour créer une nouvelle branche ?",
           "Reponses": [
-            "A",
-            "B",
-            "C"
+            "git branch",
+            "git create",
+            "git new-branch",
+            "git checkout -b"
           ],
-          "ReponseIndex": 2
+          "ReponseIndex": 0
         },
         {
           "Id": 7,
-          "Question": "Groupe 2 - Facile : La réponse est B",
+          "Question": "Quel est le rôle de la commande `git rebase` ?",
           "Reponses": [
-            "A",
-            "B",
-            "C"
+            "Fusionner deux branches en conservant les commits de chaque branche",
+            "Réécrire l’historique des commits d’une branche",
+            " Créer une nouvelle branche à partir d’une branche existante ",
+            "Supprimer une branche localement"
           ],
           "ReponseIndex": 1
         }
@@ -93,21 +101,23 @@
       "Normal": [
         {
           "Id": 8,
-          "Question": "Groupe 2 - Normal : La réponse est C",
+          "Question": "Quel fichier est utilisé pour configurer les informations globales de l’utilisateur dans Git ?",
           "Reponses": [
-            "A",
-            "B",
-            "C"
+            ".gitignore",
+            "config",
+            ".gitconfig",
+            "settings"
           ],
           "ReponseIndex": 2
         },
         {
           "Id": 9,
-          "Question": "Groupe 2 - Normal : La réponse est B",
+          "Question": "Quel est l'objectif de la commande `git pull` ?",
           "Reponses": [
-            "A",
-            "B",
-            "C"
+            "Envoyer les commits locaux vers le dépôt distant",
+            "Récupérer et fusionner les modifications du dépôt distant dans la branche locale",
+            "Créer une branche à partir du dépôt distant",
+            "Revenir à un commit antérieur sans fusionner"
           ],
           "ReponseIndex": 1
         }
@@ -115,23 +125,247 @@
       "Difficile": [
         {
           "Id": 10,
-          "Question": "Groupe 2 - Difficile : La réponse est C",
+          "Question": "Que fait la commande `git cherry-pick` ",
           "Reponses": [
-            "A",
-            "B",
-            "C"
+            "Applique les changements d'un commit spécifique à la branche courante",
+            "Fusionne deux branches en incluant uniquement les commits de la branche source",
+            "Crée un commit temporaire pour tester des modifications",
+            "Supprime un commit spécifique de l’historique"
+          ],
+          "ReponseIndex": 0
+        },
+        {
+          "Id": 11,
+          "Question": "Comment supprimer une branche localement ?",
+          "Reponses": [
+            "git branch -d <nom-de-branche>",
+            "git branch --delete <nom-de-branche>",
+            "git delete branch <nom-de-branche>",
+            "git remove branch <nom-de-branche>"
+          ],
+          "ReponseIndex": 0
+        }
+      ]
+    },
+    "misc": {
+      "Facile": [
+        {
+          "Id": 12,
+          "Question": "Quel est l'animal le plus rapide sur Terre ?",
+          "Reponses": [
+            "Le guépard",
+            "L'escargot",
+            "Le kangourou",
+            "Le papillon"
+          ],
+          "ReponseIndex": 0
+        },
+        {
+          "Id": 13,
+          "Question": "Quel est l'élément chimique dont le symbole est "Au" ?",
+          "Reponses": [
+            "Argent",
+            "Or",
+            "Plomb",
+            "Nickel"
+          ],
+          "ReponseIndex": 1
+        }
+      ],
+      "Normal": [
+        {
+          "Id": 14,
+          "Question": "Quelle est la couleur du cheval blanc de Napoléon ?",
+          "Reponses": [
+            "Noir",
+            "Gris",
+            "Blanc",
+            "Marron"
           ],
           "ReponseIndex": 2
         },
         {
-          "Id": 11,
-          "Question": "Groupe 2 - Difficile : La réponse est B",
+          "Id": 15,
+          "Question": "Quel est le seul continent où le kangourou est naturellement trouvé ?",
           "Reponses": [
-            "A",
-            "B",
-            "C"
+            "Afrique",
+            "Europe",
+            "Asie",
+            "Australie"
+          ],
+          "ReponseIndex": 3
+        }
+      ],
+      "Difficile": [
+        {
+          "Id": 16,
+          "Question": "Quel est l'élément principal de l'eau ? ",
+          "Reponses": [
+            "L'azote",
+            "L'hydrogène",
+            "L'oxygène",
+            "Le carbone"
           ],
           "ReponseIndex": 1
+        },
+        {
+          "Id": 17,
+          "Question": "Quel est le nom du personnage principal dans la série "Friends" ?",
+          "Reponses": [
+            "Luke Skywalker",
+            "Homer Simpson",
+            " Ross Geller",
+            "Harry Potter"
+          ],
+          "ReponseIndex": 2
+        }
+      ]
+    },
+    "Java": {
+      "Facile": [
+        {
+          "Id": 18,
+          "Question": "Quel est le mot-clé utilisé pour définir une classe en Java ?",
+          "Reponses": [
+            "define",
+            "class",
+            "struct",
+            "object"
+          ],
+          "ReponseIndex": 1
+        },
+        {
+          "Id": 19,
+          "Question": "Comment crée-t-on un tableau d'entiers en Java ?",
+          "Reponses": [
+            "int[] arr = new int[10];",
+            "int[] arr = new int[10];",
+            "int arr = new int[10];",
+            "int arr = int[10];"
+          ],
+          "ReponseIndex": 0
+        }
+      ],
+      "Normal": [
+        {
+          "Id": 20,
+          "Question": "Quelle est la sortie de ce code Java : `System.out.println(5 + 3 * 2);` ?",
+          "Reponses": [
+            "16",
+            "11",
+            "13",
+            "23"
+          ],
+          "ReponseIndex": 1
+        },
+        {
+          "Id": 21,
+          "Question": "Quelle est la portée des variables déclarées dans une méthode en Java ?",
+          "Reponses": [
+            "Elles sont accessibles partout dans la classe",
+            "Elles sont accessibles uniquement dans la méthode où elles sont déclarées",
+            "Elles sont accessibles uniquement dans le bloc de code où elles sont déclarées",
+            "Elles sont accessibles dans toute la méthode et ses blocs imbriqués"
+          ],
+          "ReponseIndex": 1
+        }
+      ],
+      "Difficile": [
+        {
+          "Id": 22,
+          "Question": "Quelle est la différence entre `==` et `.equals()` en Java ?",
+          "Reponses": [
+            "`==` compare les références tandis que `.equals()` compare les valeurs",
+            "`==` compare les valeurs tandis que `.equals()` compare les références",
+            "`==` et `.equals()` sont équivalents et ne font pas de différences",
+            "`==` est utilisé pour les objets et `.equals()` est utilisé pour les types primitifs"
+          ],
+          "ReponseIndex": 0
+        },
+        {
+          "Id": 23,
+          "Question": "Qu'est-ce que l'encapsulation en Java ?",
+          "Reponses": [
+            "La technique permettant de créer des méthodes avec le même nom mais des signatures différentes",
+            "La technique permettant de contrôler l'accès aux données en les rendant privées et en fournissant des méthodes publiques pour les accéder",
+            "La technique permettant d'hériter des méthodes d'une classe par une autre",
+            "La technique permettant d'exécuter des morceaux de code en parallèle"
+          ],
+          "ReponseIndex": 1
+        }
+      ]
+    },
+    "Javascript": {
+      "Facile": [
+        {
+          "Id": 24,
+          "Question": "Quelle est la sortie de ce code JavaScript : `console.log(0.1 + 0.2 === 0.3);` ?",
+          "Reponses": [
+            "true",
+            "false",
+            "undefined",
+            "NaN"
+          ],
+          "ReponseIndex": 0
+        },
+        {
+          "Id": 25,
+          "Question": "Quelle est la sortie de ce code : `function foo() { return { message: "Hello" }; } console.log(foo());` ?",
+          "Reponses": [
+            "{ message: "Hello" }",
+            "undefined",
+            "SyntaxError",
+            "null"
+          ],
+          "ReponseIndex": 0
+        }
+      ],
+      "Normal": [
+        {
+          "Id": 26,
+          "Question": "Que montre ce code : `let obj = { a: 1, b: 2, c: 3 }; Object.keys(obj).forEach(key => console.log(key, obj[key]));` ?",
+          "Reponses": [
+            "Chaque clé et sa valeur dans l'objet",
+            "Uniquement les clés de l'objet",
+            "Uniquement les valeurs de l'objet",
+            "undefined` pour chaque clé et valeur"
+          ],
+          "ReponseIndex": 0
+        },
+        {
+          "Id": 27,
+          "Question": "Quelle est la sortie de ce code : `let x = 10; if (x === 10) { let x = 30; console.log(x); } console.log(x);`?",
+          "Reponses": [
+            "`30` et `10`",
+            "`30` et `30`",
+            "`10` et `10`",
+            "`10` et `30`"
+          ],
+          "ReponseIndex": 0
+        }
+      ],
+      "Difficile": [
+        {
+          "Id": 28,
+          "Question": "Que fait ce code : `function foo() { try { throw new Error("An error"); } catch (e) { console.log(e.message); } finally { console.log("Finally block executed"); } } foo();` ?",
+          "Reponses": [
+            "Affiche `An error` puis `Finally block executed`",
+            "Affiche uniquement `An error`",
+            "Affiche uniquement `Finally block executed`",
+            "Affiche `Error` puis `Finally block executed`"
+          ],
+          "ReponseIndex": 0
+        },
+        {
+          "Id": 29,
+          "Question": "*Que fait ce code : `(function() { var a = b = 5; })(); console.log(typeof a); console.log(typeof b);` ?",
+          "Reponses": [
+            "`undefined` et `number`",
+            "`number` et `undefined`",
+            "`undefined` et `number`",
+            "`number` et `number`"
+          ],
+          "ReponseIndex": 0
         }
       ]
     }
