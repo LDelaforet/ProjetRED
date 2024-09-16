@@ -14,14 +14,14 @@ func main() {
 
 	goblin := RED.Enemy{
 		Type:    "Goblin",
-		PvMax:   100,
-		Pv:      10,
-		Damage:  20,
-		Defence: 20,
+		PvMax:   15,
+		Pv:      15,
+		Damage:  10,
+		Defence: 3,
 	}
 
 	RED.BattleInit(goblin)
-	return
+	//return
 
 	testPerso := RED.PlayerPointer
 	// itemList := RED.ItemListPointer

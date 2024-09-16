@@ -4,7 +4,7 @@ import (
 	"fmt"
 	"os"
 	"os/exec"
-	"runtime"
+	"runtime" // Add this line to import the strconv package
 	"strings"
 
 	"github.com/fatih/color"
@@ -101,4 +101,28 @@ func ClearScreen() {
 		cmd.Stdout = os.Stdout
 		cmd.Run()
 	}
+}
+
+func BoxStrings(lines []string) {
+	// Trouver la longueur de la plus longue chaîne
+	maxLength := 0
+	for _, line := range lines {
+		if len(line) > maxLength {
+			maxLength = len(line)
+		}
+	}
+
+	// Créer la bordure du haut et du bas
+	topBottomBorder := "+" + strings.Repeat("-", maxLength+2) + "+"
+
+	// Afficher la bordure du haut
+	fmt.Println(topBottomBorder)
+
+	// Afficher chaque ligne entourée de barres verticales et ajustée à la longueur maximale
+	for _, line := range lines {
+		fmt.Printf("| %-*s |\n", maxLength, line) // %-*s permet d'aligner les chaînes à gauche
+	}
+
+	// Afficher la bordure du bas
+	fmt.Println(topBottomBorder)
 }

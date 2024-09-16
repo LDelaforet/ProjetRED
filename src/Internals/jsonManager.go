@@ -22,7 +22,7 @@ func GetItemById(id byte) (ItemObject, error) {
 			return item, nil
 		}
 	}
-	return ItemObject{}, fmt.Errorf("ID %s introuvable", id)
+	return ItemObject{}, fmt.Errorf("ID %s introuvable", string(id))
 }
 
 // Parseurs de json

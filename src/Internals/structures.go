@@ -62,6 +62,7 @@ type Perso struct {
 	Inventory []InventorySlot
 	Damage    byte
 	Defence   byte
+	Heal      byte
 }
 
 type Enemy struct {
