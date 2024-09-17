@@ -43,9 +43,9 @@
 		{
 			"Id":		6,
 			"EventType": 	0,
-			"ToLeftID": 	0,
+			"ToLeftID": 	5,
 			"ToRightID": 0,
-			"ToUpID": 5,
+			"ToUpID": 0,
 			"ToDownID": 7
 		},
 		{
