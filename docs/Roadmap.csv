@@ -2,7 +2,6 @@ ID;Tâche;Personne responsable;Importance / Urgence (0-10);Dépend de [ID];Diffi
 3;Implémenter un système d'inventaire;Léo;8;1;6;;;À Faire;
 5;Créer un éditeur de personnage;Yolan;7;1, 2;4;;;À Faire;
 6;Implémenter un game over;Azilis;6;;3;;;À Faire;
-7;Implémenter le système de sauvegarde;Yolan, Azilis;6;;200;;;A Faire;
 9;Faire un système d’équipement des items;;5;;6;;;À Faire;
 11;Implémenter le shop;Léo;4;1, 2;5;;;À Faire;
 12;Implémenter la potion de poison du PDF;;4;;2;;;À Faire;
@@ -25,3 +24,4 @@ ID;Tâche;Personne responsable;Importance / Urgence (0-10);Dépend de [ID];Diffi
 8;Créer les menus;Yolan;5;1, 2;;;;Terminé;
 10;Designer les interfaces;Yolan;5;;2;;;Terminé;
 19;Designer et implémenter les maps;Léo, Azilis;3;;3;7;;Terminé;
+7;Implémenter le système de sauvegarde;Yolan, Azilis;6;;200;6;;Terminé;

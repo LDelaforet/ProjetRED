@@ -1,0 +1,40 @@
+{
+    "i18n_fr": {
+        "_comment1": "Partie lignes de dialogue",
+        "_comment2": "Partie descriptions salles",
+        "room1": "Vous pénétrez dans une pièce où les murs semblent murmurer des secrets oubliés.",
+        "room2": "En franchissant le seuil, vous êtes accueilli par une vague d'odeurs étranges, comme si un chef cuisinier goblin avait récemment préparé un festin.",
+        "room3": "Vous entrez dans une salle éclairée par des lumières vacillantes, où chaque coin semble cacher un mystère ou un gobelet en plastique abandonné.",
+        "room4": "Sur la table, un vieux livre poussiéreux repose à côté d'une tasse de thé qui a visiblement vu des jours meilleurs. Peut-être que le livre est en fait un manuel d'instructions pour ce thé.",
+        "room5": "Un étrange objet en forme de clé, mais avec l'air d'avoir été fabriqué pour ouvrir un coffre-fort de bonbons, est posé sur l'étagère.",
+        "room6": "Un coussin bizarrement lisse et parfaitement rond trône sur le canapé, comme si c'était l'objet d'un concours de confort intergalactique.",
+        "interaction1": "Vous examinez le livre, qui semble murmurer 'Lis-moi' à chaque fois que vous passez devant. Vous avez presque l'impression qu'il est en train de danser un cha-cha.",
+        "interaction2": "Vous prenez la clé en forme de bonbon et la faites tourner entre vos doigts. Il semble qu'elle pourrait soit ouvrir un coffre, soit vous donner des points de compétence en confiserie.",
+        "interaction3": "En appuyant sur le coussin, vous entendez un bruit étrange, comme si un petit fantôme essayait de réajuster sa posture après une sieste prolongée.",
+        "event1": "Une série de bruits de cliquetis résonne soudainement autour de vous, comme si des mini-robots tentaient de résoudre un Rubik's Cube géant.",
+        "event2": "Une lumière clignote au plafond avec la régularité d'un sablier fâché, jetant des ombres dansantes sur les murs qui semblent jouer à cache-cache.",
+        "event3": "Un vent léger traverse la pièce, et vous entendez un murmure comme si quelqu'un vous racontait une blague en arrière-plan.",
+        "exit1": "Vous sortez de la pièce en laissant derrière vous l'odeur persistante de mystères non résolus et de curiosités étranges.",
+        "exit2": "Alors que vous franchissez la porte, un léger grincement se fait entendre, comme si la pièce se remettait doucement de votre visite inattendue.",
+        "exit3": "Vous quittez la pièce avec l'impression que quelque chose vous observe encore, ou peut-être que c'était juste un tableau déplacé."
+    },
+    "i18n_en": {
+        "_comment1": "Dialogue lines",
+        "_comment2": "Room descriptions",
+        "room1": "You enter a room where the walls seem to whisper forgotten secrets.",
+        "room2": "As you cross the threshold, you are greeted by a wave of strange smells, as if an alien chef had recently prepared a feast.",
+        "room3": "You enter a room lit by flickering lights, where every corner seems to hide a mystery or an abandoned plastic cup.",
+        "room4": "On the table, an old dusty book rests next to a cup of tea that has clearly seen better days. Maybe the book is actually a manual for making this tea.",
+        "room5": "A strange object shaped like a key, but looking like it was made to open a candy safe, sits on the shelf.",
+        "room6": "A bizarrely smooth and perfectly round cushion sits on the couch, as if it were the object of an intergalactic comfort contest.",
+        "interaction1": "You examine the book, which seems to whisper 'Read me' every time you pass by. You almost feel like it's dancing a cha-cha.",
+        "interaction2": "You take the candy-shaped key and spin it between your fingers. It seems like it could either open a chest or give you confectionery skill points.",
+        "interaction3": "Pressing the cushion, you hear a strange noise, as if a small ghost were trying to adjust its posture after a long nap.",
+        "event1": "A series of clicking noises suddenly resonates around you, as if mini-robots were trying to solve a giant Rubik's Cube.",
+        "event2": "A light flickers on the ceiling with the regularity of an angry hourglass, casting dancing shadows on the walls that seem to play hide and seek.",
+        "event3": "A light breeze sweeps through the room, and you hear a whisper as if someone were telling a joke in the background.",
+        "exit1": "You leave the room, leaving behind the lingering smell of unresolved mysteries and strange curiosities.",
+        "exit2": "As you cross the door, a slight creak is heard, as if the room were gently recovering from your unexpected visit.",
+        "exit3": "You leave the room with the feeling that something is still watching you, or maybe it was just a misplaced painting."
+    }
+}
