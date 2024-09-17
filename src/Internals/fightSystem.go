@@ -57,6 +57,9 @@ func BattleMain() {
 			break
 		}
 	}
+	NewLine(2)
+	DisplayLine()
+	_ = GetInput()
 }
 
 func attack() {

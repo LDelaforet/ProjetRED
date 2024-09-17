@@ -201,7 +201,17 @@ func DisplayCharacterCustomizationPanel() {
 	} else if input == "2" {
 		DisplayMainMenu()
 	} else if input == "3" {
-		MapNavigation()
+		//MapNavigation()
+
+		goblin := RED.Enemy{
+			Type:    "Goblin",
+			PvMax:   15,
+			Pv:      10,
+			Damage:  3,
+			Defence: 2,
+		}
+
+		RED.BattleInit(goblin)
 	} else {
 		DisplayCharacterCustomizationPanel()
 	}
@@ -245,7 +255,7 @@ func ClassSelection() {
 		RED.PlayerPointer.PvMax = 25
 		RED.PlayerPointer.Pv = 20
 		RED.PlayerPointer.Defence = 3
-		RED.PlayerPointer.Heal = 5
+		RED.PlayerPointer.Heal = 3
 
 		DisplayCharacterCustomizationPanel()
 	} else if input == "1" {
@@ -255,7 +265,7 @@ func ClassSelection() {
 		RED.PlayerPointer.PvMax = 20
 		RED.PlayerPointer.Pv = 15
 		RED.PlayerPointer.Defence = 3
-		RED.PlayerPointer.Heal = 7
+		RED.PlayerPointer.Heal = 2
 
 		DisplayCharacterCustomizationPanel()
 	} else if input == "2" {
@@ -265,17 +275,17 @@ func ClassSelection() {
 		RED.PlayerPointer.PvMax = 25
 		RED.PlayerPointer.Pv = 25
 		RED.PlayerPointer.Defence = 7
-		RED.PlayerPointer.Heal = 2
+		RED.PlayerPointer.Heal = 1
 
 		DisplayCharacterCustomizationPanel()
 	} else if input == "3" {
 		RED.PlayerPointer.Class = 3
 
 		RED.PlayerPointer.Damage = 5
-		RED.PlayerPointer.PvMax = 50
+		RED.PlayerPointer.PvMax = 30
 		RED.PlayerPointer.Pv = 20
 		RED.PlayerPointer.Defence = 1
-		RED.PlayerPointer.Heal = 10
+		RED.PlayerPointer.Heal = 5
 
 		DisplayCharacterCustomizationPanel()
 	} else if input == "4" {
@@ -283,7 +293,12 @@ func ClassSelection() {
 
 		fmt.Print("Choisit la classe que tu veux analyser: ")
 		classInfo := RED.GetInput()
-
+		RED.ClearScreen()
+		RED.DisplayLine()
+		RED.DisplayText(RED.DisplayTextOptions{
+			TextToPrint: RED.GetLineById("characterMakerTitle"),
+		})
+		RED.DisplayLine()
 		if classInfo == "0" {
 			RED.NewLine(1)
 			RED.BoxStrings([]string{RED.GetLineById("class0")})
@@ -327,7 +342,8 @@ func ClassSelection() {
 		} else {
 			ClassSelection()
 		}
-		RED.NewLine(2)
+		RED.NewLine(5)
+		RED.DisplayLine()
 		RED.DisplayText(RED.DisplayTextOptions{
 			TextToPrint: "Appuyez sur une touche pour continuer...",
 		})
