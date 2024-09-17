@@ -8,13 +8,6 @@ import (
 func BattleInit(en Enemy) {
 	loadQuizData()
 
-	PlayerPointer.Name = "Player"
-	PlayerPointer.Damage = 5
-	PlayerPointer.PvMax = 20
-	PlayerPointer.Pv = 20
-	PlayerPointer.Defence = 3
-	PlayerPointer.Heal = 5
-
 	CurrentEnemyPointer = &en
 
 	CurrentEnemyPointer.Pv = 60

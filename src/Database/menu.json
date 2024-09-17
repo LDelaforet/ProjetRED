@@ -22,10 +22,20 @@
         "currentClass" : "   Classe actuelle: ",
         "inventory" : "INVENTAIRE",
         "map" : "CARTE",
-        "hp" : "PV",
         "attack" : "Attaquer",
         "defend" :  "Se défendre",
-        "useItem" :  "Utiliser un objet"
+        "useItem" :  "Utiliser un objet",
+        "class0" :  "Aucune classe (Vagabond)",
+        "class1" :  "Classe Offensive (Dégâts)",
+        "class2" :  "Classe Défensive (Tank)",
+        "class3" :  "Classe Tactique (Soin)",
+        "classInfo" :  "Informations sur les classe",
+
+        "damage" : "Dégâts",
+        "hp" : "PV",
+        "hpMax" : "PV Max",
+        "defense" : "Défense",
+        "heal" : "Soin"
     },
     "i18n_en": {
         "gameName": "\n███████╗ █████╗ ███╗   ██╗████████╗ █████╗ ███████╗ ██╗ ██╗   ██╗███╗   ██╗ ██████╗ ██╗   ██╗\n██╔════╝██╔══██╗████╗  ██║╚══██╔══╝██╔══██╗██╔════╝ ██║  ██╗ ██╔╝████╗  ██║██╔═══██╗██║   ██║\n█████╗  ███████║██╔██╗ ██║   ██║   ███████║███████╗ ══╝  ╚████╔╝ ██╔██╗ ██║██║   ██║██║   ██║\n██╔══╝  ██╔══██║██║╚██╗██║   ██║   ██╔══██║╚════██║       ╚██╔╝  ██║╚██╗██║██║   ██║╚██╗ ██╔╝\n██║     ██║  ██║██║ ╚████║   ██║   ██║  ██║███████║        ██║   ██║ ╚████║╚██████╔╝ ╚████╔╝\n╚═╝     ╚═╝  ╚═╝╚═╝  ╚═══╝   ╚═╝   ╚═╝  ╚═╝╚══════╝        ╚═╝   ╚═╝  ╚═══╝ ╚═════╝   ╚═══╝",
@@ -35,7 +45,7 @@
         "quit": "Quit",
         "return": "Return",
         "changeLanguage": "Change language",
-        "comfirm": "Comfirm",
+        "comfirm": "Confirm",
         "newGameQuestion": "Would you like to start a new game?",
         "newGameWarning": "/!\\ Starting a new game will delete the previous one /!\\",
         "settingsTitle": "SETTINGS",
@@ -50,9 +60,19 @@
         "currentClass" : "   Current class: ",
         "inventory" : "INVENTORY",
         "map" : "MAP",
-        "hp" : "HP",
         "attack" : "Attack",
         "defend" :  "Defend",
-        "useItem" :  "Use item"
+        "useItem" :  "Use item",
+        "class0" :  "None (Homeless)",
+        "class1" :  "Offensive class (Damage)",
+        "class2" :  "Defensive class (Tank)",
+        "class3" :  "Tactical class (Heal)",
+        "classInfo" :  "Class information",
+
+        "damage" : "Damage",
+        "hp" : "HP",
+        "hpMax" : "Max HP",
+        "defense" : "Defense",
+        "heal" : "Heal"
     }
 }
