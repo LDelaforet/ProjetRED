@@ -10,8 +10,6 @@ func BattleInit(en Enemy) {
 
 	CurrentEnemyPointer = &en
 
-	CurrentEnemyPointer.Pv = 60
-
 	BattleMain()
 }
 
@@ -45,8 +43,6 @@ func BattleMain() {
 		case "1":
 			defend()
 		case "2":
-			item()
-		case "3":
 			item()
 		}
 		if CurrentEnemyPointer.Pv == 0 {
@@ -86,7 +82,7 @@ func attack() {
 	}
 
 	if CurrentEnemyPointer.Pv > 0 {
-		fmt.Println("Le " + CurrentEnemyPointer.Type + "vous met un coup, vous prenez: " + strconv.Itoa(int(CurrentEnemyPointer.Damage)) + " dégats")
+		fmt.Println("Le " + CurrentEnemyPointer.Type + " vous inflige " + strconv.Itoa(int(CurrentEnemyPointer.Damage)) + " dégats")
 
 		// Idem, le byte est non signé donc on dois checker qu'on soit a + de 0
 		if CurrentEnemyPointer.Damage >= PlayerPointer.Pv {
@@ -131,5 +127,33 @@ func defend() {
 }
 
 func item() {
+	InventoryDisplay()
+}
 
+func InventoryDisplay() {
+	ClearScreen()
+	NewLine(2)
+	DisplayLine()
+	DisplayText(DisplayTextOptions{
+		TextToPrint: GetLineById("inventory"),
+	})
+	DisplayLine()
+	NewLine(2)
+	if !(len(PlayerPointer.Inventory) == 0) {
+		for i := 0; i < len(PlayerPointer.Inventory); i++ {
+			DisplayText(DisplayTextOptions{
+				TextToPrint: " - " + PlayerPointer.Inventory[i].Item.Name + " | " + strconv.Itoa(int(PlayerPointer.Inventory[i].Quantity)),
+			})
+		}
+	} else {
+		DisplayText(DisplayTextOptions{
+			TextToPrint: GetLineById("emptyInventory"),
+		})
+	}
+
+	NewLine(2)
+	DisplayLine()
+	fmt.Println("Choix: ")
+	_ = GetInput()
+	BattleMain()
 }

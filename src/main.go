@@ -23,8 +23,8 @@ func TitleScreen() {
 	*RED.CurrentMapIdPointer = 0
 	*RED.CurrentTileIdPointer = 1
 	*RED.CurrentMapPointer = RED.GetMapById(*RED.CurrentMapIdPointer)
-	DisplayShop()
-	//DisplayMainMenu()
+	//DisplayShop()
+	DisplayMainMenu()
 }
 
 func DisplayMainMenu() {
@@ -423,7 +423,8 @@ func DisplayShop() {
 		DisplayShop()
 	}
 	if input == "3" {
-		DisplayShop()
+		//MapNavigation()
+		RED.InventoryDisplay()
 	} else {
 		DisplayShop()
 	}
