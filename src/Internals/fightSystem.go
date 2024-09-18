@@ -127,10 +127,10 @@ func defend() {
 }
 
 func item() {
-	InventoryDisplay()
+	AccessInventory()
 }
 
-func InventoryDisplay() {
+func AccessInventory() {
 	ClearScreen()
 	NewLine(2)
 	DisplayLine()

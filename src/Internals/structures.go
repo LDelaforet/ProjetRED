@@ -74,9 +74,11 @@ type Perso struct {
 }
 
 type Enemy struct {
-	Type    string
-	PvMax   byte
-	Pv      byte
-	Damage  byte
-	Defence byte
+	Type        string
+	PvMax       byte
+	Pv          byte
+	Damage      byte
+	Defence     byte
+	XpToDrop    byte
+	MoneyToDrop byte
 }

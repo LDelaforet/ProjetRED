@@ -3,7 +3,6 @@ package main
 import (
 	RED "RED/Internals"
 	"fmt"
-	"strconv"
 
 	"github.com/fatih/color"
 )
@@ -24,7 +23,8 @@ func TitleScreen() {
 	*RED.CurrentTileIdPointer = 1
 	*RED.CurrentMapPointer = RED.GetMapById(*RED.CurrentMapIdPointer)
 	//DisplayShop()
-	DisplayMainMenu()
+	//DisplayMainMenu()
+	MapNavigation()
 }
 
 func DisplayMainMenu() {
@@ -373,63 +373,6 @@ func ClassSelection() {
 	}
 }
 
-func DisplayShop() {
-	RED.ClearScreen()
-	RED.DisplayLine()
-	RED.DisplayText(RED.DisplayTextOptions{
-		TextToPrint: "  " + RED.GetLineById("shopTitle"),
-	})
-	RED.DisplayLine()
-	RED.NewLine(1)
-	RED.BoxStrings([]string{"Que veux-tu acheter?"})
-	RED.NewLine(2)
-	RED.DisplayText(RED.DisplayTextOptions{
-		TextToPrint: "0: " + RED.GetItemById(0).Name + ": " + strconv.Itoa(RED.GetItemById(0).Price) + "$\n  - " + RED.GetItemById(0).Description,
-	})
-	RED.NewLine(1)
-	RED.DisplayText(RED.DisplayTextOptions{
-		TextToPrint: "1: " + RED.GetItemById(1).Name + ": " + strconv.Itoa(RED.GetItemById(1).Price) + "$\n  - " + RED.GetItemById(1).Description,
-	})
-	RED.NewLine(1)
-	RED.DisplayText(RED.DisplayTextOptions{
-		TextToPrint: "2: " + RED.GetItemById(2).Name + ": " + strconv.Itoa(RED.GetItemById(2).Price) + "$\n  - " + RED.GetItemById(2).Description,
-	})
-	RED.NewLine(1)
-	RED.DisplayText(RED.DisplayTextOptions{
-		TextToPrint: "3: " + RED.GetLineById("quit"),
-	})
-
-	RED.NewLine(1)
-	RED.DisplayLine()
-	fmt.Print("Choix: ")
-	input := RED.GetInput()
-	if input == "0" {
-		RED.PlayerPointer.Inventory = append(RED.PlayerPointer.Inventory, RED.InventorySlot{
-			Item:     RED.GetItemById(0),
-			Quantity: 1,
-		})
-		DisplayShop()
-	} else if input == "1" {
-		RED.PlayerPointer.Inventory = append(RED.PlayerPointer.Inventory, RED.InventorySlot{
-			Item:     RED.GetItemById(1),
-			Quantity: 1,
-		})
-		DisplayShop()
-	} else if input == "2" {
-		RED.PlayerPointer.Inventory = append(RED.PlayerPointer.Inventory, RED.InventorySlot{
-			Item:     RED.GetItemById(2),
-			Quantity: 1,
-		})
-		DisplayShop()
-	}
-	if input == "3" {
-		//MapNavigation()
-		RED.InventoryDisplay()
-	} else {
-		DisplayShop()
-	}
-}
-
 func MapNavigation() {
 	// Script principal: Navigation dans la carte
 	for {
@@ -462,16 +405,13 @@ func MapNavigation() {
 		if optionCount == 8 || optionCount == 4 || optionCount == 5 || optionCount == 6 {
 			optionCount++
 		}
-		options[fmt.Sprintf("%d", optionCount)] = "map"
-		fmt.Printf("%d: Carte\n", optionCount)
-		optionCount++
 
-		if optionCount == 8 || optionCount == 4 || optionCount == 5 || optionCount == 6 {
-			optionCount++
-		}
 		options[fmt.Sprintf("%d", optionCount)] = "nextmap"
 		fmt.Printf("%d: Prochaine map\n", optionCount)
 		optionCount++
+
+		options[fmt.Sprintf("%d", optionCount)] = "playerProfile"
+		fmt.Printf("%d: Profil joueur\n", optionCount)
 
 		fmt.Print("Choix: ")
 		input := RED.GetInput()
@@ -492,9 +432,48 @@ func MapNavigation() {
 				*RED.CurrentMapIdPointer++
 				*RED.CurrentTileIdPointer = 1
 				*RED.DiscoveredPointer = []int{}
+			case "playerProfile":
+				DisplayInfo()
 			}
 		} else {
 			fmt.Println("Option invalide.")
 		}
+	}
+}
+
+func DisplayInfo() {
+	RED.ClearScreen()
+	RED.NewLine(2)
+	RED.DisplayLine()
+	RED.DisplayText(RED.DisplayTextOptions{
+		TextToPrint: "PROFIL DE " + string(RED.PlayerPointer.Name),
+	})
+	RED.DisplayLine()
+	RED.NewLine(1)
+	RED.BoxStrings([]string{
+		RED.GetLineById("damage") + ": 5",
+		RED.GetLineById("hp") + ": 20",
+		RED.GetLineById("hpMax") + ": 25",
+		RED.GetLineById("defense") + ": 3",
+		RED.GetLineById("heal") + ": 5",
+	})
+	RED.NewLine(1)
+	RED.DisplayText(RED.DisplayTextOptions{
+		TextToPrint: "0: " + RED.GetLineById("openInventory"),
+	})
+	RED.NewLine(1)
+	RED.DisplayText(RED.DisplayTextOptions{
+		TextToPrint: "1: " + RED.GetLineById("return"),
+	})
+	RED.NewLine(3)
+	RED.DisplayLine()
+	fmt.Printf("Choix: ")
+	input := RED.GetInput()
+	if input == "0" {
+		RED.AccessInventory()
+	} else if input == "1" {
+		MapNavigation()
+	} else {
+		DisplayInfo()
 	}
 }

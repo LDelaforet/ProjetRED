@@ -4,7 +4,7 @@
         "Id": 0,
         "Name": "Potion de soin",
         "Description": "Potion permettant de récuperer des PV.",
-        "Price": 5
+        "Price": 0
       },
       {
         "Id": 1,
@@ -71,6 +71,12 @@
         "Name": "Amulette de Tartempion",
         "Description": "TODO",
         "Price": 100
+      },
+      {
+        "Id": 12,
+        "Name": "Augmentation d’inventaire",
+        "Description": "TODO",
+        "Price": 30
       }
     ],
     "i18n_en": [
@@ -145,6 +151,12 @@
           "Name": "Tartempion's Amulet",
           "Description": "TODO",
           "Price": 100
+        },
+        {
+          "Id": 12,
+          "Name": "Inventory Expansion",
+          "Description": "TODO",
+          "Price": 30
         }
       ]
   }

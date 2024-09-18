@@ -40,7 +40,8 @@
         "defense" : "Défense",
         "heal" : "Soin",
         "shopTitle" : "MAGASIN",
-        "emptyInventory" : "Votre inventaire est vide."
+        "emptyInventory" : "Votre inventaire est vide.",
+        "openInventory" : "Ouvrir l'inventaire."
     },
     "i18n_en": {
         "gameName": "\n███████╗ █████╗ ███╗   ██╗████████╗ █████╗ ███████╗ ██╗ ██╗   ██╗███╗   ██╗ ██████╗ ██╗   ██╗\n██╔════╝██╔══██╗████╗  ██║╚══██╔══╝██╔══██╗██╔════╝ ██║  ██╗ ██╔╝████╗  ██║██╔═══██╗██║   ██║\n█████╗  ███████║██╔██╗ ██║   ██║   ███████║███████╗ ══╝  ╚████╔╝ ██╔██╗ ██║██║   ██║██║   ██║\n██╔══╝  ██╔══██║██║╚██╗██║   ██║   ██╔══██║╚════██║       ╚██╔╝  ██║╚██╗██║██║   ██║╚██╗ ██╔╝\n██║     ██║  ██║██║ ╚████║   ██║   ██║  ██║███████║        ██║   ██║ ╚████║╚██████╔╝ ╚████╔╝\n╚═╝     ╚═╝  ╚═╝╚═╝  ╚═══╝   ╚═╝   ╚═╝  ╚═╝╚══════╝        ╚═╝   ╚═╝  ╚═══╝ ╚═════╝   ╚═══╝",
@@ -83,6 +84,7 @@
         "defense" : "Defense",
         "heal" : "Heal",
         "shopTitle" : "SHOP",
-        "emptyInventory" : "Empty inventory."
+        "emptyInventory" : "Empty inventory.",
+        "openInventory" : "Open inventory."
     }
 }
