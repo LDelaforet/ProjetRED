@@ -30,12 +30,16 @@
         "class2" :  "Chevalier (Défense)",
         "class3" :  "Guérisseur (Soin)",
         "classInfo" :  "Informations sur les classe",
-
+        "class0Description" : "Âme errante et sans allégeance, le Vagabond s'adapte à chaque situation grâce à ses compétences imprévisibles, sans suivre les règles des autres classes.",
+        "class1Description" : "Guerrier sacré déchu, le Paladin manipule le pouvoir du sang et de la lumière corrompue pour infliger des dégâts brutaux, sacrifiant sa propre vitalité pour renforcer ses attaques.",
+        "class2Description" : "Protégé par une armure maudite, le Chevalier est un rempart inébranlable, absorbant les attaques ennemies avec une résistance surnaturelle et protégeant ses alliés à tout prix.",
+        "class3Description" : "Prêtre des ténèbres, le Guérisseur communique avec les esprits des morts pour soigner ses alliés, utilisant des rituels interdits et puisant dans le royaume des âmes pour restaurer la vie.",
         "damage" : "Dégâts",
         "hp" : "PV",
         "hpMax" : "PV Max",
         "defense" : "Défense",
-        "heal" : "Soin"
+        "heal" : "Soin",
+        "shopTitle" : "MAGASIN"
     },
     "i18n_en": {
         "gameName": "\n███████╗ █████╗ ███╗   ██╗████████╗ █████╗ ███████╗ ██╗ ██╗   ██╗███╗   ██╗ ██████╗ ██╗   ██╗\n██╔════╝██╔══██╗████╗  ██║╚══██╔══╝██╔══██╗██╔════╝ ██║  ██╗ ██╔╝████╗  ██║██╔═══██╗██║   ██║\n█████╗  ███████║██╔██╗ ██║   ██║   ███████║███████╗ ══╝  ╚████╔╝ ██╔██╗ ██║██║   ██║██║   ██║\n██╔══╝  ██╔══██║██║╚██╗██║   ██║   ██╔══██║╚════██║       ╚██╔╝  ██║╚██╗██║██║   ██║╚██╗ ██╔╝\n██║     ██║  ██║██║ ╚████║   ██║   ██║  ██║███████║        ██║   ██║ ╚████║╚██████╔╝ ╚████╔╝\n╚═╝     ╚═╝  ╚═╝╚═╝  ╚═══╝   ╚═╝   ╚═╝  ╚═╝╚══════╝        ╚═╝   ╚═╝  ╚═══╝ ╚═════╝   ╚═══╝",
@@ -68,11 +72,15 @@
         "class2" :  "Knight (Defense)",
         "class3" :  "Healer (Heal)",
         "classInfo" :  "Class information",
-
+        "class0Description" : "A wandering soul without allegiance, the Wanderer adapts to every situation thanks to his unpredictable skills, without following the rules of other classes.",
+        "class1Description" : "A fallen holy warrior, the Paladin manipulates the power of blood and corrupted light to deal brutal damage, sacrificing his own vitality to empower his attacks.",
+        "class2Description" : "Protected by cursed armor, the Knight is an unwavering bulwark, absorbing enemy attacks with supernatural resistance and protecting his allies at all costs.",
+        "class3Description" : "A priest of darkness, the Healer communicates with the spirits of the dead to heal his allies, using forbidden rituals and tapping into the realm of souls to restore life.",
         "damage" : "Damage",
         "hp" : "HP",
         "hpMax" : "Max HP",
         "defense" : "Defense",
-        "heal" : "Heal"
+        "heal" : "Heal",
+        "shopTitle" : "SHOP"
     }
 }

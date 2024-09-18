@@ -20,6 +20,7 @@ type ItemObject struct {
 	Id          byte
 	Name        string
 	Description string
+	Price       int
 }
 
 type QuizzQuestion struct {

@@ -3,6 +3,7 @@ package main
 import (
 	RED "RED/Internals"
 	"fmt"
+	"strconv"
 
 	"github.com/fatih/color"
 )
@@ -22,7 +23,8 @@ func TitleScreen() {
 	*RED.CurrentMapIdPointer = 0
 	*RED.CurrentTileIdPointer = 1
 	*RED.CurrentMapPointer = RED.GetMapById(*RED.CurrentMapIdPointer)
-	DisplayMainMenu()
+	DisplayShop()
+	//DisplayMainMenu()
 }
 
 func DisplayMainMenu() {
@@ -225,7 +227,7 @@ func ClassSelection() {
 	})
 	RED.DisplayLine()
 	RED.NewLine(1)
-	RED.BoxStrings([]string{"0: " + RED.GetLineById("classSelection")})
+	RED.BoxStrings([]string{RED.GetLineById("classSelection")})
 	RED.NewLine(2)
 	RED.DisplayText(RED.DisplayTextOptions{
 		TextToPrint: "0: " + RED.GetLineById("class0"),
@@ -291,7 +293,7 @@ func ClassSelection() {
 	} else if input == "4" {
 		// Afficher les infos de la classe
 
-		fmt.Print("Choisit la classe que tu veux analyser: ")
+		fmt.Print("Choisit la classe que tu veux analyser (0 - 3): ")
 		classInfo := RED.GetInput()
 		RED.ClearScreen()
 		RED.DisplayLine()
@@ -309,6 +311,10 @@ func ClassSelection() {
 				RED.GetLineById("defense") + ": 3",
 				RED.GetLineById("heal") + ": 5",
 			})
+			RED.NewLine(1)
+			RED.DisplayText(RED.DisplayTextOptions{
+				TextToPrint: RED.GetLineById("class0Description"),
+			})
 		} else if classInfo == "1" {
 			RED.NewLine(1)
 			RED.BoxStrings([]string{RED.GetLineById("class1")})
@@ -318,6 +324,10 @@ func ClassSelection() {
 				RED.GetLineById("hpMax") + ": 20",
 				RED.GetLineById("defense") + ": 3",
 				RED.GetLineById("heal") + ": 7",
+			})
+			RED.NewLine(1)
+			RED.DisplayText(RED.DisplayTextOptions{
+				TextToPrint: RED.GetLineById("class1Description"),
 			})
 		} else if classInfo == "2" {
 			RED.NewLine(1)
@@ -329,6 +339,10 @@ func ClassSelection() {
 				RED.GetLineById("defense") + ": 7",
 				RED.GetLineById("heal") + ": 2",
 			})
+			RED.NewLine(1)
+			RED.DisplayText(RED.DisplayTextOptions{
+				TextToPrint: RED.GetLineById("class2Description"),
+			})
 		} else if classInfo == "3" {
 			RED.NewLine(1)
 			RED.BoxStrings([]string{RED.GetLineById("class3")})
@@ -339,10 +353,14 @@ func ClassSelection() {
 				RED.GetLineById("defense") + ": 1",
 				RED.GetLineById("heal") + ": 10",
 			})
+			RED.NewLine(1)
+			RED.DisplayText(RED.DisplayTextOptions{
+				TextToPrint: RED.GetLineById("class3Description"),
+			})
 		} else {
 			ClassSelection()
 		}
-		RED.NewLine(5)
+		RED.NewLine(2)
 		RED.DisplayLine()
 		RED.DisplayText(RED.DisplayTextOptions{
 			TextToPrint: "Appuyez sur une touche pour continuer...",
@@ -352,6 +370,62 @@ func ClassSelection() {
 
 	} else {
 		ClassSelection()
+	}
+}
+
+func DisplayShop() {
+	RED.ClearScreen()
+	RED.DisplayLine()
+	RED.DisplayText(RED.DisplayTextOptions{
+		TextToPrint: "  " + RED.GetLineById("shopTitle"),
+	})
+	RED.DisplayLine()
+	RED.NewLine(1)
+	RED.BoxStrings([]string{"Que veux-tu acheter?"})
+	RED.NewLine(2)
+	RED.DisplayText(RED.DisplayTextOptions{
+		TextToPrint: "0: " + RED.GetItemById(0).Name + ": " + strconv.Itoa(RED.GetItemById(0).Price) + "$\n  - " + RED.GetItemById(0).Description,
+	})
+	RED.NewLine(1)
+	RED.DisplayText(RED.DisplayTextOptions{
+		TextToPrint: "1: " + RED.GetItemById(1).Name + ": " + strconv.Itoa(RED.GetItemById(1).Price) + "$\n  - " + RED.GetItemById(1).Description,
+	})
+	RED.NewLine(1)
+	RED.DisplayText(RED.DisplayTextOptions{
+		TextToPrint: "2: " + RED.GetItemById(2).Name + ": " + strconv.Itoa(RED.GetItemById(2).Price) + "$\n  - " + RED.GetItemById(2).Description,
+	})
+	RED.NewLine(1)
+	RED.DisplayText(RED.DisplayTextOptions{
+		TextToPrint: "3: " + RED.GetLineById("quit"),
+	})
+
+	RED.NewLine(1)
+	RED.DisplayLine()
+	fmt.Print("Choix: ")
+	input := RED.GetInput()
+	if input == "0" {
+		RED.PlayerPointer.Inventory = append(RED.PlayerPointer.Inventory, RED.InventorySlot{
+			Item:     RED.GetItemById(0),
+			Quantity: 1,
+		})
+		DisplayShop()
+	} else if input == "1" {
+		RED.PlayerPointer.Inventory = append(RED.PlayerPointer.Inventory, RED.InventorySlot{
+			Item:     RED.GetItemById(1),
+			Quantity: 1,
+		})
+		DisplayShop()
+	} else if input == "2" {
+		RED.PlayerPointer.Inventory = append(RED.PlayerPointer.Inventory, RED.InventorySlot{
+			Item:     RED.GetItemById(2),
+			Quantity: 1,
+		})
+		DisplayShop()
+	}
+	if input == "3" {
+		DisplayShop()
+	} else {
+		DisplayShop()
 	}
 }
 
