@@ -8,6 +8,8 @@ import (
 	"github.com/fatih/color"
 )
 
+var PastEvent []int = []int{}
+
 // TODO: Une fonction TitleScreen (force a toi Yolan)
 // TODO: Un systeme de shop (force a toi Leo)
 
@@ -26,8 +28,8 @@ func TitleScreen() {
 	*RED.CurrentTileIdPointer = 1
 	*RED.CurrentMapPointer = RED.GetMapById(*RED.CurrentMapIdPointer)
 	//DisplayShop()
-	//DisplayMainMenu()
-	MapNavigation()
+	DisplayMainMenu()
+	//MapNavigation()
 }
 
 func DisplayMainMenu() {
@@ -214,7 +216,7 @@ func DisplayCharacterCustomizationPanel() {
 	RED.BoxStrings([]string{"2: " + RED.GetLineById("return"), "3: " + RED.GetLineById("finish")})
 	RED.NewLine(1)
 	RED.DisplayLine()
-	fmt.Printf("Choix: ")
+	fmt.Print("Choix: ")
 	input := RED.GetInput()
 	if input == "0" {
 		fmt.Print("Entre un nom: ")
@@ -226,17 +228,7 @@ func DisplayCharacterCustomizationPanel() {
 	} else if input == "2" {
 		DisplayMainMenu()
 	} else if input == "3" {
-		MapNavigation()
-
-		goblin := RED.Enemy{
-			Type:    "Goblin",
-			PvMax:   15,
-			Pv:      10,
-			Damage:  3,
-			Defence: 2,
-		}
-		fmt.Println(goblin)
-		RED.BattleInit(goblin)
+		MapNavigation("characterCustomization")
 	} else {
 		DisplayCharacterCustomizationPanel()
 	}
@@ -396,21 +388,27 @@ func ClassSelection() {
 	}
 }
 
-func MapNavigation() {
+func MapNavigation(previousMenu string) {
 	// Script principal: Navigation dans la carte
 	for {
-
 		*RED.DiscoveredPointer = append(*RED.DiscoveredPointer, *RED.CurrentTileIdPointer)
 		CurrentTile := RED.GetMapTileById(*RED.CurrentTileIdPointer)
-
 		ExecuteEvent()
-		RED.GetInput()
+		if !(previousMenu == "characterCustomization") {
+			RED.GetInput()
+		}
 		RED.ClearScreen()
+		RED.DisplayLine()
+		RED.DisplayText(RED.DisplayTextOptions{
+			TextToPrint: RED.GetLineById("map"),
+		})
+		RED.DisplayLine()
+		RED.NewLine(1)
 		options := make(map[string]string)
 		optionCount := 1
 
 		RED.LiteMapDisplay()
-
+		RED.DisplayLine()
 		if CurrentTile.ToRightID != 0 {
 			options[fmt.Sprintf("6")] = "6"
 			fmt.Printf("6: Aller à droite\n")
@@ -427,7 +425,8 @@ func MapNavigation() {
 			options[fmt.Sprintf("8")] = "8"
 			fmt.Printf("8: Aller en haut\n")
 		}
-
+		RED.DisplayLine()
+		RED.NewLine(1)
 		if optionCount == 8 || optionCount == 4 || optionCount == 5 || optionCount == 6 {
 			optionCount++
 		}
@@ -439,12 +438,12 @@ func MapNavigation() {
 		options[fmt.Sprintf("%d", optionCount)] = "playerProfile"
 		fmt.Printf("%d: Profil joueur\n", optionCount)
 		optionCount++
-
 		/*options[fmt.Sprintf("%d", optionCount)] = "executeEvent"
 		fmt.Printf("%d: Executer l'evenement\n", optionCount)
 		optionCount++*/
-
-		fmt.Print("Choix: ")
+		RED.NewLine(1)
+		RED.DisplayLine()
+		fmt.Printf("Choix: ")
 		input := RED.GetInput()
 		if action, exists := options[input]; exists {
 			switch action {
@@ -458,7 +457,7 @@ func MapNavigation() {
 				*RED.CurrentTileIdPointer = CurrentTile.ToRightID
 			case "executeEvent":
 				//ExecuteEvent()
-				RED.GetInput()
+				//RED.GetInput()
 			case "nextmap":
 				*RED.CurrentMapIdPointer++
 				*RED.CurrentTileIdPointer = 1
@@ -467,20 +466,41 @@ func MapNavigation() {
 				DisplayInfo()
 			}
 		} else {
-			fmt.Println("Option invalide.")
+			RED.DisplayText(RED.DisplayTextOptions{
+				TextToPrint: RED.GetLineById("invalidOption"),
+				FgColor:     color.FgRed,
+			})
 		}
 	}
 }
 
 func ExecuteEvent() {
+	//Check si CurrentTile est dans pastEvent
+	if RED.Contains(PastEvent, *RED.CurrentTileIdPointer) {
+		//fmt.Println("Tu as déjà visité cette case.")
+		return
+	} else {
+		//fmt.Println("Tu n'as pas encore visité cette case.")
+		PastEvent = append(PastEvent, *RED.CurrentTileIdPointer)
+	}
+	//fmt.Println("PastEvent", PastEvent)
+	//RED.GetInput()
 	CurrentTile := RED.GetMapTileById(*RED.CurrentTileIdPointer)
 	eventID := CurrentTile.EventType
-
+	//fmt.Println("eventID", eventID)
 	switch eventID {
 	case 0:
 		// Start
 	case 1:
 		// End
+		*RED.CurrentMapIdPointer++
+		*RED.CurrentTileIdPointer = 1
+		*RED.DiscoveredPointer = []int{}
+		RED.DisplayText(RED.DisplayTextOptions{
+			TextToPrint: "Tu as terminé la carte, tu passes à la suivante.",
+		})
+		RED.GetInput()
+		//MapNavigation("end")
 	case 2:
 		// Ennemi
 		RED.BattleInit(RED.Ennemis[*RED.CurrentMapIdPointer])
@@ -489,7 +509,7 @@ func ExecuteEvent() {
 		// Tuto
 	case 4:
 		// RED.Chests est égal a map[1:[{{8 Armure de plaques TODO 35} 1} {{11 Amulette de Tartempion TODO 100} 1} {{5 Epée en fer TODO 30} 1}] 2:[] 3:[] 4:[] 5:[]]
-		fmt.Println("ID de la map", *RED.CurrentMapIdPointer)
+		//fmt.Println("ID de la map", *RED.CurrentMapIdPointer)
 
 		// Vérification de l'existence de la clé dans RED.Chests
 		if items, exists := RED.Chests[*RED.CurrentMapIdPointer]; exists {
@@ -498,11 +518,16 @@ func ExecuteEvent() {
 			} else {
 				for _, item := range items {
 					RED.PlayerPointer.Inventory = append(RED.PlayerPointer.Inventory, item)
+					RED.NewLine(1)
+					RED.DisplayText(RED.DisplayTextOptions{
+						TextToPrint: "Tu trouves " + item.Item.Name + " dans le coffre.",
+					})
 				}
 			}
 		} else {
 			fmt.Println("Aucun coffre trouvé pour cette carte.")
 		}
+		RED.GetInput()
 	case 5:
 		// Forge
 	case 6:
@@ -563,12 +588,12 @@ func DisplayInfo() {
 	})
 	RED.NewLine(3)
 	RED.DisplayLine()
-	fmt.Printf("Choix: ")
+	fmt.Print("Choix: ")
 	input := RED.GetInput()
 	if input == "0" {
 		RED.AccessInventory("playerProfile")
 	} else if input == "1" {
-		MapNavigation()
+		MapNavigation("playerProfile")
 	} else {
 		DisplayInfo()
 	}
@@ -627,33 +652,47 @@ func DisplayShop() {
 	RED.DisplayLine()
 	fmt.Print("Choix: ")
 	input := RED.GetInput()
-	if input == "0" {
-		if RED.PlayerPointer.Money >= RED.GetItemById(0).Price {
-			RED.PlayerPointer.Inventory = append(RED.PlayerPointer.Inventory, RED.InventorySlot{
-				Item:     RED.GetItemById(0),
-				Quantity: 1,
-			})
+	if len(RED.PlayerPointer.Inventory) <= 10 {
+		if input == "0" {
+			if RED.PlayerPointer.Money >= RED.GetItemById(0).Price {
+				//Check si l'item existe déjà dans l'inventaire
+				itemExists := false
+				for _, slot := range RED.PlayerPointer.Inventory {
+					if slot.Item == RED.GetItemById(0) {
+						itemExists = true
+						break
+					}
+				}
+				if itemExists {
+					RED.PlayerPointer.Inventory[0].Quantity++
+				} else {
+					RED.PlayerPointer.Inventory = append(RED.PlayerPointer.Inventory, RED.InventorySlot{
+						Item:     RED.GetItemById(0),
+						Quantity: 1,
+					})
+				}
+			}
+			DisplayShop()
+		} else if input == "1" {
+			if RED.PlayerPointer.Money >= RED.GetItemById(1).Price {
+				RED.PlayerPointer.Inventory = append(RED.PlayerPointer.Inventory, RED.InventorySlot{
+					Item:     RED.GetItemById(1),
+					Quantity: 1,
+				})
+			}
+			DisplayShop()
+		} else if input == "2" {
+			if RED.PlayerPointer.Money >= RED.GetItemById(2).Price {
+				RED.PlayerPointer.Inventory = append(RED.PlayerPointer.Inventory, RED.InventorySlot{
+					Item:     RED.GetItemById(2),
+					Quantity: 1,
+				})
+			}
+			DisplayShop()
 		}
-		DisplayShop()
-	} else if input == "1" {
-		if RED.PlayerPointer.Money >= RED.GetItemById(1).Price {
-			RED.PlayerPointer.Inventory = append(RED.PlayerPointer.Inventory, RED.InventorySlot{
-				Item:     RED.GetItemById(1),
-				Quantity: 1,
-			})
-		}
-		DisplayShop()
-	} else if input == "2" {
-		if RED.PlayerPointer.Money >= RED.GetItemById(2).Price {
-			RED.PlayerPointer.Inventory = append(RED.PlayerPointer.Inventory, RED.InventorySlot{
-				Item:     RED.GetItemById(2),
-				Quantity: 1,
-			})
-		}
-		DisplayShop()
 	}
 	if input == "3" {
-		MapNavigation()
+		MapNavigation("shop")
 	} else {
 		DisplayShop()
 	}

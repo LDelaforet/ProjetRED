@@ -31,8 +31,11 @@ type QuizzQuestion struct {
 }
 
 type Quiz struct {
-	GO  map[string][]QuizzQuestion
-	Git map[string][]QuizzQuestion
+	GO         map[string][]QuizzQuestion
+	Git        map[string][]QuizzQuestion
+	Misc       map[string][]QuizzQuestion
+	Java       map[string][]QuizzQuestion
+	Javascript map[string][]QuizzQuestion
 }
 
 type TextLine struct {

@@ -134,6 +134,7 @@ func defend() {
 		PlayerPointer.Pv += PlayerPointer.Heal
 	}
 	// Idem, le byte est non signé donc on dois checker qu'on soit a + de 0
+	// Ok mec
 	GetInput()
 }
 
@@ -141,6 +142,7 @@ func item() {
 	AccessInventory("battle")
 }
 
+// Systeme d'inventaire
 func AccessInventory(currentState string) {
 	ClearScreen()
 	NewLine(2)
@@ -153,24 +155,58 @@ func AccessInventory(currentState string) {
 	if !(len(PlayerPointer.Inventory) == 0) {
 		for i := 0; i < len(PlayerPointer.Inventory); i++ {
 			DisplayText(DisplayTextOptions{
-				TextToPrint: " - " + PlayerPointer.Inventory[i].Item.Name + " | " + strconv.Itoa(int(PlayerPointer.Inventory[i].Quantity)),
+				TextToPrint: " - " + PlayerPointer.Inventory[i].Item.Name + " | x" + strconv.Itoa(int(PlayerPointer.Inventory[i].Quantity)),
 			})
+			NewLine(1)
 		}
+		NewLine(1)
+		DisplayText(DisplayTextOptions{
+			TextToPrint: "0: " + GetLineById("useItem"),
+		})
 	} else {
 		DisplayText(DisplayTextOptions{
 			TextToPrint: GetLineById("emptyInventory"),
 		})
 	}
-
-	NewLine(2)
+	NewLine(1)
 	DisplayText(DisplayTextOptions{
-		TextToPrint: "0: " + GetLineById("quit"),
+		TextToPrint: "1: " + GetLineById("quit"),
 	})
 	NewLine(1)
 	DisplayLine()
 	fmt.Printf("Choix: ")
 	input := GetInput()
+
 	if input == "0" {
+		ClearScreen()
+		NewLine(2)
+		DisplayLine()
+		DisplayText(DisplayTextOptions{
+			TextToPrint: GetLineById("inventory"),
+		})
+		DisplayLine()
+		NewLine(2)
+
+		for i := 0; i < len(PlayerPointer.Inventory); i++ {
+			DisplayText(DisplayTextOptions{
+				TextToPrint: strconv.Itoa(i) + ": " + PlayerPointer.Inventory[i].Item.Name + " | x" + strconv.Itoa(int(PlayerPointer.Inventory[i].Quantity)),
+			})
+			NewLine(1)
+		}
+		NewLine(1)
+		DisplayLine()
+		fmt.Printf("Choisir un objet à utiliser: ")
+		input := GetInput()
+		index, err := strconv.Atoi(input)
+		if err == nil && index >= 0 && index < len(PlayerPointer.Inventory) {
+			if PlayerPointer.Inventory[index].Quantity > 1 {
+				PlayerPointer.Inventory[index].Quantity -= 1
+			} else {
+				PlayerPointer.Inventory = append(PlayerPointer.Inventory[:index], PlayerPointer.Inventory[index+1:]...)
+			}
+		}
+	}
+	if input == "1" {
 		if currentState == "battle" {
 			BattleMain()
 		} else {

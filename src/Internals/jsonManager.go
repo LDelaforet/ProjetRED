@@ -4,6 +4,7 @@ import (
 	"encoding/json"
 	"fmt"
 	"io/ioutil"
+	"math/rand"
 )
 
 // Fonctions pour fouiller les Listes de json parsés
@@ -217,6 +218,12 @@ func getQuestion(category string, difficulty string) QuizzQuestion {
 		questions = quizData.GO[difficulty]
 	case "Git":
 		questions = quizData.Git[difficulty]
+	case "Misc":
+		questions = quizData.Misc[difficulty]
+	case "Java":
+		questions = quizData.Java[difficulty]
+	case "Javascript":
+		questions = quizData.Javascript[difficulty]
 	default:
 		return QuizzQuestion{}
 	}
@@ -225,5 +232,5 @@ func getQuestion(category string, difficulty string) QuizzQuestion {
 		return QuizzQuestion{}
 	}
 
-	return questions[0]
+	return questions[rand.Intn(len(questions))]
 }

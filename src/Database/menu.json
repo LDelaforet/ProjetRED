@@ -42,7 +42,8 @@
         "heal" : "Soin",
         "shopTitle" : "MAGASIN",
         "emptyInventory" : "Votre inventaire est vide.",
-        "openInventory" : "Ouvrir l'inventaire."
+        "openInventory" : "Ouvrir l'inventaire.",
+        "invalidOption" : "Option invalide."
     },
     "i18n_en": {
         "gameName": "\n███████╗ █████╗ ███╗   ██╗████████╗ █████╗ ███████╗ ██╗ ██╗   ██╗███╗   ██╗ ██████╗ ██╗   ██╗\n██╔════╝██╔══██╗████╗  ██║╚══██╔══╝██╔══██╗██╔════╝ ██║  ██╗ ██╔╝████╗  ██║██╔═══██╗██║   ██║\n█████╗  ███████║██╔██╗ ██║   ██║   ███████║███████╗ ══╝  ╚████╔╝ ██╔██╗ ██║██║   ██║██║   ██║\n██╔══╝  ██╔══██║██║╚██╗██║   ██║   ██╔══██║╚════██║       ╚██╔╝  ██║╚██╗██║██║   ██║╚██╗ ██╔╝\n██║     ██║  ██║██║ ╚████║   ██║   ██║  ██║███████║        ██║   ██║ ╚████║╚██████╔╝ ╚████╔╝\n╚═╝     ╚═╝  ╚═╝╚═╝  ╚═══╝   ╚═╝   ╚═╝  ╚═╝╚══════╝        ╚═╝   ╚═╝  ╚═══╝ ╚═════╝   ╚═══╝",
@@ -87,6 +88,7 @@
         "heal" : "Heal",
         "shopTitle" : "SHOP",
         "emptyInventory" : "Empty inventory.",
-        "openInventory" : "Open inventory."
+        "openInventory" : "Open inventory.",
+        "invalidOption" : "Invalid Option."
     }
 }
