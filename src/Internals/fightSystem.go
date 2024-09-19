@@ -3,6 +3,7 @@ package RED
 import (
 	"fmt"
 	"strconv"
+	// Ensure this path is correct based on your project structure
 )
 
 func BattleInit(en Enemy) {
@@ -49,25 +50,37 @@ func BattleMain() {
 			break
 		}
 		if PlayerPointer.Pv == 0 {
-			fmt.Println("Vous etes décédé malhencontreusement (RIP BOZO)")
+			fmt.Println("Vous etes malhencontreusement décédé (RIP BOZO)")
 			break
 		}
 	}
 	NewLine(2)
 	DisplayLine()
-	_ = GetInput()
+	GetInput()
 }
 
 func attack() {
 	ClearScreen()
 
-	question := getQuestion(mapToTheme[CurrentMapId], "Facile")
+	NewLine(2)
+	DisplayLine()
+	DisplayText(DisplayTextOptions{
+		TextToPrint: "Répond juste à la question pour attaquer!",
+	})
+	DisplayLine()
+	NewLine(2)
 
-	fmt.Printf("%s: \n", question.Question)
+	question := getQuestion(mapToTheme[CurrentMapId], "Facile")
+	DisplayText(DisplayTextOptions{
+		TextToPrint: "Question: " + question.Question,
+	})
+	NewLine(1)
 	for i, reponse := range question.Reponses {
 		fmt.Printf("%d: %s\n", i, reponse)
 	}
-	fmt.Print("Choix: ")
+	NewLine(2)
+	DisplayLine()
+	fmt.Printf("Choix: ")
 	input := GetInput()
 	if input == strconv.Itoa(int(question.ReponseIndex)) {
 		fmt.Println("Vous mettez un coup au " + CurrentEnemyPointer.Type + ", il prends: " + strconv.Itoa(int(PlayerPointer.Damage)) + " dégats")
@@ -95,9 +108,7 @@ func attack() {
 	DisplayText(DisplayTextOptions{
 		TextToPrint: "Appuyez sur une touche pour continuer...",
 	})
-
-	_ = GetInput()
-
+	GetInput()
 }
 
 func defend() {
@@ -123,14 +134,14 @@ func defend() {
 		PlayerPointer.Pv += PlayerPointer.Heal
 	}
 	// Idem, le byte est non signé donc on dois checker qu'on soit a + de 0
-	_ = GetInput()
+	GetInput()
 }
 
 func item() {
-	AccessInventory()
+	AccessInventory("battle")
 }
 
-func AccessInventory() {
+func AccessInventory(currentState string) {
 	ClearScreen()
 	NewLine(2)
 	DisplayLine()
@@ -152,8 +163,20 @@ func AccessInventory() {
 	}
 
 	NewLine(2)
+	DisplayText(DisplayTextOptions{
+		TextToPrint: "0: " + GetLineById("quit"),
+	})
+	NewLine(1)
 	DisplayLine()
-	fmt.Println("Choix: ")
-	_ = GetInput()
-	BattleMain()
+	fmt.Printf("Choix: ")
+	input := GetInput()
+	if input == "0" {
+		if currentState == "battle" {
+			BattleMain()
+		} else {
+			return
+		}
+
+	}
+
 }

@@ -26,8 +26,8 @@ func TitleScreen() {
 	*RED.CurrentTileIdPointer = 1
 	*RED.CurrentMapPointer = RED.GetMapById(*RED.CurrentMapIdPointer)
 	//DisplayShop()
-	DisplayMainMenu()
-	// MapNavigation()
+	//DisplayMainMenu()
+	MapNavigation()
 }
 
 func DisplayMainMenu() {
@@ -38,7 +38,7 @@ func DisplayMainMenu() {
 	})
 
 	RED.NewLine(3)
-	RED.BoxStrings([]string{"0: " + RED.GetLineById("newGame"), "1: " + RED.GetLineById("loadGame"), "2: " + RED.GetLineById("options"), "3: " + RED.GetLineById("quit")})
+	RED.BoxStrings([]string{"0: " + RED.GetLineById("newGame"), "1: " + RED.GetLineById("loadGame"), "2: " + RED.GetLineById("training"), "3: " + RED.GetLineById("options"), "4: " + RED.GetLineById("quit")})
 
 	RED.NewLine(3)
 	RED.DisplayLine()
@@ -52,8 +52,28 @@ func DisplayMainMenu() {
 	if input == "0" {
 		DisplayNewGameMenu()
 	} else if input == "2" {
-		DisplayOptionMenu()
+		RED.PlayerPointer.Name = "Player"
+		RED.PlayerPointer.Class = 0
+		RED.PlayerPointer.Damage = 5
+		RED.PlayerPointer.PvMax = 20
+		RED.PlayerPointer.Pv = 20
+		RED.PlayerPointer.Defence = 3
+		RED.PlayerPointer.Heal = 5
+		RED.PlayerPointer.Money = 0
+		RED.PlayerPointer.Level = 1
+
+		goblin := RED.Enemy{
+			Type:    "Training Dummy",
+			PvMax:   100,
+			Pv:      100,
+			Damage:  1,
+			Defence: 0,
+		}
+		fmt.Println(goblin)
+		RED.BattleInit(goblin)
 	} else if input == "3" {
+		DisplayOptionMenu()
+	} else if input == "4" {
 		RED.ClearScreen()
 	} else {
 		DisplayMainMenu()
@@ -194,7 +214,7 @@ func DisplayCharacterCustomizationPanel() {
 	RED.BoxStrings([]string{"2: " + RED.GetLineById("return"), "3: " + RED.GetLineById("finish")})
 	RED.NewLine(1)
 	RED.DisplayLine()
-	fmt.Print("Choix: ")
+	fmt.Printf("Choix: ")
 	input := RED.GetInput()
 	if input == "0" {
 		fmt.Print("Entre un nom: ")
@@ -216,7 +236,7 @@ func DisplayCharacterCustomizationPanel() {
 			Defence: 2,
 		}
 		fmt.Println(goblin)
-		// RED.BattleInit(goblin)
+		RED.BattleInit(goblin)
 	} else {
 		DisplayCharacterCustomizationPanel()
 	}
@@ -379,10 +399,13 @@ func ClassSelection() {
 func MapNavigation() {
 	// Script principal: Navigation dans la carte
 	for {
-		RED.ClearScreen()
+
 		*RED.DiscoveredPointer = append(*RED.DiscoveredPointer, *RED.CurrentTileIdPointer)
 		CurrentTile := RED.GetMapTileById(*RED.CurrentTileIdPointer)
 
+		ExecuteEvent()
+		RED.GetInput()
+		RED.ClearScreen()
 		options := make(map[string]string)
 		optionCount := 1
 
@@ -417,14 +440,13 @@ func MapNavigation() {
 		fmt.Printf("%d: Profil joueur\n", optionCount)
 		optionCount++
 
-		options[fmt.Sprintf("%d", optionCount)] = "executeEvent"
+		/*options[fmt.Sprintf("%d", optionCount)] = "executeEvent"
 		fmt.Printf("%d: Executer l'evenement\n", optionCount)
-		optionCount++
+		optionCount++*/
 
 		fmt.Print("Choix: ")
 		input := RED.GetInput()
 		if action, exists := options[input]; exists {
-			fmt.Println("Vous avez choisi:", action)
 			switch action {
 			case "8":
 				*RED.CurrentTileIdPointer = CurrentTile.ToUpID
@@ -435,7 +457,7 @@ func MapNavigation() {
 			case "6":
 				*RED.CurrentTileIdPointer = CurrentTile.ToRightID
 			case "executeEvent":
-				ExecuteEvent()
+				//ExecuteEvent()
 				RED.GetInput()
 			case "nextmap":
 				*RED.CurrentMapIdPointer++
@@ -469,25 +491,18 @@ func ExecuteEvent() {
 		// RED.Chests est égal a map[1:[{{8 Armure de plaques TODO 35} 1} {{11 Amulette de Tartempion TODO 100} 1} {{5 Epée en fer TODO 30} 1}] 2:[] 3:[] 4:[] 5:[]]
 		fmt.Println("ID de la map", *RED.CurrentMapIdPointer)
 
-		fmt.Print("Inventaire avant: ")
-		fmt.Println(RED.PlayerPointer.Inventory)
-
 		// Vérification de l'existence de la clé dans RED.Chests
 		if items, exists := RED.Chests[*RED.CurrentMapIdPointer]; exists {
 			if len(items) == 0 {
 				fmt.Println("Aucun item dans le coffre pour cette carte.")
 			} else {
 				for _, item := range items {
-					fmt.Println("Item: ", item)
 					RED.PlayerPointer.Inventory = append(RED.PlayerPointer.Inventory, item)
 				}
 			}
 		} else {
 			fmt.Println("Aucun coffre trouvé pour cette carte.")
 		}
-
-		fmt.Print("Inventaire après: ")
-		fmt.Println(RED.PlayerPointer.Inventory)
 	case 5:
 		// Forge
 	case 6:
@@ -506,8 +521,6 @@ func ExecuteEvent() {
 	case 12:
 		// Story 5
 	}
-
-	fmt.Println(eventID)
 
 	// 0  Start
 	// 1  End
@@ -553,7 +566,7 @@ func DisplayInfo() {
 	fmt.Printf("Choix: ")
 	input := RED.GetInput()
 	if input == "0" {
-		RED.AccessInventory()
+		RED.AccessInventory("playerProfile")
 	} else if input == "1" {
 		MapNavigation()
 	} else {
@@ -571,18 +584,41 @@ func DisplayShop() {
 	RED.NewLine(1)
 	RED.BoxStrings([]string{"Que veux-tu acheter?"})
 	RED.NewLine(2)
-	RED.DisplayText(RED.DisplayTextOptions{
-		TextToPrint: "0: " + RED.GetItemById(0).Name + ": " + strconv.Itoa(RED.GetItemById(0).Price) + "$\n  - " + RED.GetItemById(0).Description,
-	})
+
+	if RED.PlayerPointer.Money >= RED.GetItemById(0).Price {
+		RED.DisplayText(RED.DisplayTextOptions{
+			TextToPrint: "0: " + RED.GetItemById(0).Name + ": " + strconv.Itoa(RED.GetItemById(0).Price) + "$\n  - " + RED.GetItemById(0).Description,
+		})
+	} else {
+		RED.DisplayText(RED.DisplayTextOptions{
+			TextToPrint: "0: " + RED.GetItemById(0).Name + ": " + strconv.Itoa(RED.GetItemById(0).Price) + "$\n  - " + RED.GetItemById(0).Description,
+			FgColor:     color.FgRed,
+		})
+	}
 	RED.NewLine(1)
-	RED.DisplayText(RED.DisplayTextOptions{
-		TextToPrint: "1: " + RED.GetItemById(1).Name + ": " + strconv.Itoa(RED.GetItemById(1).Price) + "$\n  - " + RED.GetItemById(1).Description,
-	})
+	if RED.PlayerPointer.Money >= RED.GetItemById(1).Price {
+		RED.DisplayText(RED.DisplayTextOptions{
+			TextToPrint: "1: " + RED.GetItemById(1).Name + ": " + strconv.Itoa(RED.GetItemById(1).Price) + "$\n  - " + RED.GetItemById(1).Description,
+		})
+	} else {
+		RED.DisplayText(RED.DisplayTextOptions{
+			TextToPrint: "1: " + RED.GetItemById(1).Name + ": " + strconv.Itoa(RED.GetItemById(1).Price) + "$\n  - " + RED.GetItemById(1).Description,
+			FgColor:     color.FgRed,
+		})
+	}
 	RED.NewLine(1)
-	RED.DisplayText(RED.DisplayTextOptions{
-		TextToPrint: "2: " + RED.GetItemById(2).Name + ": " + strconv.Itoa(RED.GetItemById(2).Price) + "$\n  - " + RED.GetItemById(2).Description,
-	})
-	RED.NewLine(1)
+	if RED.PlayerPointer.Money >= RED.GetItemById(2).Price {
+		RED.DisplayText(RED.DisplayTextOptions{
+			TextToPrint: "2: " + RED.GetItemById(2).Name + ": " + strconv.Itoa(RED.GetItemById(2).Price) + "$\n  - " + RED.GetItemById(2).Description,
+		})
+	} else {
+		RED.DisplayText(RED.DisplayTextOptions{
+			TextToPrint: "2: " + RED.GetItemById(2).Name + ": " + strconv.Itoa(RED.GetItemById(2).Price) + "$\n  - " + RED.GetItemById(2).Description,
+			FgColor:     color.FgRed,
+		})
+	}
+
+	RED.NewLine(2)
 	RED.DisplayText(RED.DisplayTextOptions{
 		TextToPrint: "3: " + RED.GetLineById("quit"),
 	})
@@ -592,26 +628,32 @@ func DisplayShop() {
 	fmt.Print("Choix: ")
 	input := RED.GetInput()
 	if input == "0" {
-		RED.PlayerPointer.Inventory = append(RED.PlayerPointer.Inventory, RED.InventorySlot{
-			Item:     RED.GetItemById(0),
-			Quantity: 1,
-		})
+		if RED.PlayerPointer.Money >= RED.GetItemById(0).Price {
+			RED.PlayerPointer.Inventory = append(RED.PlayerPointer.Inventory, RED.InventorySlot{
+				Item:     RED.GetItemById(0),
+				Quantity: 1,
+			})
+		}
 		DisplayShop()
 	} else if input == "1" {
-		RED.PlayerPointer.Inventory = append(RED.PlayerPointer.Inventory, RED.InventorySlot{
-			Item:     RED.GetItemById(1),
-			Quantity: 1,
-		})
+		if RED.PlayerPointer.Money >= RED.GetItemById(1).Price {
+			RED.PlayerPointer.Inventory = append(RED.PlayerPointer.Inventory, RED.InventorySlot{
+				Item:     RED.GetItemById(1),
+				Quantity: 1,
+			})
+		}
 		DisplayShop()
 	} else if input == "2" {
-		RED.PlayerPointer.Inventory = append(RED.PlayerPointer.Inventory, RED.InventorySlot{
-			Item:     RED.GetItemById(2),
-			Quantity: 1,
-		})
+		if RED.PlayerPointer.Money >= RED.GetItemById(2).Price {
+			RED.PlayerPointer.Inventory = append(RED.PlayerPointer.Inventory, RED.InventorySlot{
+				Item:     RED.GetItemById(2),
+				Quantity: 1,
+			})
+		}
 		DisplayShop()
 	}
 	if input == "3" {
-		DisplayShop()
+		MapNavigation()
 	} else {
 		DisplayShop()
 	}

@@ -59,18 +59,32 @@ type InventorySlot struct {
 }
 
 type Perso struct {
-	Name        string
-	Class       byte // 0: none, 2: Attaque, 3: Défense, 4: soin
-	Level       byte
-	Xp          byte
-	PvMax       byte
-	Pv          byte
-	Inventory   []InventorySlot
-	EquipedItem ItemObject
-	Damage      byte
-	Defence     byte
-	Heal        byte
-	Money       int
+	Name          string
+	Class         byte // 0: none, 2: Attaque, 3: Défense, 4: soin
+	Level         byte
+	Xp            byte
+	PvMax         byte
+	Pv            byte
+	Inventory     []InventorySlot
+	EquipedItem   ItemObject
+	Damage        byte
+	Defence       byte
+	Heal          byte
+	Money         int
+	EquippedArmor Equipment
+}
+
+type Equipment struct {
+	Helmet ArmorSlot
+	Chest  ArmorSlot
+	Boots  ArmorSlot
+}
+type ArmorSlot struct {
+	Name         string
+	SlotType     int
+	PvBoost      int
+	DamageBoost  int
+	DefenceBoost int
 }
 
 type Enemy struct {
