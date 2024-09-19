@@ -1,0 +1,54 @@
+{
+    "i18n_fr": {
+        "story1": [
+            "Ligne de dialogue 1",
+            "Ligne de dialogue 2",
+            "Ligne de dialogue 3",
+            "Ligne de dialogue 4"
+        ],
+        "story2": [
+            "Ligne de dialogue 1",
+            "Ligne de dialogue 2",
+            "Ligne de dialogue 3",
+            "Ligne de dialogue 4"
+        ],
+        "story3": [
+            "Ligne de dialogue 1",
+            "Ligne de dialogue 2",
+            "Ligne de dialogue 3",
+            "Ligne de dialogue 4"
+        ],
+        "story4": [
+            "Ligne de dialogue 1",
+            "Ligne de dialogue 2",
+            "Ligne de dialogue 3",
+            "Ligne de dialogue 4"
+        ]
+    },
+    "i18n_en": {
+        "story1": [
+            "Dialog 1",
+            "Dialog 2",
+            "Dialog 3",
+            "Dialog 4"
+        ],
+        "story2": [
+            "Dialog 1",
+            "Dialog 2",
+            "Dialog 3",
+            "Dialog 4"
+        ],
+        "story3": [
+            "Dialog 1",
+            "Dialog 2",
+            "Dialog 3",
+            "Dialog 4"
+        ],
+        "story4": [
+            "Dialog 1",
+            "Dialog 2",
+            "Dialog 3",
+            "Dialog 4"
+        ]
+    }
+}

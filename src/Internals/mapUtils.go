@@ -2,6 +2,7 @@ package RED
 
 import (
 	"fmt"
+	"strconv"
 )
 
 var numLetters = map[int]string{
@@ -20,11 +21,13 @@ func createBoxedMap(mapData [][]int) [][][]string {
 				// Affiche le numéro de la case pour les cases non découvertes [TOGGLEABLE]
 
 				// newRow = append(newRow, []string{"   ", " " + strconv.Itoa(num) + " ", "   "})
-				newRow = append(newRow, []string{"   ", "   ", "   "})
+				// newRow = append(newRow, []string{"   ", "   ", "   "})
+				newRow = append(newRow, []string{"   ", " " + strconv.Itoa(GetMapTileById(num).EventType) + " ", "   "})
 			} else if num == CurrentTileId {
 				newRow = append(newRow, []string{boxTemplate[0], "|X|", boxTemplate[2]})
 			} else {
-				newRow = append(newRow, []string{boxTemplate[0], boxTemplate[1], boxTemplate[2]})
+				newRow = append(newRow, []string{boxTemplate[0], "|" + strconv.Itoa(GetMapTileById(num).EventType) + "|", boxTemplate[2]})
+				//newRow = append(newRow, []string{boxTemplate[0], boxTemplate[1], boxTemplate[2]})
 			}
 		}
 		boxedMap = append(boxedMap, newRow)

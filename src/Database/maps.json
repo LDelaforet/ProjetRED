@@ -1,70 +1,70 @@
 [
 	[[
-		{
-			"Id":		1,
-			"EventType": 	0,
-			"ToLeftID": 	0,
-			"ToRightID": 0,
-			"ToUpID": 0,
-			"ToDownID": 2
-		},
-		{
-			"Id":		2,
-			"EventType": 	0,
-			"ToLeftID": 	0,
-			"ToRightID": 0,
-			"ToUpID": 1,
-			"ToDownID": 3
-		},
-		{
-			"Id":		3,
-			"EventType": 	0,
-			"ToLeftID": 	0,
-			"ToRightID": 4,
-			"ToUpID": 2,
-			"ToDownID": 0
-		},
-		{
-			"Id":		4,
-			"EventType": 	0,
-			"ToLeftID": 	3,
-			"ToRightID": 5,
-			"ToUpID": 0,
-			"ToDownID": 0
-		},
-		{
-			"Id":		5,
-			"EventType": 	0,
-			"ToLeftID": 	4,
-			"ToRightID": 6,
-			"ToUpID": 0,
-			"ToDownID": 0
-		},
-		{
-			"Id":		6,
-			"EventType": 	0,
-			"ToLeftID": 	5,
-			"ToRightID": 0,
-			"ToUpID": 0,
-			"ToDownID": 7
-		},
-		{
-			"Id":		7,
-			"EventType": 	0,
-			"ToLeftID": 	0,
-			"ToRightID": 0,
-			"ToUpID": 6,
-			"ToDownID": 8
-		},
-		{
-			"Id":		8,
-			"EventType": 	0,
-			"ToLeftID": 	0,
-			"ToRightID": 0,
-			"ToUpID": 7,
-			"ToDownID": 0
-		}
-	],[
+        {
+            "Id":		1,
+            "EventType": 	0,
+            "ToLeftID": 	0,
+            "ToRightID": 0,
+            "ToUpID": 0,
+            "ToDownID": 2
+        },
+        {
+            "Id":		2,
+            "EventType": 	2,
+            "ToLeftID": 	0,
+            "ToRightID": 0,
+            "ToUpID": 1,
+            "ToDownID": 3
+        },
+        {
+            "Id":		3,
+            "EventType": 	4,
+            "ToLeftID": 	0,
+            "ToRightID": 4,
+            "ToUpID": 2,
+            "ToDownID": 0
+        },
+        {
+            "Id":		4,
+            "EventType": 	3, 
+            "ToLeftID": 	3,
+            "ToRightID": 5,
+            "ToUpID": 0,
+            "ToDownID": 0
+        },
+        {
+            "Id":		5,
+            "EventType": 	5,
+            "ToLeftID": 	4,
+            "ToRightID": 6,
+            "ToUpID": 0,
+            "ToDownID": 0
+        },
+        {
+            "Id":		6,
+            "EventType": 	6,
+            "ToLeftID": 	5,
+            "ToRightID": 0,
+            "ToUpID": 0,
+            "ToDownID": 7
+        },
+        {
+            "Id":		7,
+            "EventType": 	7,
+            "ToLeftID": 	0,
+            "ToRightID": 0,
+            "ToUpID": 6,
+            "ToDownID": 8
+        },
+        {
+            "Id":		8,
+            "EventType": 	1,
+            "ToLeftID": 	0,
+            "ToRightID": 0,
+            "ToUpID": 7,
+            "ToDownID": 0
+        }
+    ],[
 		[0, 0, 0, 0, 0],
 		[1, 0, 0, 0, 0],
 		[2, 0, 0, 0, 0],
@@ -84,7 +84,7 @@
 		}, 
 		{
 			"Id":        2,
-			"EventType": 0,
+			"EventType": 4,
 			"ToLeftID":  0,
 			"ToRightID": 3,
 			"ToUpID":    0,
@@ -92,7 +92,7 @@
 		},
 		{
 			"Id":        3,
-			"EventType": 0,
+			"EventType": 2,
 			"ToLeftID":  2,
 			"ToRightID": 4,
 			"ToUpID":    1,
@@ -158,7 +158,7 @@
         },
         {
             "Id":        2,
-            "EventType": 0,
+			"EventType": 2,
             "ToLeftID":  1,
             "ToRightID": 0,
             "ToUpID":    3,
@@ -256,7 +256,7 @@
         },
         {
             "Id":        2,
-            "EventType": 0,
+			"EventType": 2,
             "ToLeftID":  3,
             "ToRightID": 0,
             "ToUpID":    1,
@@ -339,7 +339,7 @@
         },
         {
             "Id":        2,
-            "EventType": 0,
+			"EventType": 2,
             "ToLeftID":  3,
             "ToRightID": 1,
             "ToUpID":    0,

@@ -9,7 +9,7 @@ func BattleInit(en Enemy) {
 	loadQuizData()
 
 	CurrentEnemyPointer = &en
-
+	CurrentEnemyPointer.Pv = 1
 	BattleMain()
 }
 
@@ -61,7 +61,7 @@ func BattleMain() {
 func attack() {
 	ClearScreen()
 
-	question := getQuestion("GO", "Facile")
+	question := getQuestion(mapToTheme[CurrentMapId], "Facile")
 
 	fmt.Printf("%s: \n", question.Question)
 	for i, reponse := range question.Reponses {
