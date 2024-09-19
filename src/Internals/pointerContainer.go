@@ -38,6 +38,9 @@ var ChestsPointer = &Chests
 var Ennemis = []Enemy{}
 var EnnemisPointer = &Ennemis
 
+var CraftingRecipes = []CraftingRecipe{}
+var CraftingRecipesPointer = &CraftingRecipes
+
 var mapToTheme = map[int]string{0: "GO", 1: "Git", 2: "Misc", 3: "Java", 4: "Javascript"}
 
 func PointersInit() {
@@ -51,6 +54,7 @@ func PointersInit() {
 
 func ChestsInit() {
 	// Initialisation du contenu des coffres
+	// liste tous les items d'itemlist
 	Chests[0] = []InventorySlot{
 		{Item: ItemList[8], Quantity: 1},
 		{Item: ItemList[11], Quantity: 1},

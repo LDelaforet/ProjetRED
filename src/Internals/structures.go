@@ -18,9 +18,20 @@ type DisplayTextOptions struct {
 // Structures générales
 type ItemObject struct {
 	Id          byte
-	Name        string
-	Description string
-	Price       int
+	ItemType    byte   // 0: Tout, 1: Arme
+	Name        string // 2: Armure,
+	Description string //3: Consommables
+	Price       int    //4: Materiaux
+}
+
+type CraftingMaterial struct {
+	ItemID   int
+	Quantity int
+}
+
+type CraftingRecipe struct {
+	Ingredients []CraftingMaterial
+	Result      byte
 }
 
 type QuizzQuestion struct {

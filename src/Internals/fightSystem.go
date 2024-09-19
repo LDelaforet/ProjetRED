@@ -3,7 +3,6 @@ package RED
 import (
 	"fmt"
 	"strconv"
-	// Ensure this path is correct based on your project structure
 )
 
 func BattleInit(en Enemy) {
@@ -216,3 +215,40 @@ func AccessInventory(currentState string) {
 	}
 
 }
+
+
+
+func AddItemToInventory(itemId byte, quantite byte) {
+	for i, slot := range PlayerPointer.Inventory {
+		if slot.Item.Id == itemId {
+			PlayerPointer.Inventory[i].Quantity += quantite
+			return
+		}
+	}
+	PlayerPointer.Inventory = append(PlayerPointer.Inventory, InventorySlot{Item: ItemList[itemId], Quantity: quantite})
+}
+
+func RemoveItemFromInventory(itemId byte, quantite byte) {
+	for i, slot := range PlayerPointer.Inventory {
+		if slot.Item.Id == itemId {
+			if slot.Quantity > quantite {
+				PlayerPointer.Inventory[i].Quantity -= quantite
+			} else {
+				PlayerPointer.Inventory = append(PlayerPointer.Inventory[:i], PlayerPointer.Inventory[i+1:]...)
+			}
+			return
+		}
+	}
+}
+
+func checkIfItemInInventory(itemID byte, quantity byte) bool {
+	for _, slot := range PlayerPointer.Inventory {
+		if slot.Item.Id == itemID {
+			if slot.Quantity >= quantity {
+				return true
+			}
+		}
+	}
+	return false
+}
+

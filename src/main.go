@@ -22,6 +22,7 @@ func TitleScreen() {
 	RED.ReadItemList()
 	RED.ReadMapLists()
 	RED.ReadMenuStrings()
+	RED.ReadCraftingRecipes()
 	RED.ChestsInit()
 	RED.EnnemisInit()
 	*RED.CurrentMapIdPointer = 0
@@ -30,6 +31,12 @@ func TitleScreen() {
 	//DisplayShop()
 	DisplayMainMenu()
 	//MapNavigation()
+
+	// tests du craftingmenu
+	// RED.AddItemToInventory(10, 5)
+	// RED.AddItemToInventory(11, 5)
+	// RED.CraftingMenu()
+	// RED.AccessInventory("AA")
 }
 
 func DisplayMainMenu() {
@@ -530,6 +537,7 @@ func ExecuteEvent() {
 		RED.GetInput()
 	case 5:
 		// Forge
+		RED.CraftingMenu()
 	case 6:
 		// Shop
 		DisplayShop()
@@ -650,7 +658,7 @@ func DisplayShop() {
 
 	RED.NewLine(1)
 	RED.DisplayLine()
-	fmt.Print("Choix: ")
+	fmt.Print(RED.GetLineById("choice") + ": ")
 	input := RED.GetInput()
 	if len(RED.PlayerPointer.Inventory) <= 10 {
 		if input == "0" {
@@ -671,22 +679,49 @@ func DisplayShop() {
 						Quantity: 1,
 					})
 				}
+				RED.PlayerPointer.Money -= RED.GetItemById(0).Price
 			}
 			DisplayShop()
 		} else if input == "1" {
 			if RED.PlayerPointer.Money >= RED.GetItemById(1).Price {
-				RED.PlayerPointer.Inventory = append(RED.PlayerPointer.Inventory, RED.InventorySlot{
-					Item:     RED.GetItemById(1),
-					Quantity: 1,
-				})
+				//Check si l'item existe déjà dans l'inventaire
+				itemExists := false
+				for _, slot := range RED.PlayerPointer.Inventory {
+					if slot.Item == RED.GetItemById(1) {
+						itemExists = true
+						break
+					}
+				}
+				if itemExists {
+					RED.PlayerPointer.Inventory[1].Quantity++
+				} else {
+					RED.PlayerPointer.Inventory = append(RED.PlayerPointer.Inventory, RED.InventorySlot{
+						Item:     RED.GetItemById(1),
+						Quantity: 1,
+					})
+				}
+				RED.PlayerPointer.Money -= RED.GetItemById(1).Price
 			}
 			DisplayShop()
 		} else if input == "2" {
 			if RED.PlayerPointer.Money >= RED.GetItemById(2).Price {
-				RED.PlayerPointer.Inventory = append(RED.PlayerPointer.Inventory, RED.InventorySlot{
-					Item:     RED.GetItemById(2),
-					Quantity: 1,
-				})
+				//Check si l'item existe déjà dans l'inventaire
+				itemExists := false
+				for _, slot := range RED.PlayerPointer.Inventory {
+					if slot.Item == RED.GetItemById(2) {
+						itemExists = true
+						break
+					}
+				}
+				if itemExists {
+					RED.PlayerPointer.Inventory[2].Quantity++
+				} else {
+					RED.PlayerPointer.Inventory = append(RED.PlayerPointer.Inventory, RED.InventorySlot{
+						Item:     RED.GetItemById(2),
+						Quantity: 1,
+					})
+				}
+				RED.PlayerPointer.Money -= RED.GetItemById(2).Price
 			}
 			DisplayShop()
 		}

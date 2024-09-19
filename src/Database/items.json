@@ -2,79 +2,92 @@
     "i18n_fr": [
       {
         "Id": 0,
+        "ItemType": 3,
         "Name": "Potion de soin",
         "Description": "Potion permettant de récuperer des PV.",
         "Price": 0
       },
       {
         "Id": 1,
+        "ItemType": 3,
         "Name": "Potion de force",
         "Description": "Potion augmentant la force.",
         "Price": 5
       },
       {
         "Id": 2,
+        "ItemType": 3,
         "Name": "Potion de protection",
         "Description": "Potion augmentant la défense.",
         "Price": 5
       },
       {
         "Id": 3,
-        "Name": "Epée en bois",
-        "Description": "Petite épée de faible qualité.",
-        "Price": 10
-      },
-      {
-        "Id": 4,
-        "Name": "Epée en fer rouillée",
+        "ItemType": 1,
+        "Name": "Epée rouillée",
         "Description": "TODO",
         "Price": 20
       },
       {
-        "Id": 5,
+        "Id": 4,
+        "ItemType": 1,
         "Name": "Epée en fer",
         "Description": "TODO",
         "Price": 30
       },
       {
+        "Id": 5,
+        "ItemType": 2,
+        "Name": "Armure de piètre qualité",
+        "Description": "TODO",
+        "Price": 15
+      },
+      {
         "Id": 6,
-        "Name": "Armure légère",
+        "ItemType": 2,
+        "Name": "Armure renforcée",
         "Description": "TODO",
         "Price": 15
       },
       {
         "Id": 7,
-        "Name": "Armure",
+        "ItemType": 2,
+        "Name": "Bottes usées",
         "Description": "TODO",
-        "Price": 25
+        "Price": 35
       },
       {
         "Id": 8,
-        "Name": "Armure de plaques",
+        "ItemType": 2,
+        "Name": "Bottes de qualité",
         "Description": "TODO",
         "Price": 35
       },
       {
         "Id": 9,
-        "Name": "Amulette 1",
-        "Description": "TODO",
-        "Price": 50
-      },
-      {
-        "Id": 10,
-        "Name": "Amulette 2",
-        "Description": "TODO",
-        "Price": 70
-      },
-      {
-        "Id": 11,
+        "ItemType": 3,
         "Name": "Amulette de Tartempion",
-        "Description": "Une pimpante amulette, elle aurait été forgée par les membres de l'Olympus Pimpus.",
+        "Description": "Une pimpante amulette, selon la légende, elle serait donnée au gagnant de l'Olympus Pimpus.",
         "Price": 100
       },
       {
-        "Id": 12,
-        "Name": "Augmentation d’inventaire",
+        "Id": 10,
+        "ItemType": 4,
+        "Name": "Lingot de fer",
+        "Description": "Peut être utilisé pour la fabrication d'équipement.",
+        "Price": 5
+      },
+      {
+        "Id": 11,
+        "ItemType": 4,
+        "Name": "Bande de cuir",
+        "Description": "Peut être utilisé pour la fabrication d'équipement.",
+        "Price": 5
+      },
+      {
+        "Id": 99,
+        "ItemType": 4,
+        "Name": "Sac a dos amélioré",
         "Description": "TODO",
         "Price": 30
       }

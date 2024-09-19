@@ -44,8 +44,47 @@ func GetMapTileById(id int) MapTile {
 	return MapTile{}
 }
 
+func GetCraftingRecipeByResult(resultId byte) CraftingRecipe {
+	for _, recipe := range *CraftingRecipesPointer {
+		if recipe.Result == resultId {
+			return recipe
+		}
+	}
+	return CraftingRecipe{}
+}
+
 // Parseurs de json
 
+func ReadCraftingRecipes() {
+	*CraftingRecipesPointer = nil // Vide CraftingRecipes
+
+	// Ouvre le fichier JSON et lit son contenu
+	content, _ := ioutil.ReadFile("./Database/crafts.json") // Suppression de l'erreur
+
+	// Définir un dictionnaire pour stocker les données du JSON
+	var data []map[string]interface{}
+
+	// Décode le JSON
+	json.Unmarshal(content, &data) // Suppression de l'erreur
+
+	// Remplir CraftingRecipes avec les données décodées
+	for _, item := range data {
+		recipe := CraftingRecipe{
+			Result: byte(int(item["craftedItemId"].(float64))),
+		}
+
+		materials := item["craftingMaterials"].([]interface{})
+		for _, mat := range materials {
+			material := mat.(map[string]interface{})
+			recipe.Ingredients = append(recipe.Ingredients, CraftingMaterial{
+				ItemID:   int(material["itemId"].(float64)),
+				Quantity: int(material["quantity"].(float64)),
+			})
+		}
+
+		*CraftingRecipesPointer = append(*CraftingRecipesPointer, recipe)
+	}
+}
 func ReadMenuStrings() {
 	MenuLines = nil // Vide MenuLines
 
@@ -97,16 +136,16 @@ func ReadItemList() {
 
 	// Remplir ItemList avec des ItemObject
 	for _, item := range languageData {
-		id := item["Id"].(float64)
+		id := byte(int(item["Id"].(float64)))
 		name := item["Name"].(string)
-		description := item["Description"].(string)
-		price := item["Price"].(float64)
+		price := int(item["Price"].(float64))
+		itemType := byte(int(item["ItemType"].(float64)))
 
 		ItemList = append(ItemList, ItemObject{
-			Id:          byte(int(id)),
-			Name:        name,
-			Description: description,
-			Price:       int(price),
+			Id:       id,
+			Name:     name,
+			Price:    price,
+			ItemType: itemType,
 		})
 	}
 }
