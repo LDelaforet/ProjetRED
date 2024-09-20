@@ -693,9 +693,20 @@ func DisplayShop() {
 			FgColor:     color.FgRed,
 		})
 	}
+	RED.NewLine(1)
+	if RED.PlayerPointer.Money >= RED.GetItemById(99).Price {
+		RED.DisplayText(RED.DisplayTextOptions{
+			TextToPrint: "5: " + RED.GetItemById(99).Name + ": " + strconv.Itoa(RED.GetItemById(99).Price) + "$\n  - " + RED.GetItemById(99).Description,
+		})
+	} else {
+		RED.DisplayText(RED.DisplayTextOptions{
+			TextToPrint: "5: " + RED.GetItemById(99).Name + ": " + strconv.Itoa(RED.GetItemById(99).Price) + "$\n  - " + RED.GetItemById(99).Description,
+			FgColor:     color.FgRed,
+		})
+	}
 	RED.NewLine(2)
 	RED.DisplayText(RED.DisplayTextOptions{
-		TextToPrint: "5: " + RED.GetLineById("quit"),
+		TextToPrint: "6: " + RED.GetLineById("quit"),
 	})
 
 	RED.NewLine(1)
@@ -808,9 +819,30 @@ func DisplayShop() {
 				RED.PlayerPointer.Money -= RED.GetItemById(4).Price
 			}
 			DisplayShop()
+		} else if input == "4" {
+			if RED.PlayerPointer.Money >= RED.GetItemById(99).Price && RED.PlayerPointer.Inventory[99].Quantity < byte(RED.PlayerPointer.InventorySize) {
+				//Check si l'item existe déjà dans l'inventaire
+				itemExists := false
+				for _, slot := range RED.PlayerPointer.Inventory {
+					if slot.Item == RED.GetItemById(99) {
+						itemExists = true
+						break
+					}
+				}
+				if itemExists {
+					RED.PlayerPointer.Inventory[99].Quantity++
+				} else {
+					RED.PlayerPointer.Inventory = append(RED.PlayerPointer.Inventory, RED.InventorySlot{
+						Item:     RED.GetItemById(99),
+						Quantity: 1,
+					})
+				}
+				RED.PlayerPointer.Money -= RED.GetItemById(99).Price
+			}
+			DisplayShop()
 		}
 	}
-	if input == "5" {
+	if input == "6" {
 		MapNavigation("shop")
 	} else {
 		DisplayShop()

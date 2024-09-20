@@ -113,13 +113,12 @@ func attack() {
 	fmt.Print(GetLineById("choice") + ": ")
 	input := GetInput()
 	if input == strconv.Itoa(int(question.ReponseIndex)) {
-		takenDamage := int(PlayerPointer.Damage) - int(CurrentEnemy.Defence)
-		fmt.Println("Vous mettez un coup au " + CurrentEnemyPointer.Type + ", il prends: " + strconv.Itoa(takenDamage) + " dégats")
+		fmt.Println("Vous mettez un coup au " + CurrentEnemyPointer.Type + ", il prends: " + strconv.Itoa(int(PlayerPointer.Damage)) + " dégats")
 		// Si les degats que met le joueur sont superieurs aux pv de l'ennemi bah on le met direct a 0 pour eviter qu'ils soient négatifs car byte n'est pas signé
-		if byte(takenDamage) >= CurrentEnemyPointer.Pv {
+		if PlayerPointer.Damage >= CurrentEnemyPointer.Pv {
 			CurrentEnemyPointer.Pv = 0
 		} else {
-			CurrentEnemyPointer.Pv -= byte(takenDamage)
+			CurrentEnemyPointer.Pv -= PlayerPointer.Damage
 		}
 	} else {
 		fmt.Println("Mauvaise réponse.")
@@ -255,6 +254,8 @@ func AccessInventory(currentState string) {
 				PlayerPointer.PvMax += 5
 			} else if PlayerPointer.Inventory[index].Item.Id == 9 {
 				PlayerPointer.Pv = 0
+			} else if PlayerPointer.Inventory[index].Item.Id == 99 {
+				PlayerPointer.InventorySize += 5
 			}
 			if PlayerPointer.Inventory[index].Quantity > 1 {
 				PlayerPointer.Inventory[index].Quantity -= 1
