@@ -2,70 +2,54 @@ package RED
 
 import (
 	"encoding/json"
-	"fmt"
 	"os"
 )
 
-// Define a struct to hold the pointers
-type Pointers struct {
-	PlayerPointer         *string `json:"player_pointer"`
-	ItemListPointer       *string `json:"item_list_pointer"`
-	IsGameInFrenchPointer *bool   `json:"is_game_in_french_pointer"`
-	MenuLinesPointer      *string `json:"menu_lines_pointer"`
-	MapListPointer        *string `json:"map_list_pointer"`
-	CurrentEnemyPointer   *string `json:"current_enemy_pointer"`
-	DiscoveredPointer     *string `json:"discovered_pointer"`
-	CurrentMapPointer     *string `json:"current_map_pointer"`
-	CurrentMapIdPointer   *int    `json:"current_map_id_pointer"`
-	CurrentTileIdPointer  *int    `json:"current_tile_id_pointer"`
+type SaveData struct {
+	PlayerPointer  *Perso `json:"player_pointer"`
+	IsGameInFrench *bool  `json:"is_game_in_french"`
+	Discovered     *[]int `json:"discovered"`
+	CurrentMapId   *int   `json:"current_map_id"`
+	CurrentTileId  *int   `json:"current_tile_id"`
 }
 
-func SavePointers() {
-	// Initialize pointers with some values
-	player := "Player1"
-	itemList := "Sword, Shield"
-	isGameInFrench := true
-	menuLines := "Start, Load, Exit"
-	mapList := "Map1, Map2"
-	currentEnemy := "Dragon"
-	discovered := "Treasure"
-	currentMap := "Map1"
-	currentMapId := 1
-	currentTileId := 101
-
-	pointers := Pointers{
-		PlayerPointer:         &player,
-		ItemListPointer:       &itemList,
-		IsGameInFrenchPointer: &isGameInFrench,
-		MenuLinesPointer:      &menuLines,
-		MapListPointer:        &mapList,
-		CurrentEnemyPointer:   &currentEnemy,
-		DiscoveredPointer:     &discovered,
-		CurrentMapPointer:     &currentMap,
-		CurrentMapIdPointer:   &currentMapId,
-		CurrentTileIdPointer:  &currentTileId,
+func SaveToJSON() error {
+	data := SaveData{
+		PlayerPointer:  PlayerPointer,
+		IsGameInFrench: IsGameInFrenchPointer,
+		Discovered:     DiscoveredPointer,
+		CurrentMapId:   CurrentMapIdPointer,
+		CurrentTileId:  CurrentTileIdPointer,
 	}
 
-	// Convert the struct to JSON
-	jsonData, err := json.MarshalIndent(pointers, "", "  ")
+	file, err := os.Create("save.sav")
 	if err != nil {
-		fmt.Println("Error marshalling JSON:", err)
-		return
-	}
-
-	// Save the JSON to a file
-	file, err := os.Create("save.json")
-	if err != nil {
-		fmt.Println("Error creating file:", err)
-		return
+		return err
 	}
 	defer file.Close()
 
-	_, err = file.Write(jsonData)
+	encoder := json.NewEncoder(file)
+	return encoder.Encode(data)
+}
+
+func LoadFromJSON() error {
+	file, err := os.Open("save.sav")
 	if err != nil {
-		fmt.Println("Error writing to file:", err)
-		return
+		return err
+	}
+	defer file.Close()
+
+	var data SaveData
+	decoder := json.NewDecoder(file)
+	if err := decoder.Decode(&data); err != nil {
+		return err
 	}
 
-	fmt.Println("Pointers saved to save.json")
+	PlayerPointer = data.PlayerPointer
+	IsGameInFrenchPointer = data.IsGameInFrench
+	DiscoveredPointer = data.Discovered
+	CurrentMapIdPointer = data.CurrentMapId
+	CurrentTileIdPointer = data.CurrentTileId
+
+	return nil
 }

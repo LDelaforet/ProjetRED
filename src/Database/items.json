@@ -1,175 +1,188 @@
 {
-    "i18n_fr": [
-      {
-        "Id": 0,
-        "ItemType": 3,
-        "Name": "Potion de soin",
-        "Description": "Potion permettant de récuperer des PV.",
-        "Price": 0
-      },
-      {
-        "Id": 1,
-        "ItemType": 3,
-        "Name": "Potion de force",
-        "Description": "Potion augmentant la force.",
-        "Price": 5
-      },
-      {
-        "Id": 2,
-        "ItemType": 3,
-        "Name": "Potion de protection",
-        "Description": "Potion augmentant la défense.",
-        "Price": 5
-      },
-      {
-        "Id": 3,
-        "ItemType": 1,
-        "Name": "Epée rouillée",
-        "Description": "TODO",
-        "Price": 20
-      },
-      {
-        "Id": 4,
-        "ItemType": 1,
-        "Name": "Epée en fer",
-        "Description": "TODO",
-        "Price": 30
-      },
-      {
-        "Id": 5,
-        "ItemType": 2,
-        "Name": "Armure de piètre qualité",
-        "Description": "TODO",
-        "Price": 15
-      },
-      {
-        "Id": 6,
-        "ItemType": 2,
-        "Name": "Armure renforcée",
-        "Description": "TODO",
-        "Price": 15
-      },
-      {
-        "Id": 7,
-        "ItemType": 2,
-        "Name": "Bottes usées",
-        "Description": "TODO",
-        "Price": 35
-      },
-      {
-        "Id": 8,
-        "ItemType": 2,
-        "Name": "Bottes de qualité",
-        "Description": "TODO",
-        "Price": 35
-      },
-      {
-        "Id": 9,
-        "ItemType": 3,
-        "Name": "Amulette de Tartempion",
-        "Description": "Une pimpante amulette, selon la légende, elle serait donnée au gagnant de l'Olympus Pimpus.",
-        "Price": 100
-      },
-      {
-        "Id": 10,
-        "ItemType": 4,
-        "Name": "Lingot de fer",
-        "Description": "Peut être utilisé pour la fabrication d'équipement.",
-        "Price": 5
-      },
-      {
-        "Id": 11,
-        "ItemType": 4,
-        "Name": "Bande de cuir",
-        "Description": "Peut être utilisé pour la fabrication d'équipement.",
-        "Price": 5
-      },
-      {
-        "Id": 99,
-        "ItemType": 4,
-        "Name": "Sac a dos amélioré",
-        "Description": "TODO",
-        "Price": 30
-      }
-    ],
-    "i18n_en": [
-        {
-          "Id": 0,
-          "Name": "Healing Potion",
-          "Description": "Potion that restores HP.",
-          "Price": 5
-        },
-        {
-          "Id": 1,
-          "Name": "Strength Potion",
-          "Description": "Potion that increases strength.",
-          "Price": 5
-        },
-        {
-          "Id": 2,
-          "Name": "Protection Potion",
-          "Description": "Potion that increases defense.",
-          "Price": 5
-        },
-        {
-          "Id": 3,
-          "Name": "Wooden Sword",
-          "Description": "Small sword of poor quality.",
-          "Price": 10
-        },
-        {
-          "Id": 4,
-          "Name": "Rusty Iron Sword",
-          "Description": "TODO",
-          "Price": 20
-        },
-        {
-          "Id": 5,
-          "Name": "Iron Sword",
-          "Description": "TODO",
-          "Price": 30
-        },
-        {
-          "Id": 6,
-          "Name": "Light Armor",
-          "Description": "TODO",
-          "Price": 15
-        },
-        {
-          "Id": 7,
-          "Name": "Armor",
-          "Description": "TODO",
-          "Price": 25
-        },
-        {
-          "Id": 8,
-          "Name": "Plate Armor",
-          "Description": "TODO",
-          "Price": 35
-        },
-        {
-          "Id": 9,
-          "Name": "Amulet 1",
-          "Description": "TODO",
-          "Price": 50
-        },
-        {
-          "Id": 10,
-          "Name": "Amulet 2",
-          "Description": "TODO",
-          "Price": 70
-        },
-        {
-          "Id": 11,
-          "Name": "Tartempion's Amulet",
-          "Description": "TODO",
-          "Price": 100
-        },
-        {
-          "Id": 12,
-          "Name": "Inventory Expansion",
-          "Description": "TODO",
-          "Price": 30
-        }
-      ]
-  }
+  "i18n_fr": [
+    {
+      "Id": 0,
+      "ItemType": 3,
+      "Name": "Potion de soin",
+      "Description": "Potion permettant de récuperer de 10 PV.",
+      "Price": 5
+    },
+    {
+      "Id": 1,
+      "ItemType": 3,
+      "Name": "Potion de force",
+      "Description": "Potion augmentant la force.",
+      "Price": 5
+    },
+    {
+      "Id": 2,
+      "ItemType": 3,
+      "Name": "Potion de protection",
+      "Description": "Potion augmentant les PV max.",
+      "Price": 7
+    },
+    {
+      "Id": 3,
+      "ItemType": 1,
+      "Name": "Epée rouillée",
+      "Description": "Une épée usée par le temps, peu efficace.",
+      "Price": 20
+    },
+    {
+      "Id": 4,
+      "ItemType": 1,
+      "Name": "Epée en fer",
+      "Description": "Une épée solide, faite pour le combat.",
+      "Price": 30
+    },
+    {
+      "Id": 5,
+      "ItemType": 2,
+      "Name": "Armure de piètre qualité",
+      "Description": "Une armure basique, offrant peu de protection.",
+      "Price": 15
+    },
+    {
+      "Id": 6,
+      "ItemType": 2,
+      "Name": "Armure renforcée",
+      "Description": "Une armure solide, offrant une meilleure protection.",
+      "Price": 15
+    },
+    {
+      "Id": 7,
+      "ItemType": 2,
+      "Name": "Bottes usées",
+      "Description": "Des bottes abîmées, encore utilisables.",
+      "Price": 35
+    },
+    {
+      "Id": 8,
+      "ItemType": 2,
+      "Name": "Bottes de qualité",
+      "Description": "Des bottes robustes, conçues pour durer.",
+      "Price": 35
+    },
+    {
+      "Id": 9,
+      "ItemType": 3,
+      "Name": "Amulette de Tartempion",
+      "Description": "Une pimpante amulette, selon la légende, elle serait donnée au gagnant de l'Olympus Pimpus.",
+      "Price": 100
+    },
+    {
+      "Id": 10,
+      "ItemType": 4,
+      "Name": "Lingot de fer",
+      "Description": "Peut être utilisé pour la fabrication d'équipements.",
+      "Price": 10
+    },
+    {
+      "Id": 11,
+      "ItemType": 4,
+      "Name": "Bande de cuir",
+      "Description": "Peut être utilisé pour la fabrication d'équipements.",
+      "Price": 10
+    },
+    {
+      "Id": 99,
+      "ItemType": 4,
+      "Name": "Sac à dos amélioré",
+      "Description": "Un sac offrant plus de capacité de rangement.",
+      "Price": 30
+    }
+  ],
+  "i18n_en": [
+    {
+      "Id": 0,
+      "ItemType": 3,
+      "Name": "Healing Potion",
+      "Description": "Potion that restores 10 HP.",
+      "Price": 5
+    },
+    {
+      "Id": 1,
+      "ItemType": 3,
+      "Name": "Strength Potion",
+      "Description": "Potion that increases strength.",
+      "Price": 5
+    },
+    {
+      "Id": 2,
+      "ItemType": 3,
+      "Name": "Protection Potion",
+      "Description": "Potion that increases max HP.",
+      "Price": 7
+    },
+    {
+      "Id": 3,
+      "ItemType": 1,
+      "Name": "Rusty Sword",
+      "Description": "A sword worn down by time, not very effective.",
+      "Price": 20
+    },
+    {
+      "Id": 4,
+      "ItemType": 1,
+      "Name": "Iron Sword",
+      "Description": "A solid sword made for combat.",
+      "Price": 30
+    },
+    {
+      "Id": 5,
+      "ItemType": 2,
+      "Name": "Low-Quality Armor",
+      "Description": "Basic armor that offers minimal protection.",
+      "Price": 15
+    },
+    {
+      "Id": 6,
+      "ItemType": 2,
+      "Name": "Reinforced Armor",
+      "Description": "Sturdy armor offering better defense.",
+      "Price": 15
+    },
+    {
+      "Id": 7,
+      "ItemType": 2,
+      "Name": "Worn Boots",
+      "Description": "Worn out boots, still usable.",
+      "Price": 35
+    },
+    {
+      "Id": 8,
+      "ItemType": 2,
+      "Name": "High-Quality Boots",
+      "Description": "Robust boots designed to last.",
+      "Price": 35
+    },
+    {
+      "Id": 9,
+      "ItemType": 3,
+      "Name": "Tartempion Amulet",
+      "Description": "A flashy amulet, according to legend, it is awarded to the winner of the Olympus Pimpus.",
+      "Price": 100
+    },
+    {
+      "Id": 10,
+      "ItemType": 4,
+      "Name": "Iron Ingot",
+      "Description": "Can be used for crafting equipment.",
+      "Price": 5
+    },
+    {
+      "Id": 11,
+      "ItemType": 4,
+      "Name": "Leather Strip",
+      "Description": "Can be used for crafting equipment.",
+      "Price": 5
+    },
+    {
+      "Id": 99,
+      "ItemType": 4,
+      "Name": "Upgraded Backpack",
+      "Description": "A backpack with increased storage capacity.",
+      "Price": 30
+    }
+  ]
+}

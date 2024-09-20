@@ -5,11 +5,13 @@ import (
 	"strconv"
 )
 
+var enemyTurnCounter int
+
 func BattleInit(en Enemy) {
 	loadQuizData()
 
 	CurrentEnemyPointer = &en
-	CurrentEnemyPointer.Pv = 1
+	enemyTurnCounter = 0
 	BattleMain()
 }
 
@@ -25,37 +27,66 @@ func BattleMain() {
 		DisplayLine()
 		NewLine(2)
 		DisplayText(DisplayTextOptions{
-			TextToPrint: "Joueur: " + PlayerPointer.Name + " | " + strconv.Itoa(int(PlayerPointer.Pv)) + " / " + strconv.Itoa(int(PlayerPointer.PvMax)),
+			TextToPrint: PlayerPointer.Name + ": " + strconv.Itoa(int(PlayerPointer.Pv)) + " / " + strconv.Itoa(int(PlayerPointer.PvMax)),
 		})
 		DisplayText(DisplayTextOptions{
-			TextToPrint: "Ennemi: " + CurrentEnemyPointer.Type + " | " + strconv.Itoa(int(CurrentEnemyPointer.Pv)) + " / " + strconv.Itoa(int(CurrentEnemyPointer.PvMax)),
+			TextToPrint: CurrentEnemyPointer.Type + ": " + strconv.Itoa(int(CurrentEnemyPointer.Pv)) + " / " + strconv.Itoa(int(CurrentEnemyPointer.PvMax)),
 		})
 		NewLine(2)
 		BoxStrings([]string{"0: " + GetLineById("attack"), "1: " + GetLineById("defend"), "2: " + GetLineById("useItem")})
 		NewLine(2)
 		DisplayLine()
 
-		fmt.Print("Choix: ")
+		fmt.Print(GetLineById("choice") + ": ")
 		input := GetInput()
 		switch input {
 		case "0":
+			enemyTurnCounter++
 			attack()
 		case "1":
 			defend()
 		case "2":
 			item()
 		}
-		if CurrentEnemyPointer.Pv == 0 {
+		if CurrentEnemyPointer.Pv < 1 {
+			PlayerPointer.Money += int(CurrentEnemyPointer.MoneyToDrop)
+
+			DisplayText(DisplayTextOptions{
+				TextToPrint: "Vous avez vaincu le " + CurrentEnemyPointer.Type + " !\n" + PlayerPointer.Name + " gagne " + strconv.Itoa(int(CurrentEnemyPointer.XpToDrop)) + " points d'expérience et " + strconv.Itoa(int(CurrentEnemyPointer.MoneyToDrop)) + " " + GetLineById("money"),
+			})
+			GetInput()
 			break
 		}
-		if PlayerPointer.Pv == 0 {
+		if PlayerPointer.Pv < 1 {
 			fmt.Println("Vous etes malhencontreusement décédé (RIP BOZO)")
-			break
+			GetInput()
+			ClearScreen()
+			NewLine(2)
+			DisplayLine()
+			DisplayText(DisplayTextOptions{
+				TextToPrint: "GAME OVER",
+			})
+			DisplayLine()
+			NewLine(2)
+			DisplayText(DisplayTextOptions{
+				TextToPrint: "0: Recommencer le combat avec 50% de votre vie",
+			})
+			DisplayText(DisplayTextOptions{
+				TextToPrint: "1: Quitter le jeu",
+			})
+			NewLine(2)
+			DisplayLine()
+			fmt.Print(GetLineById("choice") + ": ")
+			input := GetInput()
+			if input == "0" {
+				PlayerPointer.Pv = PlayerPointer.PvMax / 2
+				BattleInit(*CurrentEnemyPointer)
+			} else {
+				ClearScreen()
+				break
+			}
 		}
 	}
-	NewLine(2)
-	DisplayLine()
-	GetInput()
 }
 
 func attack() {
@@ -79,28 +110,37 @@ func attack() {
 	}
 	NewLine(2)
 	DisplayLine()
-	fmt.Printf("Choix: ")
+	fmt.Print(GetLineById("choice") + ": ")
 	input := GetInput()
 	if input == strconv.Itoa(int(question.ReponseIndex)) {
-		fmt.Println("Vous mettez un coup au " + CurrentEnemyPointer.Type + ", il prends: " + strconv.Itoa(int(PlayerPointer.Damage)) + " dégats")
+		takenDamage := int(PlayerPointer.Damage) - int(CurrentEnemy.Defence)
+		fmt.Println("Vous mettez un coup au " + CurrentEnemyPointer.Type + ", il prends: " + strconv.Itoa(takenDamage) + " dégats")
 		// Si les degats que met le joueur sont superieurs aux pv de l'ennemi bah on le met direct a 0 pour eviter qu'ils soient négatifs car byte n'est pas signé
-		if PlayerPointer.Damage >= CurrentEnemyPointer.Pv {
+		if byte(takenDamage) >= CurrentEnemyPointer.Pv {
 			CurrentEnemyPointer.Pv = 0
 		} else {
-			CurrentEnemyPointer.Pv -= PlayerPointer.Damage
+			CurrentEnemyPointer.Pv -= byte(takenDamage)
 		}
 	} else {
 		fmt.Println("Mauvaise réponse.")
 	}
 
 	if CurrentEnemyPointer.Pv > 0 {
-		fmt.Println("Le " + CurrentEnemyPointer.Type + " vous inflige " + strconv.Itoa(int(CurrentEnemyPointer.Damage)) + " dégats")
-
-		// Idem, le byte est non signé donc on dois checker qu'on soit a + de 0
-		if CurrentEnemyPointer.Damage >= PlayerPointer.Pv {
-			PlayerPointer.Pv = 0
+		if enemyTurnCounter < 3 {
+			fmt.Println("Le " + CurrentEnemyPointer.Type + " vous inflige " + strconv.Itoa(int(CurrentEnemyPointer.Damage)) + " dégats")
+			if CurrentEnemyPointer.Damage >= PlayerPointer.Pv {
+				PlayerPointer.Pv = 0
+			} else {
+				PlayerPointer.Pv -= CurrentEnemyPointer.Damage
+			}
 		} else {
-			PlayerPointer.Pv -= CurrentEnemyPointer.Damage
+			fmt.Println("Le " + CurrentEnemyPointer.Type + " vous inflige " + strconv.Itoa(int(CurrentEnemyPointer.Damage)*2) + " dégats critique")
+			if CurrentEnemyPointer.Damage*2 >= PlayerPointer.Pv {
+				PlayerPointer.Pv = 0
+			} else {
+				PlayerPointer.Pv -= CurrentEnemyPointer.Damage * 2
+				enemyTurnCounter = 0
+			}
 		}
 	}
 	NewLine(2)
@@ -112,13 +152,19 @@ func attack() {
 
 func defend() {
 	ClearScreen()
-	DisplayText(DisplayTextOptions{
-		TextToPrint: "Le " + CurrentEnemyPointer.Type + " vous porte un coup que vous bloquez, vous subissez hélas " + strconv.Itoa(int((CurrentEnemyPointer.Damage - PlayerPointer.Defence))) + " dégats",
-	})
-	if (CurrentEnemyPointer.Damage - PlayerPointer.Defence) >= PlayerPointer.Pv {
-		PlayerPointer.Pv = 0
+	if !(CurrentEnemyPointer.Damage < PlayerPointer.Defence) {
+		if (CurrentEnemyPointer.Damage - PlayerPointer.Defence) >= PlayerPointer.Pv {
+			PlayerPointer.Pv = 0
+		} else {
+			PlayerPointer.Pv -= (CurrentEnemyPointer.Damage - PlayerPointer.Defence)
+		}
+		DisplayText(DisplayTextOptions{
+			TextToPrint: "Le " + CurrentEnemyPointer.Type + " vous porte un coup que vous bloquez, vous subissez hélas " + strconv.Itoa(int((CurrentEnemyPointer.Damage - PlayerPointer.Defence))) + " dégats",
+		})
 	} else {
-		PlayerPointer.Pv -= (CurrentEnemyPointer.Damage - PlayerPointer.Defence)
+		DisplayText(DisplayTextOptions{
+			TextToPrint: "Le " + CurrentEnemyPointer.Type + " vous porte un coup que vous bloquez",
+		})
 	}
 	DisplayText(DisplayTextOptions{
 		TextToPrint: PlayerPointer.Name + " profite de cet instant pour se soigner " + strconv.Itoa(int(PlayerPointer.Heal)) + " " + GetLineById("hp"),
@@ -154,7 +200,7 @@ func AccessInventory(currentState string) {
 	if !(len(PlayerPointer.Inventory) == 0) {
 		for i := 0; i < len(PlayerPointer.Inventory); i++ {
 			DisplayText(DisplayTextOptions{
-				TextToPrint: " - " + PlayerPointer.Inventory[i].Item.Name + " | x" + strconv.Itoa(int(PlayerPointer.Inventory[i].Quantity)),
+				TextToPrint: " - " + PlayerPointer.Inventory[i].Item.Name + " | x" + strconv.Itoa(int(PlayerPointer.Inventory[i].Quantity)) + "\n   - " + PlayerPointer.Inventory[i].Item.Description,
 			})
 			NewLine(1)
 		}
@@ -198,6 +244,18 @@ func AccessInventory(currentState string) {
 		input := GetInput()
 		index, err := strconv.Atoi(input)
 		if err == nil && index >= 0 && index < len(PlayerPointer.Inventory) {
+			if PlayerPointer.Inventory[index].Item.Id == 0 {
+				PlayerPointer.Pv += 5
+				if PlayerPointer.Pv > PlayerPointer.PvMax {
+					PlayerPointer.Pv = PlayerPointer.PvMax
+				}
+			} else if PlayerPointer.Inventory[index].Item.Id == 1 {
+				PlayerPointer.Damage += 2
+			} else if PlayerPointer.Inventory[index].Item.Id == 2 {
+				PlayerPointer.PvMax += 5
+			} else if PlayerPointer.Inventory[index].Item.Id == 9 {
+				PlayerPointer.Pv = 0
+			}
 			if PlayerPointer.Inventory[index].Quantity > 1 {
 				PlayerPointer.Inventory[index].Quantity -= 1
 			} else {
@@ -215,8 +273,6 @@ func AccessInventory(currentState string) {
 	}
 
 }
-
-
 
 func AddItemToInventory(itemId byte, quantite byte) {
 	for i, slot := range PlayerPointer.Inventory {
@@ -251,4 +307,3 @@ func checkIfItemInInventory(itemID byte, quantity byte) bool {
 	}
 	return false
 }
-

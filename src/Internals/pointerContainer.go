@@ -56,14 +56,24 @@ func ChestsInit() {
 	// Initialisation du contenu des coffres
 	// liste tous les items d'itemlist
 	Chests[0] = []InventorySlot{
-		{Item: ItemList[8], Quantity: 1},
-		{Item: ItemList[11], Quantity: 1},
-		{Item: ItemList[5], Quantity: 1},
+		{Item: ItemList[0], Quantity: 1},
+		{Item: ItemList[10], Quantity: 2},
 	}
-	Chests[1] = []InventorySlot{}
-	Chests[2] = []InventorySlot{}
-	Chests[3] = []InventorySlot{}
-	Chests[4] = []InventorySlot{}
+	Chests[1] = []InventorySlot{
+		{Item: ItemList[10], Quantity: 1},
+		{Item: ItemList[11], Quantity: 1},
+	}
+	Chests[2] = []InventorySlot{
+		{Item: ItemList[11], Quantity: 3},
+		{Item: ItemList[2], Quantity: 1},
+	}
+	Chests[3] = []InventorySlot{
+		{Item: ItemList[2], Quantity: 1},
+		{Item: ItemList[10], Quantity: 2},
+	}
+	Chests[4] = []InventorySlot{
+		{Item: ItemList[9], Quantity: 1},
+	}
 }
 
 func EnnemisInit() {
@@ -71,47 +81,56 @@ func EnnemisInit() {
 	Ennemis = append(Ennemis, Enemy{
 		Type:        "GO-blin",
 		PvMax:       15,
-		Pv:          10,
-		Damage:      3,
-		Defence:     2,
+		Pv:          15,
+		Damage:      5,
+		Defence:     3,
 		XpToDrop:    5,
 		MoneyToDrop: 3,
 	})
 	Ennemis = append(Ennemis, Enemy{
 		Type:        "Vampire",
 		PvMax:       15,
-		Pv:          10,
-		Damage:      3,
-		Defence:     2,
-		XpToDrop:    5,
-		MoneyToDrop: 3,
+		Pv:          15,
+		Damage:      6,
+		Defence:     0,
+		XpToDrop:    8,
+		MoneyToDrop: 5,
 	})
 	Ennemis = append(Ennemis, Enemy{
 		Type:        "Elfe",
-		PvMax:       15,
-		Pv:          10,
-		Damage:      3,
-		Defence:     2,
-		XpToDrop:    5,
-		MoneyToDrop: 3,
+		PvMax:       18,
+		Pv:          18,
+		Damage:      9,
+		Defence:     5,
+		XpToDrop:    10,
+		MoneyToDrop: 5,
 	})
 	Ennemis = append(Ennemis, Enemy{
 		Type:        "Java-Gicien",
-		PvMax:       15,
-		Pv:          10,
-		Damage:      3,
+		PvMax:       20,
+		Pv:          20,
+		Damage:      8,
 		Defence:     2,
-		XpToDrop:    5,
-		MoneyToDrop: 3,
+		XpToDrop:    12,
+		MoneyToDrop: 7,
 	})
 	Ennemis = append(Ennemis, Enemy{
 		Type:        "Momie",
-		PvMax:       15,
-		Pv:          10,
-		Damage:      3,
-		Defence:     2,
-		XpToDrop:    5,
-		MoneyToDrop: 3,
+		PvMax:       30,
+		Pv:          30,
+		Damage:      5,
+		Defence:     10,
+		XpToDrop:    15,
+		MoneyToDrop: 10,
+	})
+	Ennemis = append(Ennemis, Enemy{
+		Type:        "Training Dummy",
+		PvMax:       100,
+		Pv:          100,
+		Damage:      1,
+		Defence:     0,
+		XpToDrop:    0,
+		MoneyToDrop: 0,
 	})
 }
 

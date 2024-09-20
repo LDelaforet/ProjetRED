@@ -140,12 +140,14 @@ func ReadItemList() {
 		name := item["Name"].(string)
 		price := int(item["Price"].(float64))
 		itemType := byte(int(item["ItemType"].(float64)))
+		description := item["Description"].(string)
 
 		ItemList = append(ItemList, ItemObject{
-			Id:       id,
-			Name:     name,
-			Price:    price,
-			ItemType: itemType,
+			Id:          id,
+			Name:        name,
+			Description: description,
+			Price:       price,
+			ItemType:    itemType,
 		})
 	}
 }

@@ -26,7 +26,7 @@
 		},
 		{
 			"Id":		4,
-			"EventType": 	2,
+			"EventType": 	0,
 			"ToLeftID": 	3,
 			"ToRightID": 5,
 			"ToUpID": 0,
@@ -124,7 +124,7 @@
 		},
 		{
 			"Id":        7,
-			"EventType": 2,
+			"EventType": 5,
 			"ToLeftID":  0,
 			"ToRightID": 0,
 			"ToUpID":    6,
@@ -272,7 +272,7 @@
         },
         {
             "Id":        4,
-            "EventType": 2,
+            "EventType": 0,
             "ToLeftID":  0,
             "ToRightID": 3,
             "ToUpID":    0,
@@ -280,7 +280,7 @@
         },
         {
             "Id":        5,
-            "EventType": 2,
+            "EventType": 0,
             "ToLeftID":  0,
             "ToRightID": 0,
             "ToUpID":    4,
@@ -339,7 +339,7 @@
         },
         {
             "Id":        2,
-            "EventType": 2,
+            "EventType": 0,
             "ToLeftID":  3,
             "ToRightID": 1,
             "ToUpID":    0,
@@ -364,7 +364,7 @@
         },
         {
             "Id":        5,
-            "EventType": 2,
+            "EventType": 0,
             "ToLeftID":  0,
             "ToRightID": 0,
             "ToUpID":    4,
@@ -420,7 +420,7 @@
         },
         {
             "Id":        12,
-            "EventType": 2,
+            "EventType": 0,
             "ToLeftID":  13,
             "ToRightID": 11,
             "ToUpID":    0,
@@ -452,7 +452,7 @@
         },
         {
             "Id":        16,
-            "EventType": 2,
+            "EventType": 0,
             "ToLeftID":  15,
             "ToRightID": 17,
             "ToUpID":    11,

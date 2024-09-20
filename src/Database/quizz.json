@@ -14,6 +14,193 @@
       },
       {
         "Id": 1,
+        "Question": "Quel est le mot-clé pour déclarer une variable en Go ?",
+        "Reponses": [
+          "var",
+          "let",
+          "func",
+          "const"
+        ],
+        "ReponseIndex": 0
+      },
+      {
+        "Id": 2,
+        "Question": "Quel est le type de données pour un entier en Go ?",
+        "Reponses": [
+          "int",
+          "integer",
+          "float",
+          "char"
+        ],
+        "ReponseIndex": 0
+      },
+      {
+        "Id": 3,
+        "Question": "Quelle est la méthode pour obtenir l'entrée de l'utilisateur en Go ?",
+        "Reponses": [
+          "input()",
+          "read()",
+          "scan()",
+          "fmt.Scan()"
+        ],
+        "ReponseIndex": 3
+      },
+      {
+        "Id": 4,
+        "Question": "Quel mot-clé est utilisé pour définir une fonction en Go ?",
+        "Reponses": [
+          "def",
+          "func",
+          "function",
+          "defun"
+        ],
+        "ReponseIndex": 1
+      },
+      {
+        "Id": 5,
+        "Question": "Quelle est la méthode pour afficher un texte en Go ?",
+        "Reponses": [
+          "fmt.Print()",
+          "console.log()",
+          "System.out.println()",
+          "echo()"
+        ],
+        "ReponseIndex": 0
+      },
+      {
+        "Id": 6,
+        "Question": "Quel package doit être importé pour travailler avec l'input/output en Go ?",
+        "Reponses": [
+          "input/output",
+          "io/fmt",
+          "fmt",
+          "sys/io"
+        ],
+        "ReponseIndex": 2
+      },
+      {
+        "Id": 7,
+        "Question": "Quel est le mot-clé utilisé pour une boucle en Go ?",
+        "Reponses": [
+          "while",
+          "loop",
+          "for",
+          "repeat"
+        ],
+        "ReponseIndex": 2
+      },
+      {
+        "Id": 8,
+        "Question": "Quelle fonction est utilisée pour obtenir la longueur d'une chaîne en Go ?",
+        "Reponses": [
+          "length()",
+          "len()",
+          "size()",
+          "count()"
+        ],
+        "ReponseIndex": 1
+      },
+      {
+        "Id": 9,
+        "Question": "Quel est le type de données pour une valeur booléenne en Go ?",
+        "Reponses": [
+          "boolean",
+          "bool",
+          "int",
+          "bit"
+        ],
+        "ReponseIndex": 1
+      },
+      {
+        "Id": 10,
+        "Question": "Quel symbole est utilisé pour les commentaires d'une seule ligne en Go ?",
+        "Reponses": [
+          "//",
+          "/* */",
+          "#",
+          "%"
+        ],
+        "ReponseIndex": 0
+      },
+      {
+        "Id": 11,
+        "Question": "Quelle est l'extension d'un fichier Go ?",
+        "Reponses": [
+          ".go",
+          ".golang",
+          ".g",
+          ".gl"
+        ],
+        "ReponseIndex": 0
+      },
+      {
+        "Id": 12,
+        "Question": "Quel est le résultat de 5 % 2 en Go ?",
+        "Reponses": [
+          "2",
+          "1",
+          "0",
+          "3"
+        ],
+        "ReponseIndex": 1
+      },
+      {
+        "Id": 13,
+        "Question": "Quelle est la méthode pour créer un tableau en Go ?",
+        "Reponses": [
+          "array()",
+          "make()",
+          "newArray()",
+          "create()"
+        ],
+        "ReponseIndex": 1
+      },
+      {
+        "Id": 14,
+        "Question": "Quel est le mot-clé utilisé pour une condition if en Go ?",
+        "Reponses": [
+          "condition",
+          "if",
+          "elif",
+          "when"
+        ],
+        "ReponseIndex": 1
+      },
+      {
+        "Id": 15,
+        "Question": "Quel est le mot-clé pour arrêter une boucle en Go ?",
+        "Reponses": [
+          "break",
+          "stop",
+          "end",
+          "return"
+        ],
+        "ReponseIndex": 0
+      },
+      {
+        "Id": 16,
+        "Question": "Que retourne une fonction sans valeur de retour en Go ?",
+        "Reponses": [
+          "0",
+          "nil",
+          "none",
+          "void"
+        ],
+        "ReponseIndex": 1
+      },
+      {
+        "Id": 17,
+        "Question": "Quel est le mot-clé utilisé pour importer des packages en Go ?",
+        "Reponses": [
+          "import",
+          "include",
+          "use",
+          "package"
+        ],
+        "ReponseIndex": 0
+      },
+      {
+        "Id": 18,
         "Question": "Quelle est l'extension des fichiers source Go ?",
         "Reponses": [
           "go",
@@ -26,7 +213,7 @@
     ],
     "Normal": [
       {
-        "Id": 2,
+        "Id": 0,
         "Question": "Quelle est la fonction du mot-clé `defer` en Go ?",
         "Reponses": [
           "Il annule un appel de fonction",
@@ -37,20 +224,196 @@
         "ReponseIndex": 1
       },
       {
-        "Id": 3,
-        "Question": "Comment Go gère-t-il la concurrence ?",
+        "Id": 1,
+        "Question": "Quel est le mot-clé utilisé pour déclarer une constante en Go ?",
         "Reponses": [
-          "Avec les threads",
-          "Avec les goroutines et les canaux",
-          "Avec les processus",
-          "Avec les promesses"
+          "const",
+          "constant",
+          "var",
+          "static"
         ],
-        "ReponseIndex": 1
+        "ReponseIndex": 0
+      },
+      {
+        "Id": 2,
+        "Question": "Comment afficher 'Hello, World!' en Go ?",
+        "Reponses": [
+          "fmt.Println('Hello, World!')",
+          "print('Hello, World!')",
+          "echo('Hello, World!')",
+          "System.out('Hello, World!')"
+        ],
+        "ReponseIndex": 0
+      },
+      {
+        "Id": 3,
+        "Question": "Quel est le type de données pour un nombre flottant en Go ?",
+        "Reponses": [
+          "float64",
+          "float",
+          "decimal",
+          "double"
+        ],
+        "ReponseIndex": 0
+      },
+      {
+        "Id": 4,
+        "Question": "Comment déclarer une variable non utilisée sans provoquer une erreur en Go ?",
+        "Reponses": [
+          "_",
+          "null",
+          "void",
+          "unused"
+        ],
+        "ReponseIndex": 0
+      },
+      {
+        "Id": 5,
+        "Question": "Quel package est utilisé pour formater l'entrée/sortie en Go ?",
+        "Reponses": [
+          "fmt",
+          "io",
+          "sys",
+          "print"
+        ],
+        "ReponseIndex": 0
+      },
+      {
+        "Id": 6,
+        "Question": "Comment déclarer une variable entière et l'initialiser à 10 ?",
+        "Reponses": [
+          "var x int = 10",
+          "x := 10",
+          "x int = 10",
+          "let x = 10"
+        ],
+        "ReponseIndex": 0
+      },
+      {
+        "Id": 7,
+        "Question": "Quel est le type de boucle disponible en Go ?",
+        "Reponses": [
+          "for",
+          "while",
+          "do-while",
+          "loop"
+        ],
+        "ReponseIndex": 0
+      },
+      {
+        "Id": 8,
+        "Question": "Quelle est la valeur zéro d'un booléen en Go ?",
+        "Reponses": [
+          "false",
+          "true",
+          "0",
+          "nil"
+        ],
+        "ReponseIndex": 0
+      },
+      {
+        "Id": 9,
+        "Question": "Quel est le résultat de l'opération `3 + 2 * 2` en Go ?",
+        "Reponses": [
+          "7",
+          "10",
+          "12",
+          "9"
+        ],
+        "ReponseIndex": 0
+      },
+      {
+        "Id": 10,
+        "Question": "Quel est le raccourci pour déclarer et initialiser une variable en Go ?",
+        "Reponses": [
+          ":=",
+          "var",
+          "let",
+          "="
+        ],
+        "ReponseIndex": 0
+      },
+      {
+        "Id": 11,
+        "Question": "Quel est le mot-clé pour importer un package en Go ?",
+        "Reponses": [
+          "import",
+          "include",
+          "require",
+          "use"
+        ],
+        "ReponseIndex": 0
+      },
+      {
+        "Id": 12,
+        "Question": "Quel est le type de données pour une chaîne de caractères en Go ?",
+        "Reponses": [
+          "string",
+          "str",
+          "char",
+          "text"
+        ],
+        "ReponseIndex": 0
+      },
+      {
+        "Id": 13,
+        "Question": "Comment écrire un commentaire sur plusieurs lignes en Go ?",
+        "Reponses": [
+          "/* */",
+          "//",
+          "#",
+          "%%"
+        ],
+        "ReponseIndex": 0
+      },
+      {
+        "Id": 14,
+        "Question": "Quel est le type de données pour une variable sans valeur explicite en Go ?",
+        "Reponses": [
+          "nil",
+          "undefined",
+          "none",
+          "null"
+        ],
+        "ReponseIndex": 0
+      },
+      {
+        "Id": 15,
+        "Question": "Quelle est la fonction pour convertir une chaîne en entier en Go ?",
+        "Reponses": [
+          "strconv.Atoi()",
+          "parseInt()",
+          "toInt()",
+          "convert.Int()"
+        ],
+        "ReponseIndex": 0
+      },
+      {
+        "Id": 16,
+        "Question": "Quel est le mot-clé pour une déclaration de retour anticipé dans une fonction ?",
+        "Reponses": [
+          "return",
+          "exit",
+          "stop",
+          "break"
+        ],
+        "ReponseIndex": 0
+      },
+      {
+        "Id": 17,
+        "Question": "Comment vérifier si deux variables sont égales en Go ?",
+        "Reponses": [
+          "==",
+          "=",
+          "equals()",
+          "eq"
+        ],
+        "ReponseIndex": 0
       }
     ],
     "Difficile": [
       {
-        "Id": 4,
+        "Id": 0,
         "Question": "Que fait la fonction `recover()` en Go et dans quel contexte est-elle utilisée ?",
         "Reponses": [
           "Elle capture les erreurs de compilation avant l'exécution",
@@ -61,13 +424,189 @@
         "ReponseIndex": 2
       },
       {
-        "Id": 5,
-        "Question": "Qu'est-ce que le mot-clé `select` fait dans un contexte de goroutines et de canaux en Go ?",
+        "Id": 1,
+        "Question": "Quelle fonction est utilisée pour lancer une goroutine en Go ?",
         "Reponses": [
-          "Il sélectionne un canal parmi plusieurs pour envoyer ou recevoir des données",
-          "Il filtre les canaux disponibles en fonction de leur taille",
-          "Il définit la priorité des goroutines",
-          "Il choisit les goroutines à exécuter en fonction de leur durée d'exécution"
+          "go func()",
+          "start func()",
+          "new goroutine()",
+          "thread.start()"
+        ],
+        "ReponseIndex": 0
+      },
+      {
+        "Id": 2,
+        "Question": "Quel mot-clé est utilisé pour gérer les erreurs en Go ?",
+        "Reponses": [
+          "try-catch",
+          "throw",
+          "panic",
+          "catch"
+        ],
+        "ReponseIndex": 2
+      },
+      {
+        "Id": 3,
+        "Question": "Comment déclare-t-on un tableau de taille fixe en Go ?",
+        "Reponses": [
+          "array := [5]int{}",
+          "array := make([]int, 5)",
+          "array := new([]int)",
+          "array := []int{5}"
+        ],
+        "ReponseIndex": 0
+      },
+      {
+        "Id": 4,
+        "Question": "Quelle est la différence principale entre un slice et un tableau en Go ?",
+        "Reponses": [
+          "Un tableau a une taille dynamique, un slice non",
+          "Un slice peut changer de taille, un tableau a une taille fixe",
+          "Les tableaux ne peuvent contenir que des entiers, les slices peuvent contenir tout type",
+          "Les slices sont stockés dans la pile, les tableaux dans le tas"
+        ],
+        "ReponseIndex": 1
+      },
+      {
+        "Id": 5,
+        "Question": "Comment créer une map en Go ?",
+        "Reponses": [
+          "map := make(map[string]int)",
+          "map := map[string]int{}",
+          "map := new(map[string]int)",
+          "map := []map[string]int"
+        ],
+        "ReponseIndex": 0
+      },
+      {
+        "Id": 6,
+        "Question": "Quelle est la méthode pour verrouiller une ressource partagée dans une goroutine ?",
+        "Reponses": [
+          "sync.Mutex.Lock()",
+          "goroutine.Lock()",
+          "resource.Lock()",
+          "concurrency.Lock()"
+        ],
+        "ReponseIndex": 0
+      },
+      {
+        "Id": 7,
+        "Question": "Quel package est utilisé pour la concurrence en Go ?",
+        "Reponses": [
+          "fmt",
+          "sync",
+          "io",
+          "concurrent"
+        ],
+        "ReponseIndex": 1
+      },
+      {
+        "Id": 8,
+        "Question": "Comment envoyer une valeur dans un canal (channel) en Go ?",
+        "Reponses": [
+          "ch <- val",
+          "ch -> val",
+          "send ch val",
+          "push ch val"
+        ],
+        "ReponseIndex": 0
+      },
+      {
+        "Id": 9,
+        "Question": "Quel type est retourné par une fonction qui ne renvoie rien en Go ?",
+        "Reponses": [
+          "void",
+          "nil",
+          "no type",
+          "none"
+        ],
+        "ReponseIndex": 1
+      },
+      {
+        "Id": 10,
+        "Question": "Quel est le type de retour d’une fonction qui renvoie plusieurs valeurs en Go ?",
+        "Reponses": [
+          "tuple",
+          "slice",
+          "multiple types",
+          "les valeurs sont séparées par une virgule"
+        ],
+        "ReponseIndex": 3
+      },
+      {
+        "Id": 11,
+        "Question": "Comment itérer sur les clés et les valeurs d’une map en Go ?",
+        "Reponses": [
+          "for range map",
+          "for key, value := range map",
+          "map.forEach()",
+          "map.iterator()"
+        ],
+        "ReponseIndex": 1
+      },
+      {
+        "Id": 12,
+        "Question": "Comment créer un pointeur en Go ?",
+        "Reponses": [
+          "ptr := &variable",
+          "ptr := *variable",
+          "ptr := pointer(variable)",
+          "ptr := &new(variable)"
+        ],
+        "ReponseIndex": 0
+      },
+      {
+        "Id": 13,
+        "Question": "Quel est le rôle du mot-clé 'defer' en Go ?",
+        "Reponses": [
+          "Exécuter une fonction après un certain délai",
+          "Exécuter une fonction après la fin d’une fonction englobante",
+          "Différer l'exécution d'une fonction jusqu'à la prochaine boucle",
+          "Reporter une tâche à un moment précis"
+        ],
+        "ReponseIndex": 1
+      },
+      {
+        "Id": 14,
+        "Question": "Comment allouer de la mémoire dynamiquement pour un type en Go ?",
+        "Reponses": [
+          "make()",
+          "new()",
+          "alloc()",
+          "malloc()"
+        ],
+        "ReponseIndex": 1
+      },
+      {
+        "Id": 15,
+        "Question": "Quel est le mot-clé pour un test unitaire en Go ?",
+        "Reponses": [
+          "testing",
+          "unittest",
+          "assert",
+          "go test"
+        ],
+        "ReponseIndex": 3
+      },
+      {
+        "Id": 16,
+        "Question": "Quelle est la syntaxe correcte pour récupérer l'adresse d'une variable en Go ?",
+        "Reponses": [
+          "addr(variable)",
+          "&variable",
+          "address(variable)",
+          "*variable"
+        ],
+        "ReponseIndex": 1
+      },
+      {
+        "Id": 17,
+        "Question": "Quel package est utilisé pour le traitement des entrées/sorties en Go ?",
+        "Reponses": [
+          "io",
+          "fmt",
+          "input/output",
+          "os"
         ],
         "ReponseIndex": 0
       }
@@ -87,15 +626,191 @@
         "ReponseIndex": 0
       },
       {
-        "Id": 7,
-        "Question": "Quel est le rôle de la commande `git rebase` ?",
+        "Id": 1,
+        "Question": "Que fait la commande 'git init' ?",
         "Reponses": [
-          "Fusionner deux branches en conservant les commits de chaque branche",
-          "Réécrire l’historique des commits d’une branche",
-          " Créer une nouvelle branche à partir d’une branche existante ",
-          "Supprimer une branche localement"
+          "Elle envoie des fichiers vers un dépôt distant",
+          "Elle ajoute des fichiers",
+          "Elle initialise un nouveau dépôt Git",
+          "Elle supprime un dépôt"
+        ],
+        "ReponseIndex": 2
+      },
+      {
+        "Id": 2,
+        "Question": "Que fait la commande 'git status' ?",
+        "Reponses": [
+          "Elle affiche les branches",
+          "Elle montre l'état du dépôt",
+          "Elle envoie des fichiers",
+          "Elle supprime des fichiers"
         ],
         "ReponseIndex": 1
+      },
+      {
+        "Id": 3,
+        "Question": "À quoi sert la commande 'git add' ?",
+        "Reponses": [
+          "Elle enregistre les modifications",
+          "Elle ajoute des fichiers à la zone de staging",
+          "Elle affiche les fichiers modifiés",
+          "Elle récupère les modifications"
+        ],
+        "ReponseIndex": 1
+      },
+      {
+        "Id": 4,
+        "Question": "Que fait la commande 'git commit' ?",
+        "Reponses": [
+          "Elle crée une nouvelle branche",
+          "Elle supprime des fichiers",
+          "Elle enregistre les modifications localement",
+          "Elle envoie des fichiers vers un dépôt distant"
+        ],
+        "ReponseIndex": 2
+      },
+      {
+        "Id": 5,
+        "Question": "Que fait la commande 'git clone' ?",
+        "Reponses": [
+          "Elle copie un dépôt distant sur l'ordinateur",
+          "Elle affiche l'historique",
+          "Elle supprime un dépôt",
+          "Elle enregistre les modifications"
+        ],
+        "ReponseIndex": 0
+      },
+      {
+        "Id": 6,
+        "Question": "Que fait la commande 'git push' ?",
+        "Reponses": [
+          "Elle envoie les modifications vers un dépôt distant",
+          "Elle affiche l'historique des commits",
+          "Elle fusionne des branches",
+          "Elle récupère les modifications d'un dépôt distant"
+        ],
+        "ReponseIndex": 0
+      },
+      {
+        "Id": 7,
+        "Question": "Que fait la commande 'git pull' ?",
+        "Reponses": [
+          "Elle affiche l'état du dépôt",
+          "Elle envoie les modifications vers un dépôt distant",
+          "Elle annule les dernières modifications",
+          "Elle récupère les modifications d'un dépôt distant"
+        ],
+        "ReponseIndex": 3
+      },
+      {
+        "Id": 8,
+        "Question": "Que fait la commande 'git log' ?",
+        "Reponses": [
+          "Elle affiche l'historique des commits",
+          "Elle crée un nouveau dépôt",
+          "Elle affiche l'état des fichiers",
+          "Elle affiche les fichiers modifiés"
+        ],
+        "ReponseIndex": 0
+      },
+      {
+        "Id": 9,
+        "Question": "Que fait un fichier '.gitignore' ?",
+        "Reponses": [
+          "Il contient les informations de configuration",
+          "Il stocke l'historique des commits",
+          "Il ignore certains fichiers dans le dépôt",
+          "Il liste les branches"
+        ],
+        "ReponseIndex": 2
+      },
+      {
+        "Id": 10,
+        "Question": "Que fait la commande 'git branch' ?",
+        "Reponses": [
+          "Elle affiche la liste des branches",
+          "Elle enregistre les modifications",
+          "Elle envoie les modifications",
+          "Elle crée un dépôt"
+        ],
+        "ReponseIndex": 0
+      },
+      {
+        "Id": 11,
+        "Question": "Que fait la commande 'git merge' ?",
+        "Reponses": [
+          "Elle fusionne deux branches",
+          "Elle clone un dépôt distant",
+          "Elle affiche l'état du dépôt",
+          "Elle récupère des modifications"
+        ],
+        "ReponseIndex": 0
+      },
+      {
+        "Id": 12,
+        "Question": "Que fait la commande 'git reset' ?",
+        "Reponses": [
+          "Elle fusionne deux branches",
+          "Elle supprime un dépôt",
+          "Elle affiche l'état du dépôt",
+          "Elle annule des modifications"
+        ],
+        "ReponseIndex": 3
+      },
+      {
+        "Id": 13,
+        "Question": "À quoi sert 'git config' ?",
+        "Reponses": [
+          "À configurer les informations utilisateur",
+          "À envoyer les fichiers vers un dépôt distant",
+          "À créer une nouvelle branche",
+          "À afficher les fichiers modifiés"
+        ],
+        "ReponseIndex": 0
+      },
+      {
+        "Id": 14,
+        "Question": "Que fait la commande 'git diff' ?",
+        "Reponses": [
+          "Elle affiche l'état du dépôt",
+          "Elle montre les différences entre les fichiers modifiés",
+          "Elle récupère les modifications d'un dépôt distant",
+          "Elle crée une nouvelle branche"
+        ],
+        "ReponseIndex": 1
+      },
+      {
+        "Id": 15,
+        "Question": "Que fait la commande 'git checkout' ?",
+        "Reponses": [
+          "Elle permet de changer de branche",
+          "Elle envoie les modifications vers un dépôt distant",
+          "Elle affiche l'historique des commits",
+          "Elle récupère les fichiers modifiés"
+        ],
+        "ReponseIndex": 0
+      },
+      {
+        "Id": 16,
+        "Question": "Comment voir l'historique des commits d'un fichier spécifique ?",
+        "Reponses": [
+          "git commit <fichier>",
+          "git status <fichier>",
+          "git push <fichier>",
+          "git log <fichier>"
+        ],
+        "ReponseIndex": 3
+      },
+      {
+        "Id": 17,
+        "Question": "Que fait la commande 'git fetch' ?",
+        "Reponses": [
+          "Elle enregistre les modifications localement",
+          "Elle fusionne deux branches",
+          "Elle récupère les modifications d'un dépôt distant sans les fusionner",
+          "Elle envoie les modifications vers un dépôt distant"
+        ],
+        "ReponseIndex": 2
       }
     ],
     "Normal": [
@@ -150,15 +865,191 @@
   "Misc": {
     "Facile": [
       {
-        "Id": 12,
-        "Question": "Quel est l'animal le plus rapide sur Terre ?",
+        "Id": 1,
+        "Question": "Quel est le plus grand océan du monde ?",
         "Reponses": [
-          "Le guépard",
-          "L'escargot",
-          "Le kangourou",
-          "Le papillon"
+          "Océan Atlantique",
+          "Océan Indien",
+          "Océan Pacifique",
+          "Océan Arctique"
+        ],
+        "ReponseIndex": 2
+      },
+      {
+        "Id": 2,
+        "Question": "Qui a peint la Joconde ?",
+        "Reponses": [
+          "Vincent van Gogh",
+          "Claude Monet",
+          "Leonardo da Vinci",
+          "Pablo Picasso"
+        ],
+        "ReponseIndex": 2
+      },
+      {
+        "Id": 3,
+        "Question": "Dans quel pays se trouve la tour Eiffel ?",
+        "Reponses": [
+          "Italie",
+          "Espagne",
+          "France",
+          "Allemagne"
+        ],
+        "ReponseIndex": 2
+      },
+      {
+        "Id": 4,
+        "Question": "Quel est le plus long fleuve du monde ?",
+        "Reponses": [
+          "Le Nil",
+          "L'Amazone",
+          "Le Yangzi Jiang",
+          "Le Mississippi"
+        ],
+        "ReponseIndex": 1
+      },
+      {
+        "Id": 5,
+        "Question": "Quel est le plus petit pays du monde ?",
+        "Reponses": [
+          "Monaco",
+          "Vatican",
+          "Saint-Marin",
+          "Liechtenstein"
+        ],
+        "ReponseIndex": 1
+      },
+      {
+        "Id": 6,
+        "Question": "Combien y a-t-il de continents sur Terre ?",
+        "Reponses": [
+          "5",
+          "6",
+          "7",
+          "8"
+        ],
+        "ReponseIndex": 2
+      },
+      {
+        "Id": 7,
+        "Question": "Qui a découvert l'Amérique en 1492 ?",
+        "Reponses": [
+          "Christophe Colomb",
+          "Vasco de Gama",
+          "Marco Polo",
+          "Ferdinand Magellan"
         ],
         "ReponseIndex": 0
+      },
+      {
+        "Id": 8,
+        "Question": "Quelle est la capitale de l'Espagne ?",
+        "Reponses": [
+          "Barcelone",
+          "Lisbonne",
+          "Madrid",
+          "Séville"
+        ],
+        "ReponseIndex": 2
+      },
+      {
+        "Id": 9,
+        "Question": "De quelle couleur est la planète Mars ?",
+        "Reponses": [
+          "Bleue",
+          "Verte",
+          "Rouge",
+          "Jaune"
+        ],
+        "ReponseIndex": 2
+      },
+      {
+        "Id": 10,
+        "Question": "Quelle est la monnaie utilisée au Japon ?",
+        "Reponses": [
+          "Dollar",
+          "Yuan",
+          "Yen",
+          "Won"
+        ],
+        "ReponseIndex": 2
+      },
+      {
+        "Id": 11,
+        "Question": "Dans quelle ville se trouvent les pyramides de Gizeh ?",
+        "Reponses": [
+          "Caire",
+          "Louxor",
+          "Alexandrie",
+          "Assouan"
+        ],
+        "ReponseIndex": 0
+      },
+      {
+        "Id": 12,
+        "Question": "Quel est le symbole chimique de l'eau ?",
+        "Reponses": [
+          "O2",
+          "H2O",
+          "CO2",
+          "HO"
+        ],
+        "ReponseIndex": 1
+      },
+      {
+        "Id": 13,
+        "Question": "Quelle est la langue officielle du Brésil ?",
+        "Reponses": [
+          "Espagnol",
+          "Français",
+          "Portugais",
+          "Anglais"
+        ],
+        "ReponseIndex": 2
+      },
+      {
+        "Id": 14,
+        "Question": "Quelle est la capitale du Canada ?",
+        "Reponses": [
+          "Vancouver",
+          "Montréal",
+          "Ottawa",
+          "Toronto"
+        ],
+        "ReponseIndex": 2
+      },
+      {
+        "Id": 15,
+        "Question": "Quel est l'élément chimique le plus léger ?",
+        "Reponses": [
+          "Hydrogène",
+          "Oxygène",
+          "Carbone",
+          "Azote"
+        ],
+        "ReponseIndex": 0
+      },
+      {
+        "Id": 16,
+        "Question": "Combien de jours y a-t-il dans une année bissextile ?",
+        "Reponses": [
+          "365",
+          "366",
+          "364",
+          "367"
+        ],
+        "ReponseIndex": 1
+      },
+      {
+        "Id": 17,
+        "Question": "Quel animal est le roi de la jungle ?",
+        "Reponses": [
+          "Tigre",
+          "Lion",
+          "Éléphant",
+          "Guépard"
+        ],
+        "ReponseIndex": 1
       },
       {
         "Id": 13,
@@ -224,24 +1115,189 @@
   "Java": {
     "Facile": [
       {
-        "Id": 18,
-        "Question": "Quel est le mot-clé utilisé pour définir une classe en Java ?",
+        "Id": 1,
+        "Question": "Que fait la méthode 'main' en Java ?",
         "Reponses": [
-          "define",
+          "Elle lance l'exécution d'un programme",
+          "Elle arrête le programme",
+          "Elle initialise des variables",
+          "Elle crée une classe"
+        ],
+        "ReponseIndex": 0
+      },
+      {
+        "Id": 2,
+        "Question": "Quelle est l'extension des fichiers Java ?",
+        "Reponses": [
+          ".js",
+          ".java",
+          ".class",
+          ".exe"
+        ],
+        "ReponseIndex": 1
+      },
+      {
+        "Id": 3,
+        "Question": "Que signifie 'JVM' ?",
+        "Reponses": [
+          "Java Version Manager",
+          "Java Virtual Machine",
+          "Java Vector Machine",
+          "Java Value Memory"
+        ],
+        "ReponseIndex": 1
+      },
+      {
+        "Id": 4,
+        "Question": "Comment déclare-t-on une variable entière en Java ?",
+        "Reponses": [
+          "int x;",
+          "integer x;",
+          "int[] x;",
+          "char x;"
+        ],
+        "ReponseIndex": 0
+      },
+      {
+        "Id": 5,
+        "Question": "Quelle est la méthode utilisée pour afficher du texte en Java ?",
+        "Reponses": [
+          "System.out.println()",
+          "print()",
+          "echo()",
+          "document.write()"
+        ],
+        "ReponseIndex": 0
+      },
+      {
+        "Id": 6,
+        "Question": "Que signifie 'OOP' en Java ?",
+        "Reponses": [
+          "Oriented Object Programming",
+          "Operational Oriented Program",
+          "Object-Oriented Programming",
+          "Ordered Operation Process"
+        ],
+        "ReponseIndex": 2
+      },
+      {
+        "Id": 7,
+        "Question": "Quel mot-clé est utilisé pour créer une nouvelle instance d'une classe ?",
+        "Reponses": [
           "class",
-          "struct",
+          "new",
+          "create",
           "object"
         ],
         "ReponseIndex": 1
       },
       {
-        "Id": 19,
-        "Question": "Comment crée-t-on un tableau d'entiers en Java ?",
+        "Id": 8,
+        "Question": "Quel mot-clé est utilisé pour hériter d'une classe en Java ?",
         "Reponses": [
-          "int[] arr = new int[10];",
-          "int[] arr = new int[10];",
-          "int arr = new int[10];",
-          "int arr = int[10];"
+          "inherits",
+          "extends",
+          "super",
+          "parent"
+        ],
+        "ReponseIndex": 1
+      },
+      {
+        "Id": 9,
+        "Question": "Lequel des types suivants est un type primitif en Java ?",
+        "Reponses": [
+          "int",
+          "String",
+          "Array",
+          "List"
+        ],
+        "ReponseIndex": 0
+      },
+      {
+        "Id": 10,
+        "Question": "Que fait la méthode 'length()' en Java ?",
+        "Reponses": [
+          "Elle retourne la longueur d'une chaîne",
+          "Elle retourne la taille d'un tableau",
+          "Elle crée une nouvelle chaîne",
+          "Elle concatène deux chaînes"
+        ],
+        "ReponseIndex": 0
+      },
+      {
+        "Id": 11,
+        "Question": "Quel mot-clé est utilisé pour définir une classe en Java ?",
+        "Reponses": [
+          "new",
+          "object",
+          "class",
+          "define"
+        ],
+        "ReponseIndex": 2
+      },
+      {
+        "Id": 12,
+        "Question": "Que fait le mot-clé 'this' en Java ?",
+        "Reponses": [
+          "Il fait référence à l'instance courante d'une classe",
+          "Il initialise une variable",
+          "Il fait référence à une classe parente",
+          "Il retourne la méthode courante"
+        ],
+        "ReponseIndex": 0
+      },
+      {
+        "Id": 13,
+        "Question": "Quel est le constructeur par défaut d'une classe en Java ?",
+        "Reponses": [
+          "Le constructeur sans argument",
+          "Le constructeur avec arguments",
+          "Le constructeur privé",
+          "Le constructeur static"
+        ],
+        "ReponseIndex": 0
+      },
+      {
+        "Id": 14,
+        "Question": "Quel est le type de retour d'une méthode qui ne retourne rien ?",
+        "Reponses": [
+          "int",
+          "void",
+          "null",
+          "float"
+        ],
+        "ReponseIndex": 1
+      },
+      {
+        "Id": 15,
+        "Question": "Quelle bibliothèque est utilisée pour les collections en Java ?",
+        "Reponses": [
+          "java.util",
+          "java.collections",
+          "java.lang",
+          "java.io"
+        ],
+        "ReponseIndex": 0
+      },
+      {
+        "Id": 16,
+        "Question": "Que signifie 'final' pour une variable en Java ?",
+        "Reponses": [
+          "La variable ne peut pas être modifiée",
+          "La variable ne peut être que lue",
+          "La variable est locale",
+          "La variable peut être modifiée une fois"
+        ],
+        "ReponseIndex": 0
+      },
+      {
+        "Id": 17,
+        "Question": "Quel est le symbole utilisé pour commenter une seule ligne en Java ?",
+        "Reponses": [
+          "//",
+          "/* */",
+          "<!-- -->",
+          "#"
         ],
         "ReponseIndex": 0
       }
@@ -298,26 +1354,191 @@
   "Javascript": {
     "Facile": [
       {
-        "Id": 24,
-        "Question": "Quelle est la sortie de ce code JavaScript : `console.log(0.1 + 0.2 === 0.3);` ?",
+        "Id": 1,
+        "Question": "Comment déclare-t-on une variable en JavaScript ?",
         "Reponses": [
-          "true",
-          "false",
-          "undefined",
-          "NaN"
+          "let",
+          "new",
+          "var",
+          "int"
+        ],
+        "ReponseIndex": 2
+      },
+      {
+        "Id": 2,
+        "Question": "Quelle méthode permet d'afficher un message dans la console en JavaScript ?",
+        "Reponses": [
+          "document.write()",
+          "echo()",
+          "print()",
+          "console.log()"
+        ],
+        "ReponseIndex": 3
+      },
+      {
+        "Id": 3,
+        "Question": "Que signifie 'NaN' en JavaScript ?",
+        "Reponses": [
+          "Not a Number",
+          "Not a Node",
+          "No Application Needed",
+          "Null and None"
         ],
         "ReponseIndex": 0
       },
       {
-        "Id": 25,
-        "Question": "Quelle est la sortie de ce code : `function foo() {\n return {\n message: \"Hello\" }; } console.log(foo());` ?",
+        "Id": 4,
+        "Question": "Que fait la méthode 'push()' sur un tableau en JavaScript ?",
         "Reponses": [
-          "{ message: \"Hello\" }",
-          "undefined",
-          "SyntaxError",
-          "null"
+          "Elle inverse le tableau",
+          "Elle ajoute un élément à la fin du tableau",
+          "Elle remplace un élément dans le tableau",
+          "Elle retire un élément au début du tableau"
         ],
-        "ReponseIndex": 0
+        "ReponseIndex": 1
+      },
+      {
+        "Id": 5,
+        "Question": "Quel mot-clé est utilisé pour créer une fonction en JavaScript ?",
+        "Reponses": [
+          "func",
+          "function",
+          "def",
+          "lambda"
+        ],
+        "ReponseIndex": 1
+      },
+      {
+        "Id": 6,
+        "Question": "Que fait '===', l'opérateur strictement égal en JavaScript ?",
+        "Reponses": [
+          "Il ne compare que les valeurs",
+          "Il compare uniquement les types",
+          "Il inverse les valeurs",
+          "Il compare à la fois la valeur et le type"
+        ],
+        "ReponseIndex": 3
+      },
+      {
+        "Id": 7,
+        "Question": "Quelle est la sortie de l'expression 'typeof null' en JavaScript ?",
+        "Reponses": [
+          "'undefined'",
+          "'boolean'",
+          "'object'",
+          "'number'"
+        ],
+        "ReponseIndex": 2
+      },
+      {
+        "Id": 8,
+        "Question": "Comment vérifie-t-on si une variable est définie en JavaScript ?",
+        "Reponses": [
+          "var != NaN",
+          "var != ''",
+          "typeof var !== 'undefined'",
+          "var =! null"
+        ],
+        "ReponseIndex": 2
+      },
+      {
+        "Id": 9,
+        "Question": "Quelle est la méthode utilisée pour transformer une chaîne en entier ?",
+        "Reponses": [
+          "parseFloat()",
+          "Number()",
+          "toString()",
+          "parseInt()"
+        ],
+        "ReponseIndex": 3
+      },
+      {
+        "Id": 10,
+        "Question": "Quel mot-clé est utilisé pour déclarer une constante en JavaScript ?",
+        "Reponses": [
+          "var",
+          "final",
+          "const",
+          "let"
+        ],
+        "ReponseIndex": 2
+      },
+      {
+        "Id": 11,
+        "Question": "Comment arrondir un nombre à l'entier supérieur en JavaScript ?",
+        "Reponses": [
+          "Math.max()",
+          "Math.round()",
+          "Math.floor()",
+          "Math.ceil()"
+        ],
+        "ReponseIndex": 3
+      },
+      {
+        "Id": 12,
+        "Question": "Quel est le type de 'null' en JavaScript ?",
+        "Reponses": [
+          "string",
+          "object",
+          "undefined",
+          "number"
+        ],
+        "ReponseIndex": 1
+      },
+      {
+        "Id": 13,
+        "Question": "Quelle est la méthode qui permet d'ajouter un élément au début d'un tableau ?",
+        "Reponses": [
+          "shift()",
+          "pop()",
+          "push()",
+          "unshift()"
+        ],
+        "ReponseIndex": 3
+      },
+      {
+        "Id": 14,
+        "Question": "Quelle est la sortie de 'Boolean(0)' en JavaScript ?",
+        "Reponses": [
+          "NaN",
+          "true",
+          "false",
+          "undefined"
+        ],
+        "ReponseIndex": 2
+      },
+      {
+        "Id": 15,
+        "Question": "Comment créer un objet en JavaScript ?",
+        "Reponses": [
+          "[]",
+          "()",
+          "{}",
+          "''"
+        ],
+        "ReponseIndex": 2
+      },
+      {
+        "Id": 16,
+        "Question": "Comment accède-t-on à un élément d'un tableau en JavaScript ?",
+        "Reponses": [
+          "par nom",
+          "par référence",
+          "par index",
+          "par valeur"
+        ],
+        "ReponseIndex": 2
+      },
+      {
+        "Id": 17,
+        "Question": "Quel est le résultat de '2 + '2'' en JavaScript ?",
+        "Reponses": [
+          "SyntaxError",
+          "NaN",
+          "4",
+          "'22'"
+        ],
+        "ReponseIndex": 3
       }
     ],
     "Normal": [

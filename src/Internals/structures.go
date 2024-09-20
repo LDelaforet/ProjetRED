@@ -86,6 +86,7 @@ type Perso struct {
 	Heal          byte
 	Money         int
 	EquippedArmor Equipment
+	InventorySize int
 }
 
 type Equipment struct {
